@@ -18,6 +18,7 @@ use_directory_urls: false
 theme:
   name: material
   custom_dir: 'overrides/'
+  logo: assets/logo.svg
 
   # 404 page
   static_templates:
@@ -35,13 +36,14 @@ theme:
     #- instant
   palette:
     scheme: default
-    primary: indigo
-    accent: indigo
+    primary: Light Blue
+    accent: Light Blue
+
   font:
     text: Roboto
     code: Roboto Mono
-  icon:
-    logo: logo
+  # icon:
+  #   logo: logo
   favicon: assets/favicon.png
 
 # Plugins
@@ -99,6 +101,6 @@ extra_javascript:
 nav:
     - 首页: index.md
  
-    - GitHub 上手专题:
+    - 一起学GitHub:
       - 如何提交 PR: github/01_how_to_pr.md
       - 如何通过 PR 学习: github/02_learn_from_pr.md
