@@ -104,3 +104,5 @@ nav:
     - 一起学GitHub:
       - 如何提交 PR: github/01_how_to_pr.md
       - 如何通过 PR 学习: github/02_learn_from_pr.md
+      - github SSH免密码登录设置: github/03_SSH_for_github.md
+      - 美化代码工具分享: github/04_beauty_code.md

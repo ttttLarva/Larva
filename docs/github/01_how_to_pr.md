@@ -1,6 +1,12 @@
 # 如何提交 PR
 
-本文档对应视频：[如何提交 PR](https://bilibili.com/tttlarval/xxxx)
+
+
+
+
+<img src="E:\ttlarva\docs\github\image\ball.png" style="zoom:13%;" align="left" />**Bilibili视频传送门：**[如何提交 PR](https://www.bilibili.com/video/BV1hq4y1P72f?share_source=copy_web)  <img src="E:\ttlarva\docs\github\image\ball.png" style="zoom:13%;"/>
+
+
 
 ## 什么是 PR
 GitHub 上一般通过提交 PR（Pull Request）的方式，像开源项目合并代码。
@@ -48,11 +54,11 @@ git checkout -b new_branch
 ```
 以上的 `new_branch` 就是新分支名。该命令会创建 `new_branch` 分支并切换到这个新分支上。
 
-修改文件并提交代码【以下的命令和视频中的对应起来】
+修改文件并提交代码
 
 ```
-git add xxxx
-git commit xxxx
+git add .
+git commit 
 ```
 
 ## 4. 推送到github
