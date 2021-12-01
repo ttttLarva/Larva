@@ -101,9 +101,10 @@ class CMyString{
 public:
 	char* m_pBuffer;
 	int m_iLen;
-	CMyString(char* pString){
+	CMyString(const char* pString){
 		m_iLen = strlen(pString) + 1;
 		m_pBuffer = new char[m_iLen];
+		strcpy(m_pBuffer, pString);
 	}
 	~CMyString(){
 		m_iLen = 0;
@@ -148,7 +149,7 @@ int main(int argc, char* argv[]){
 	CMyString(/*类型暂且保密*/ other){
 		this->m_iLen = other.m_iLen;
         this->m_pBuffer = other.m_pBuffer; // 浅拷贝、偷资源
-        other.m_pBuffer = nullptr;         // 让 m_pBuffer 不被释放 
+        other.m_pBuffer = nullptr;         // 让 other.m_pBuffer 不被释放 
 	}
 ```
 
