@@ -299,18 +299,10 @@ int main() {
     }
 ```
 
-`_TP` 会被展开为 `T&&`：
+`_TP` 会被展开为 `T`：
 
 ```c++
-    T&& && forward(T&& && __t){
-      return static_cast<T&& &&>(__t);
-    }
-```
-
-经过引用折叠后得到：
-
-```c++
-    T&& forward(T&& __t){
+    T&& forward(T && __t){
       return static_cast<T&&>(__t);
     }
 ```
