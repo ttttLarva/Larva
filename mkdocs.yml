@@ -110,3 +110,4 @@ nav:
     - 研究 C++ 新语法:
       - 右值引用: learn_cpp/01_rvalue_ref.md
       - 完美转发: learn_cpp/02_forward.md
+      - 可变参模板: learn_cpp/03_varadic_template.md
