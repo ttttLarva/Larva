@@ -834,13 +834,8 @@ CBase<span class="o">(</span>int<span class="p">&amp;</span><span class="o">)</s
 <span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">__t</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<p><code>_TP</code> 会被展开为 <code>T&amp;&amp;</code>：</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__t</span><span class="p">){</span><span class="w"></span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">__t</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-<p>经过引用折叠后得到：</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__t</span><span class="p">){</span><span class="w"></span>
+<p><code>_TP</code> 会被展开为 <code>T</code>：</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__t</span><span class="p">){</span><span class="w"></span>
 <span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">__t</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
