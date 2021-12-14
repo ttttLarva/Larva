@@ -782,7 +782,7 @@ CBase<span class="o">(</span>int<span class="p">&amp;</span><span class="o">)</s
 
 <span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">foo</span><span class="p">(</span><span class="n">value</span><span class="p">);</span><span class="w"> </span><span class="c1">// 左值，模板T 被展开为 T&amp;</span>
+<span class="w">  </span><span class="n">foo</span><span class="p">(</span><span class="n">value</span><span class="p">);</span><span class="w"> </span><span class="c1">// 左值，模板T 被展开为 int&amp;</span>
 <span class="w">  </span><span class="n">foo</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w">     </span><span class="c1">// 右值，模板T 被展开为 int</span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
