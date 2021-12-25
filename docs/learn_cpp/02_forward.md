@@ -224,7 +224,7 @@ void foo(T&& arg)
 
 int main() {
   int value = 5;
-  foo(value); // 左值，模板T 被展开为 T&
+  foo(value); // 左值，模板T 被展开为 int&
   foo(5);     // 右值，模板T 被展开为 int
 }
 ```
@@ -299,18 +299,10 @@ int main() {
     }
 ```
 
-`_TP` 会被展开为 `T&&`：
+`_TP` 会被展开为 `T`：
 
 ```c++
-    T&& && forward(T&& && __t){
-      return static_cast<T&& &&>(__t);
-    }
-```
-
-经过引用折叠后得到：
-
-```c++
-    T&& forward(T&& __t){
+    T&& forward(T && __t){
       return static_cast<T&&>(__t);
     }
 ```
