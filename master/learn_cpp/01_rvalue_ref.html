@@ -510,6 +510,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04_singleton.html" class="md-nav__link">
+        单例模式
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -655,7 +667,7 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
-<span class="k">class</span> <span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="n">A</span><span class="p">(){}</span><span class="w"></span>
 <span class="w">    </span><span class="o">~</span><span class="n">A</span><span class="p">(){}</span><span class="w"></span>
@@ -702,7 +714,7 @@
 <p>当然，右值引用的发明不是主要为了解决这类简单的调用匹配问题，而是为了引入 <strong>move 语义</strong>。</p>
 <h2 id="move">move 语义<a class="headerlink" href="#move" title="Permanent link">&para;</a></h2>
 <p>先看一个右值引用发明前，资源利用效率不高的问题，以字符串类为例。我们知道，通常情况下，如果字符串做浅拷贝，是错误的：</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">CMyString</span><span class="p">{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CMyString</span><span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">m_pBuffer</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m_iLen</span><span class="p">;</span><span class="w"></span>
@@ -764,7 +776,7 @@
 <h2 id="stdmove">std::move<a class="headerlink" href="#stdmove" title="Permanent link">&para;</a></h2>
 <p>C++11 中引入右值引用的同时，还在标准中引入了 <code>std::move</code> 函数。它的作用是“将表达式强行转为右值类型”。</p>
 <p>我们先看下例，它是一个“可以改进”的 <code>myswap</code> 函数：</p>
-<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
 <span class="kt">void</span><span class="w"> </span><span class="n">myswap</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">){</span><span class="w"></span>
 <span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="nf">temp</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w">  </span><span class="c1">// 发生拷贝构造</span>
 <span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">      </span><span class="c1">// 发生拷贝赋值</span>
@@ -774,7 +786,7 @@
 <p>以上三行代码，因为没有右值类型，所以不会触发移动语义。如果 <code>T</code> 是 <code>CMyString</code>，那么会发生三次深拷贝。</p>
 <p>但是仔细分析一下，实际上以上三行使用移动语义也是可以的：作为构造或者赋值的源变量，要么使用过一次后就不再使用，要么仅作为赋值的目标。换言之，它们的资源是可以被“偷”的。</p>
 <p>这时候，就可以使用 <code>std::move</code> 强行把变量转为右值类型，来触发移动语义了：</p>
-<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
 <span class="kt">void</span><span class="w"> </span><span class="n">myswap</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">){</span><span class="w"></span>
 <span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="nf">temp</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">a</span><span class="p">));</span><span class="w"> </span><span class="c1">// 发生移动构造，偷 a 的资源</span>
 <span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">b</span><span class="p">);</span><span class="w">     </span><span class="c1">// 发生移动构造，偷 b 的资源</span>
@@ -783,33 +795,33 @@
 </code></pre></div>
 <h3 id="stdmove_1">std::move 原理解析<a class="headerlink" href="#stdmove_1" title="Permanent link">&para;</a></h3>
 <p><code>std::move</code> 为什么可以神奇地把左值给强制转变成右值呢？我们可以解析它的源码知晓答案，从 C++ 头文件中找到 <code>move</code> 的源码：</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">typename</span> <span class="nc">std</span><span class="o">::</span><span class="n">remove_reference</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;&amp;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">std</span><span class="o">::</span><span class="n">remove_reference</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;&amp;</span><span class="w"></span>
 <span class="w">    </span><span class="n">move</span><span class="p">(</span><span class="n">_Tp</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__t</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">std</span><span class="o">::</span><span class="n">remove_reference</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">__t</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">std</span><span class="o">::</span><span class="n">remove_reference</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">__t</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>移除掉不太相关的 <code>constexpr</code>、<code>noexcept</code> 得到：</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="k">typename</span> <span class="nc">std</span><span class="o">::</span><span class="n">remove_reference</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;&amp;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">typename</span><span class="w"> </span><span class="nc">std</span><span class="o">::</span><span class="n">remove_reference</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;&amp;</span><span class="w"></span>
 <span class="w">    </span><span class="n">move</span><span class="p">(</span><span class="n">_Tp</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__t</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">std</span><span class="o">::</span><span class="n">remove_reference</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">__t</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">std</span><span class="o">::</span><span class="n">remove_reference</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">__t</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>会发现 <code>move</code> 的返回值和内部实现，都和 <code>std::remove_reference&lt;_Tp&gt;::type</code> 很有关系，那么继续看看 <code>std::remove_reference</code> 的实现：</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="k">struct</span> <span class="nc">remove_reference</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">remove_reference</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="n">_Tp</span><span class="w">   </span><span class="n">type</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
-<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="k">struct</span> <span class="nc">remove_reference</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&amp;&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">remove_reference</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&amp;&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="n">_Tp</span><span class="w">   </span><span class="n">type</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
-<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="k">struct</span> <span class="nc">remove_reference</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&amp;&amp;&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">remove_reference</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&amp;&amp;&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="n">_Tp</span><span class="w">   </span><span class="n">type</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 </code></pre></div>
 <p>发现 <code>remove_reference</code> ，发现它的作用很简单，就是不管模板参数是 <code>_Tp</code>，还是 <code>_Tp</code> 的左值引用，或者 <code>_Tp</code> 的右值引用，都统统都定义一个 <code>type</code> 等价于 <code>_Tp</code> 类型。回头看，其实 <code>remove_reference</code> 的作用顾名思义，就是“移除掉类型的引用性质” 的意思。</p>
 <p>知道这个以后，我们可以进步一部简化 <code>move</code> 的源码，只谈原理不求严谨的话其实就是：</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="n">_Tp</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">move</span><span class="p">(</span><span class="n">_Tp</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__t</span><span class="p">){</span><span class="w"> </span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">_Tp</span><span class="o">&amp;&amp;</span><span class="p">)(</span><span class="n">__t</span><span class="p">);</span><span class="w"> </span><span class="c1">// 强制类型转换</span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
@@ -819,7 +831,7 @@
 <h3 id="stdmove_3">组合或者继承时，显式调用 std::move<a class="headerlink" href="#stdmove_3" title="Permanent link">&para;</a></h3>
 <p>一般而言，派生类如果是移动，那么也 <strong>期待</strong> 基类也是移动构造（派生类、基类的资源一起“偷”）。
 但是，以下的写法是不正确的：</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">CDerived</span><span class="o">:</span><span class="k">public</span><span class="w"> </span><span class="n">CBase</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CDerived</span><span class="o">:</span><span class="k">public</span><span class="w"> </span><span class="n">CBase</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="n">CDerived</span><span class="p">(</span><span class="n">CDerived</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"></span>
@@ -837,7 +849,7 @@
 <p><strong>有名字</strong> 的右值引用其实是 <strong>左值</strong></p>
 </div>
 <p>所以，当我们期待“基类也是做移动构造时”，应该显式调用 <code>std::move</code>：</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">CDerived</span><span class="o">:</span><span class="k">public</span><span class="w"> </span><span class="n">CBase</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CDerived</span><span class="o">:</span><span class="k">public</span><span class="w"> </span><span class="n">CBase</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="n">CDerived</span><span class="p">(</span><span class="n">CDerived</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"></span>
@@ -865,7 +877,7 @@
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span><span class="cp"></span>
 
-<span class="k">class</span> <span class="nc">CTemp</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CTemp</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="n">CTemp</span><span class="p">()</span><span class="w"></span>

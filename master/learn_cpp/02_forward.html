@@ -510,6 +510,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04_singleton.html" class="md-nav__link">
+        单例模式
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -637,7 +649,7 @@
 <h2 id="_2">什么是完美转发<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>在某些代码场景或设计模式中，会出现参数转发的需求。</p>
 <p>比如，以下的工厂模式，很显然是想通过<code>factory</code> 函数把参数，传递给 <code>T</code> 的构造。</p>
-<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span> <span class="nc">Arg</span><span class="o">&gt;</span><span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Arg</span><span class="o">&gt;</span><span class="w"> </span>
 <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">factory</span><span class="p">(</span><span class="n">Arg</span><span class="w"> </span><span class="n">arg</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"> </span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="n">arg</span><span class="p">));</span><span class="w"></span>
@@ -647,7 +659,7 @@
 <h3 id="i">转发参数的窘境 I<a class="headerlink" href="#i" title="Permanent link">&para;</a></h3>
 <p>然而，以上的代码并不完美：<code>factory</code> 函数的参数是值传递的，<code>factory</code> 函数调用时，会先发生一次参数拷贝，这样有性能代价。</p>
 <p>那自然会有人想到，可以不做值传递，改成引用传递，提高性能：</p>
-<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span> <span class="nc">Arg</span><span class="o">&gt;</span><span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Arg</span><span class="o">&gt;</span><span class="w"> </span>
 <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">factory</span><span class="p">(</span><span class="n">Arg</span><span class="o">&amp;</span><span class="w"> </span><span class="n">arg</span><span class="w"> </span><span class="cm">/*改成（左值）引用*/</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"> </span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="n">arg</span><span class="p">));</span><span class="w"></span>
@@ -657,7 +669,7 @@
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">factory</span><span class="o">&lt;</span><span class="n">Foo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="cm">/*右值*/</span><span class="p">);</span><span class="w"> </span><span class="c1">//出错，无法传递右值</span>
 </code></pre></div>
 <p>虽然这个问题可以通过使用 <code>const</code> 引用（勉强）解决：</p>
-<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span> <span class="nc">Arg</span><span class="o">&gt;</span><span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Arg</span><span class="o">&gt;</span><span class="w"> </span>
 <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">factory</span><span class="p">(</span><span class="n">Arg</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">arg</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"> </span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="n">arg</span><span class="p">));</span><span class="w"></span>
@@ -676,7 +688,7 @@
 </code></pre></div>
 <h3 id="ii">转发的窘境 II<a class="headerlink" href="#ii" title="Permanent link">&para;</a></h3>
 <p>其次，这种方式 <strong>更本质的缺点</strong> 是：<code>factory</code> 内部，因为 <code>arg</code> 一定是左值，无法触发移动语义：</p>
-<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span> <span class="nc">Arg</span><span class="o">&gt;</span><span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Arg</span><span class="o">&gt;</span><span class="w"> </span>
 <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">factory</span><span class="p">(</span><span class="n">Arg</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">arg</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"> </span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="n">arg</span><span class="cm">/* arg 有名字，一定是左值，无法触发移动语义*/</span><span class="p">));</span><span class="w"></span>
@@ -696,7 +708,7 @@
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
 
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
-<span class="k">class</span> <span class="nc">CBase</span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CBase</span><span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">  </span><span class="n">CBase</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span><span class="p">){</span><span class="w"></span>
 <span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;CBase(int&amp;)&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
@@ -707,7 +719,7 @@
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span> <span class="nc">Arg</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Arg</span><span class="o">&gt;</span><span class="w"></span>
 <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">facotry</span><span class="p">(</span><span class="n">Arg</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">arg</span><span class="p">){</span><span class="w"></span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">Arg</span><span class="o">&gt;</span><span class="p">(</span><span class="n">arg</span><span class="p">)));</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
@@ -758,7 +770,7 @@ CBase<span class="o">(</span>int<span class="p">&amp;</span><span class="o">)</s
 <p>但是，从 C++11 开始，规定了一种特殊的形式下，函数形参既可以匹配左值，也可以匹配右值。</p>
 <p>这种情况必须是模板的形式，并且以 <code>&amp;&amp;</code> 作为形参数。它被称为“万能引用”（英文为 universal reference 或 forwarding refference）。</p>
 <p>以下的 <code>foo</code> 的形参就是“万能引用”：</p>
-<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span>
 <span class="kt">void</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">arg</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"> </span>
 <span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;foo(T&amp;&amp; arg)&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
@@ -786,7 +798,7 @@ CBase<span class="o">(</span>int<span class="p">&amp;</span><span class="o">)</s
 <li>当 foo 调用时实参为类型T的右值，那么模板T会被展开为 T</li>
 </ol>
 <p>我们回顾我们刚才的代码：</p>
-<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span>
 <span class="kt">void</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">arg</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"> </span>
 <span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;foo(T&amp;&amp; arg)&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
@@ -802,14 +814,14 @@ CBase<span class="o">(</span>int<span class="p">&amp;</span><span class="o">)</s
 <p>类似的，当 <code>foo(5)</code> 调用时， <code>void foo(T&amp;&amp; arg)</code> 中的 <code>T</code> 会被展开为 <code>int</code>，函数被展开为 <code>void foo(int &amp;&amp; arg)</code>，匹配右值。</p>
 <h3 id="stdforward_2">std::forward 的原理剖析<a class="headerlink" href="#stdforward_2" title="Permanent link">&para;</a></h3>
 <p>现在我们可以来查看 <code>std::forward</code> 中的实现原理了。查看库函数中的原始实现：</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">_Tp</span><span class="o">&amp;&amp;</span><span class="w"></span>
-<span class="w">    </span><span class="n">forward</span><span class="p">(</span><span class="k">typename</span> <span class="nc">std</span><span class="o">::</span><span class="n">remove_reference</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">__t</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"></span>
+<span class="w">    </span><span class="n">forward</span><span class="p">(</span><span class="k">typename</span><span class="w"> </span><span class="nc">std</span><span class="o">::</span><span class="n">remove_reference</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">__t</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">__t</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 
-<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">_Tp</span><span class="o">&amp;&amp;</span><span class="w"></span>
-<span class="w">    </span><span class="n">forward</span><span class="p">(</span><span class="k">typename</span> <span class="nc">std</span><span class="o">::</span><span class="n">remove_reference</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__t</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"></span>
+<span class="w">    </span><span class="n">forward</span><span class="p">(</span><span class="k">typename</span><span class="w"> </span><span class="nc">std</span><span class="o">::</span><span class="n">remove_reference</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__t</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_lvalue_reference</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;template argument&quot;</span><span class="w"></span>
 <span class="w">            </span><span class="s">&quot; substituting _Tp is an lvalue reference type&quot;</span><span class="p">);</span><span class="w"></span>
@@ -817,17 +829,17 @@ CBase<span class="o">(</span>int<span class="p">&amp;</span><span class="o">)</s
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>与上一篇文章类似，去掉 <code>constexpr</code>、<code>static_assert</code>、<code>noexcept</code> 这些非核心重点，以及简化上一篇文章介绍过的 <code>remove_reference</code> 之后：</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="n">_Tp</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">forward</span><span class="p">(</span><span class="n">_TP</span><span class="o">&amp;</span><span class="w"> </span><span class="n">__t</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">__t</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 
-<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="n">_Tp</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">forward</span><span class="p">(</span><span class="n">_TP</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__t</span><span class="p">){</span><span class="w"></span>
 <span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">__t</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>当 <code>forward</code> 调用时传递的是左值时，会匹配模板特例：</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="n">_Tp</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">forward</span><span class="p">(</span><span class="n">_TP</span><span class="o">&amp;</span><span class="w"> </span><span class="n">__t</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">__t</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
@@ -841,7 +853,7 @@ CBase<span class="o">(</span>int<span class="p">&amp;</span><span class="o">)</s
 </code></pre></div>
 <p>也就说把 <code>__t</code> 转为左值引用类型后返回。</p>
 <p>类似地，如果 <code>forward</code> 调用时传递的是右值时，那么会匹配模板特例：</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="n">_Tp</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">forward</span><span class="p">(</span><span class="n">_TP</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__t</span><span class="p">){</span><span class="w"></span>
 <span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">__t</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
