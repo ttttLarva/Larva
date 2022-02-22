@@ -30,9 +30,9 @@ Markdown 简单易学，展现内容的手段丰富多样，可以参与开源�
 
 <img src="image/write.png" style="zoom:25%;"  align="left"  /><img src="image/preview.png" style="zoom:25%;" lign="right"/>
 
-- `## `加空格后面所对应的内容就是标题
+- `## ` 加空格后面所对应的内容就是标题
 
-- 连接符`- `加空格后面的内容是列表所对应的一个 item
+- 连接符 `- ` 加空格后面的内容是列表所对应的一个 item
 
 ## 学习Markdown语法
 
