@@ -106,6 +106,7 @@ nav:
       - 如何通过 PR 学习: github/02_learn_from_pr.md
       - github SSH免密码登录设置: github/03_SSH_for_github.md
       - 美化代码工具分享: github/04_beauty_code.md
+      - 快速上手Markdown: github/05_get_started_with_Markdown.md
     
     - 研究 C++ 新语法:
       - 右值引用: learn_cpp/01_rvalue_ref.md
