@@ -4,17 +4,21 @@
 
 <img src="image/ball.png" style="zoom:13%;" align="left" />**Bilibili视频传送门：**[快速上手Markdown](https://www.bilibili.com/video/BV1P44y1a7oB?spm_id_from=333.999.0.0)  <img src="image/ball.png" style="zoom:13%;"/>
 
+## 什么是 Markdown 
 
-## 什么是 Markdown
-Markdown是一种标记性语言，在GitHub上提交issue，PR，默认都使用的是Markdown。
 
-Markdown简单易学，展现内容的手段丰富多样，可以参与开源，也可以作为自己的笔记。
 
+Markdown 是一种标记性语言，在 GitHub 上提交 issue，PR，默认都使用的是 Markdown。
+
+Markdown 简单易学，展现内容的手段丰富多样，可以参与开源，也可以用来记录自己的笔记。
 
 ## 在GitHub上写Markdown
-接下来我将以深度学习框架`OneFlow`的issue为例子， 展现一下Markdown的功能。
 
- 我们可以看到在下面这个issue中，既有图片也有代码区，还有列表，这些是如何用Markdown实现的呢？
+
+
+接下来我将以深度学习框架 [oneflow](https://github.com/Oneflow-Inc/oneflow) 的 issue 为例子， 展现一下 Markdown 的功能。
+
+ 我们可以看到在下面这个 issue 中，既有图片也有代码区，还有列表，这些是如何用 Markdown 实现的呢？
 
 ![markdown_issue.png](image/markdown_issue.png)
 
@@ -32,10 +36,12 @@ Markdown简单易学，展现内容的手段丰富多样，可以参与开源，
 
 ## 学习Markdown语法
 
+
+
 ### 1. 标题
 
-在想要设置为标题的文字前面加`# `来表示
-一个`# `是一级标题，两个`# `是二级标题，以此类推。支持六级标题。
+在想要设置为标题的文字前面加 `# ` 来表示
+一个 `# ` 是一级标题，两个 `# ` 是二级标题，以此类推。支持六级标题。
 
 ```
 # 这是一级标题
@@ -54,8 +60,8 @@ Markdown简单易学，展现内容的手段丰富多样，可以参与开源，
 ![图片alt](图片地址 ''图片title'')
 ```
 
-图片alt就是显示在图片下面的文字，相当于对图片内容的解释。
-图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加。
+图片 alt 就是显示在图片下面的文字，相当于对图片内容的解释。
+图片 title 是图片的标题，当鼠标移到图片上时显示的内容。title 可加可不加。
 
 示例：
 
@@ -75,7 +81,7 @@ Markdown简单易学，展现内容的手段丰富多样，可以参与开源，
 [超链接名](超链接地址 "超链接title")
 ```
 
-title可加可不加
+title 可加可不加
 
 示例：
 
@@ -131,10 +137,14 @@ class Solution:
 
 ## VS插件分享
 
-这里分享一个非常实用的插件，在使用Markdown时，**Auto-Open Markdown Preview** 插件可以帮我们实时渲染Markdown页面。
+
+
+这里分享一个非常实用的插件，在使用 Markdown 时，**Auto-Open Markdown Preview** 插件可以帮我们实时渲染 Markdown 页面。
 
 <img src="image/Auto-Open Markdown Preview.png" alt="Auto-Open Markdown Preview.png" style="zoom: 50%;" />
 
 ## 扩展阅读
+
+
 
 - [GitHub官方Markdown教程](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
