@@ -8,7 +8,7 @@
 
 
 
-Markdown 是一种标记性语言，在 GitHub 上提交 issue，PR，默认都使用的是 Markdown。
+Markdown 是一种标记性语言，在 GitHub 上提交 issue、PR，默认都使用的是 Markdown。
 
 Markdown 简单易学，展现内容的手段丰富多样，可以参与开源，也可以用来记录自己的笔记。
 
@@ -16,13 +16,13 @@ Markdown 简单易学，展现内容的手段丰富多样，可以参与开源�
 
 
 
-接下来我将以深度学习框架 [oneflow](https://github.com/Oneflow-Inc/oneflow) 的 issue 为例子， 展现一下 Markdown 的功能。
+接下来我将以深度学习框架 [OneFlow](https://github.com/Oneflow-Inc/oneflow) 的 [issue](https://github.com/Oneflow-Inc/oneflow/issues/6917) 为例子， 展现一下 Markdown 的功能。
 
- 我们可以看到在下面这个 issue 中，既有图片也有代码区，还有列表，这些是如何用 Markdown 实现的呢？
+ 我们可以看到在下面这个 [issue](https://github.com/Oneflow-Inc/oneflow/issues/6917) 中，既有图片也有代码区，还有列表，这些是如何用 Markdown 实现的呢？
 
 ![markdown_issue.png](image/markdown_issue.png)
 
-我们在`OneFlow`中创建一个新的issue，点击 New issue 按钮。
+我们在 [OneFlow](https://github.com/Oneflow-Inc/oneflow) 中创建一个新的 issue，点击 New issue 按钮。
 
 <img src="image/new_issue.png" alt="new_issue.png" style="zoom:80%;" />
 
@@ -122,29 +122,25 @@ class Solution:
 示例：
 
 ```
->C++很好用
+> C++很好用
 ```
 
 效果：
 
 > C++很好用
 
-
-
 除了上述语法外，Markdown还有很多用法，大家可以在扩展阅读中学习。
 
 
 
-## VS插件分享
+## VS Code 插件分享
 
 
 
-这里分享一个非常实用的插件，在使用 Markdown 时，**Auto-Open Markdown Preview** 插件可以帮我们实时渲染 Markdown 页面。
+这里分享一个非常实用的插件，在使用 Markdown 时，[**Auto-Open Markdown Preview**](https://marketplace.visualstudio.com/items?itemName=hnw.vscode-auto-open-markdown-preview) 插件可以帮我们实时渲染 Markdown 页面。
 
 <img src="image/Auto-Open Markdown Preview.png" alt="Auto-Open Markdown Preview.png" style="zoom: 50%;" />
 
 ## 扩展阅读
 
-
-
-- [GitHub官方Markdown教程](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+- [GitHub 官方 Markdown 教程](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
