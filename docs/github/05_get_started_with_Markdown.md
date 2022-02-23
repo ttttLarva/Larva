@@ -8,6 +8,7 @@
 
 
 
+
 Markdown 是一种标记性语言，在 GitHub 上提交 issue、PR，默认都使用的是 Markdown。
 
 Markdown 简单易学，展现内容的手段丰富多样，可以参与开源，也可以用来记录自己的笔记。
@@ -37,6 +38,8 @@ Markdown 简单易学，展现内容的手段丰富多样，可以参与开源�
 ## 学习 Markdown 语法
 
 
+
+我们接下来看看常见的 Markdown 语法有哪些，系统学习下。
 
 ### 1. 标题
 
@@ -142,5 +145,7 @@ class Solution:
 <img src="image/Auto-Open Markdown Preview.png" alt="Auto-Open Markdown Preview.png" style="zoom: 50%;" />
 
 ## 扩展阅读
+
+
 
 - [GitHub 官方 Markdown 教程](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
