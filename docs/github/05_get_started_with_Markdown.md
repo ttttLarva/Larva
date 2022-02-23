@@ -17,7 +17,7 @@ Markdown 简单易学，展现内容的手段丰富多样，可以参与开源�
 
 
 
-接下来我将以深度学习框架 [OneFlow](https://github.com/Oneflow-Inc/oneflow) 的 [issue](https://github.com/Oneflow-Inc/oneflow/issues/6917) 为例子， 展现一下 Markdown 的功能。
+接下来我将以深度学习框架 [OneFlow](https://github.com/Oneflow-Inc/oneflow) 的 [issue](https://github.com/Oneflow-Inc/oneflow/issues) 为例子， 展现一下 Markdown 的功能。
 
  我们可以看到在下面这个 [issue](https://github.com/Oneflow-Inc/oneflow/issues/6917) 中，既有图片也有代码区，还有列表，这些是如何用 Markdown 实现的呢？
 
