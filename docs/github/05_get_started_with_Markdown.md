@@ -26,7 +26,7 @@ Markdown 简单易学，展现内容的手段丰富多样，可以参与开源�
 
 <img src="image/new_issue.png" alt="new_issue.png" style="zoom:80%;" />
 
-在 Write 和 Preview 部分就是Markdown书写区和预览区的一个对比。
+在 Write 和 Preview 部分就是 Markdown 书写区和预览区的一个对比。
 
 <img src="image/write.png" style="zoom:25%;"  align="left"  /><img src="image/preview.png" style="zoom:25%;" lign="right"/>
 
@@ -117,7 +117,7 @@ class Solution:
 
 ### 5. 引用
 
-`>`表示引用，表示当前语句不是自己的，在开源项目中常常用于回复别人的话。
+`>` 表示引用，表示当前语句不是自己的，在开源项目中常常用于回复别人的话。
 
 示例：
 
