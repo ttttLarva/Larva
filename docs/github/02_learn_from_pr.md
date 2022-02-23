@@ -2,8 +2,7 @@
 
 
 
-
-<img src="image/ball.png" style="zoom:13%;" align="left" />**Bilibili视频传送门：**[通过PR学习&VS Code插件分享](https://www.bilibili.com/video/BV19f4y1j78T?share_source=copy_web)  <img src="image/ball.png" style="zoom:13%;"/>
+:earth_asia: **Bilibili视频传送门：**[通过PR学习&VS Code插件分享](https://www.bilibili.com/video/BV19f4y1j78T?share_source=copy_web) :earth_asia:
 
 
 
