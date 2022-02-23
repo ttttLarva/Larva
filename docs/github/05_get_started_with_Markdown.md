@@ -1,8 +1,8 @@
-#  快速上手Markdown
+#  快速上手 Markdown
 
 
 
-<img src="image/ball.png" style="zoom:13%;" align="left" />**Bilibili视频传送门：**[快速上手Markdown](https://www.bilibili.com/video/BV1P44y1a7oB?spm_id_from=333.999.0.0)  <img src="image/ball.png" style="zoom:13%;"/>
+<img src="image/ball.png" style="zoom:13%;" align="left" />**Bilibili 视频传送门：**[快速上手 Markdown](https://www.bilibili.com/video/BV1P44y1a7oB?spm_id_from=333.999.0.0)  <img src="image/ball.png" style="zoom:13%;"/>
 
 ## 什么是 Markdown 
 
@@ -12,7 +12,7 @@ Markdown 是一种标记性语言，在 GitHub 上提交 issue、PR，默认都�
 
 Markdown 简单易学，展现内容的手段丰富多样，可以参与开源，也可以用来记录自己的笔记。
 
-## 在GitHub上写Markdown
+## 在 GitHub 上写 Markdown
 
 
 
@@ -22,7 +22,7 @@ Markdown 简单易学，展现内容的手段丰富多样，可以参与开源�
 
 ![markdown_issue.png](image/markdown_issue.png)
 
-我们在 [OneFlow](https://github.com/Oneflow-Inc/oneflow) 中创建一个新的 issue，点击 New issue 按钮。
+我们在 [OneFlow](https://github.com/Oneflow-Inc/oneflow) 中创建一个新的 issue，点击 [New issue](https://github.com/Oneflow-Inc/oneflow/issues/new/choose) 按钮。
 
 <img src="image/new_issue.png" alt="new_issue.png" style="zoom:80%;" />
 
@@ -30,11 +30,11 @@ Markdown 简单易学，展现内容的手段丰富多样，可以参与开源�
 
 <img src="image/write.png" style="zoom:25%;"  align="left"  /><img src="image/preview.png" style="zoom:25%;" lign="right"/>
 
-- `## `加空格后面所对应的内容就是标题
+- `## ` 加空格后面所对应的内容就是标题
 
-- 连接符`- `加空格后面的内容是列表所对应的一个 item
+- 连接符 `- ` 加空格后面的内容是列表所对应的一个 item
 
-## 学习Markdown语法
+## 学习 Markdown 语法
 
 
 
@@ -86,12 +86,12 @@ title 可加可不加
 示例：
 
 ```
-[百度](http://baidu.com)
+[OneFlow](https://github.com/Oneflow-Inc/oneflow)
 ```
 
 效果：
 
-[百度](https://baidu.com)
+[OneFlow](https://github.com/Oneflow-Inc/oneflow)
 
 ### 4. 代码
 
@@ -122,14 +122,14 @@ class Solution:
 示例：
 
 ```
-> C++很好用
+> C++ 很好用
 ```
 
 效果：
 
-> C++很好用
+> C++ 很好用
 
-除了上述语法外，Markdown还有很多用法，大家可以在扩展阅读中学习。
+除了上述语法外，Markdown 还有很多用法，大家可以在扩展阅读中学习。
 
 
 
