@@ -11,14 +11,14 @@
       
       
       
-        <link rel="canonical" href="https://www.ttlarval.org/master/github/03_SSH_for_github.html">
+        <link rel="canonical" href="https://www.ttlarval.org/master/github/05_get_started_with_Markdown.html">
       
       <link rel="icon" href="../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.1.11">
     
     
       
-        <title>github SSH免密码登录设置 - TTLarva</title>
+        <title>快速上手Markdown - TTLarva</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#github-ssh" class="md-skip">
+        <a href="#markdown" class="md-skip">
           跳转至
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              github SSH免密码登录设置
+              快速上手Markdown
             
           </span>
         </div>
@@ -322,85 +322,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          github SSH免密码登录设置
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="03_SSH_for_github.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="03_SSH_for_github.html" class="md-nav__link">
         github SSH免密码登录设置
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#ssh" class="md-nav__link">
-    什么是SSH
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sshgithub" class="md-nav__link">
-    配置SSH连接github
-  </a>
-  
-    <nav class="md-nav" aria-label="配置SSH连接github">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    本地生成密钥对
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#github" class="md-nav__link">
-    将公钥添加到github
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    测试使用
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -420,11 +346,120 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="05_get_started_with_Markdown.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          快速上手Markdown
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="05_get_started_with_Markdown.html" class="md-nav__link md-nav__link--active">
         快速上手Markdown
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#markdown_1" class="md-nav__link">
+    什么是 Markdown
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-markdown" class="md-nav__link">
+    在 GitHub 上写 Markdown
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#markdown_2" class="md-nav__link">
+    学习 Markdown 语法
+  </a>
+  
+    <nav class="md-nav" aria-label="学习 Markdown 语法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 标题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 图片
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 超链接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 引用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vs-code" class="md-nav__link">
+    VS Code 插件分享
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    扩展阅读
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -539,43 +574,78 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ssh" class="md-nav__link">
-    什么是SSH
+  <a href="#markdown_1" class="md-nav__link">
+    什么是 Markdown
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sshgithub" class="md-nav__link">
-    配置SSH连接github
+  <a href="#github-markdown" class="md-nav__link">
+    在 GitHub 上写 Markdown
   </a>
   
-    <nav class="md-nav" aria-label="配置SSH连接github">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#markdown_2" class="md-nav__link">
+    学习 Markdown 语法
+  </a>
+  
+    <nav class="md-nav" aria-label="学习 Markdown 语法">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    本地生成密钥对
+  <a href="#1" class="md-nav__link">
+    1. 标题
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#github" class="md-nav__link">
-    将公钥添加到github
+  <a href="#2" class="md-nav__link">
+    2. 图片
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    测试使用
+  <a href="#3" class="md-nav__link">
+    3. 超链接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 引用
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vs-code" class="md-nav__link">
+    VS Code 插件分享
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    扩展阅读
+  </a>
   
 </li>
       
@@ -591,59 +661,97 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ttttLarva/Larva/blob/master/docs/github/03_SSH_for_github.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/ttttLarva/Larva/blob/master/docs/github/05_get_started_with_Markdown.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="github-ssh">github SSH免密码登录<a class="headerlink" href="#github-ssh" title="Permanent link">&para;</a></h1>
-<p><img src="image/ball.png" style="zoom:13%;" align="left" /><strong>Bilibili视频传送门：</strong><a href="https://www.bilibili.com/video/BV1NL411x7z9?share_source=copy_web">github SSH免密码登录</a>  <img src="image/ball.png" style="zoom:13%;"/></p>
-<h2 id="ssh">什么是SSH<a class="headerlink" href="#ssh" title="Permanent link">&para;</a></h2>
-<p><img alt="SSH" src="image/1633607611414.png" /></p>
-<p>如上图，在github仓库的Code栏，可以查看到SSH标签。</p>
-<p>SSH是一种常见的登录协议，使用SSH的好处是不用在下载或者上传代码时，每次都输入账号密码。</p>
-<h2 id="sshgithub">配置SSH连接github<a class="headerlink" href="#sshgithub" title="Permanent link">&para;</a></h2>
-<p>具体可参考https://docs.github.com/cn/github/authenticating-to-github/connecting-to-github-with-ssh</p>
-<p>具体步骤如下：</p>
+                <h1 id="markdown">快速上手 Markdown<a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h1>
+<p><img src="image/ball.png" style="zoom:13%;" align="left" /><strong>Bilibili 视频传送门：</strong><a href="https://www.bilibili.com/video/BV1P44y1a7oB?spm_id_from=333.999.0.0">快速上手 Markdown</a>  <img src="image/ball.png" style="zoom:13%;"/></p>
+<h2 id="markdown_1">什么是 Markdown<a class="headerlink" href="#markdown_1" title="Permanent link">&para;</a></h2>
+<p>Markdown 是一种标记性语言，在 GitHub 上提交 issue、PR，默认都使用的是 Markdown。</p>
+<p>Markdown 简单易学，展现内容的手段丰富多样，可以参与开源，也可以用来记录自己的笔记。</p>
+<h2 id="github-markdown">在 GitHub 上写 Markdown<a class="headerlink" href="#github-markdown" title="Permanent link">&para;</a></h2>
+<p>接下来我将以深度学习框架 <a href="https://github.com/Oneflow-Inc/oneflow">OneFlow</a> 的 <a href="https://github.com/Oneflow-Inc/oneflow/issues">issue</a> 为例子， 展现一下 Markdown 的功能。</p>
+<p>我们可以看到在下面这个 <a href="https://github.com/Oneflow-Inc/oneflow/issues/6917">issue</a> 中，既有图片也有代码区，还有列表，这些是如何用 Markdown 实现的呢？</p>
+<p><img alt="markdown_issue.png" src="image/markdown_issue.png" /></p>
+<p>我们在 <a href="https://github.com/Oneflow-Inc/oneflow">OneFlow</a> 中创建一个新的 issue，点击 <a href="https://github.com/Oneflow-Inc/oneflow/issues/new/choose">New issue</a> 按钮。</p>
+<p><img src="image/new_issue.png" alt="new_issue.png" style="zoom:80%;" /></p>
+<p>在 Write 和 Preview 部分就是 Markdown 书写区和预览区的一个对比。</p>
+<p><img src="image/write.png" style="zoom:25%;"  align="left"  /><img src="image/preview.png" style="zoom:25%;" lign="right"/></p>
 <ul>
 <li>
-<p>本地生成密钥对</p>
+<p><code>##</code> 加空格后面所对应的内容就是标题</p>
 </li>
 <li>
-<p>将公钥添加到github</p>
-</li>
-<li>
-<p>测试使用</p>
+<p>连接符 <code>-</code> 加空格后面的内容是列表所对应的一个 item</p>
 </li>
 </ul>
-<h3 id="_1">本地生成密钥对<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>win+R打开控制台，使用命令：</p>
-<div class="highlight"><pre><span></span><code>ssh-keygen -t rsa -b 4096 -C &quot;最好为github的账号&quot;
+<h2 id="markdown_2">学习 Markdown 语法<a class="headerlink" href="#markdown_2" title="Permanent link">&para;</a></h2>
+<p>我们接下来看看常见的 Markdown 语法有哪些，系统学习下。</p>
+<h3 id="1">1. 标题<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>在想要设置为标题的文字前面加 <code>#</code> 来表示
+一个 <code>#</code> 是一级标题，两个 <code>#</code> 是二级标题，以此类推。支持六级标题。</p>
+<div class="highlight"><pre><span></span><code># 这是一级标题
+## 这是二级标题
+### 这是三级标题
+#### 这是四级标题
+##### 这是五级标题
+###### 这是六级标题
 </code></pre></div>
-<p>后面一路直接回车</p>
-<p>接着就在（用户/.ssh）目录下生成了两个文件</p>
-<ul>
-<li>id_rsa是私钥文件</li>
-<li>id_rsa.pub是公钥文件</li>
-</ul>
-<h3 id="github">将公钥添加到github<a class="headerlink" href="#github" title="Permanent link">&para;</a></h3>
-<p>打开github，点击个人页面的头像，点击<code>Settings</code></p>
-<p><img src="image/1633607614312.png" alt="image-20210929181234279" style="zoom:33%;" /></p>
-<p>点击 <code>SSH and GPG keys</code></p>
-<p><img src="image/1633607617619.png" alt="image-20210929181317739" style="zoom:33%;" /></p>
-<p>点击<code>New SSH Key</code></p>
-<p><img alt="image-20210929181809788" src="image/1633607620538.png" /></p>
-<p>打开第二步在本地生成的<code>id_rsa.pub</code>文件，将里面的所有内容复制到如下对话框。</p>
-<p><img src="image/1633607620538.png" alt="image-20210929181851208" style="zoom:33%;" /></p>
-<p>最终点击<code>Add SSH Key</code>按钮 就能成功添加啦</p>
-<h3 id="_2">测试使用<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>接着使用命令：</p>
-<div class="highlight"><pre><span></span><code>ssh -T git@github.com
+<h3 id="2">2. 图片<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>语法：</p>
+<div class="highlight"><pre><span></span><code>![图片alt](图片地址 &#39;&#39;图片title&#39;&#39;)
 </code></pre></div>
-<p>检验是否配置成功</p>
+<p>图片 alt 就是显示在图片下面的文字，相当于对图片内容的解释。
+图片 title 是图片的标题，当鼠标移到图片上时显示的内容。title 可加可不加。</p>
+<p>示例：</p>
+<div class="highlight"><pre><span></span><code>![image](https://user-images.githubusercontent.com/54847470/154951006-a7dd7692-597e-4f9f-a33c-712219f0c5a7.png)
+</code></pre></div>
+<p>效果：</p>
+<p><img src="https://user-images.githubusercontent.com/54847470/154951382-58059c14-db4d-41a5-9734-4f6334305a57.png" alt="image" style="zoom:25%;"  align="center"  /></p>
+<h3 id="3">3. 超链接<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>语法：</p>
+<div class="highlight"><pre><span></span><code>[超链接名](超链接地址 &quot;超链接title&quot;)
+</code></pre></div>
+<p>title 可加可不加</p>
+<p>示例：</p>
+<div class="highlight"><pre><span></span><code>[OneFlow](https://github.com/Oneflow-Inc/oneflow)
+</code></pre></div>
+<p>效果：</p>
+<p><a href="https://github.com/Oneflow-Inc/oneflow">OneFlow</a></p>
+<h3 id="4">4. 代码<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>单行代码：代码之间分别用一个反引号包起来</p>
+<div class="highlight"><pre><span></span><code>`代码内容`
+</code></pre></div>
+<p>代码块：代码之间分别用三个反引号包起来，且两边的反引号单独占一行，在第一行引号后面加入代码种类可以获得代码高亮。</p>
+<div class="highlight"><pre><span></span><code><span class="err">```</span><span class="n">Python</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">twoSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="n">hashtable</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">target</span> <span class="o">-</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">hashtable</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">hashtable</span><span class="p">[</span><span class="n">target</span> <span class="o">-</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]]]</span>
+            <span class="n">hashtable</span><span class="p">[</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span>
+<span class="err">```</span>
+</code></pre></div>
+<h3 id="5">5. 引用<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p><code>&gt;</code> 表示引用，表示当前语句不是自己的，在开源项目中常常用于回复别人的话。</p>
+<p>示例：</p>
+<div class="highlight"><pre><span></span><code>&gt; C++ 很好用
+</code></pre></div>
+<p>效果：</p>
 <blockquote>
-<p>注意：第一次连接，会有提示是否信任github服务器，我们需要输入yes</p>
+<p>C++ 很好用</p>
 </blockquote>
+<p>除了上述语法外，Markdown 还有很多用法，大家可以在扩展阅读中学习。</p>
+<h2 id="vs-code">VS Code 插件分享<a class="headerlink" href="#vs-code" title="Permanent link">&para;</a></h2>
+<p>这里分享一个非常实用的插件，在使用 Markdown 时，<a href="https://marketplace.visualstudio.com/items?itemName=hnw.vscode-auto-open-markdown-preview"><strong>Auto-Open Markdown Preview</strong></a> 插件可以帮我们实时渲染 Markdown 页面。</p>
+<p><img src="image/Auto-Open Markdown Preview.png" alt="Auto-Open Markdown Preview.png" style="zoom: 50%;" /></p>
+<h2 id="_1">扩展阅读<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">GitHub 官方 Markdown 教程</a></li>
+</ul>
                 
               
               
@@ -668,7 +776,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="02_learn_from_pr.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 如何通过 PR 学习" rel="prev">
+        <a href="04_beauty_code.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 美化代码工具分享" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -677,20 +785,20 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              如何通过 PR 学习
+              美化代码工具分享
             </div>
           </div>
         </a>
       
       
         
-        <a href="04_beauty_code.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 美化代码工具分享" rel="next">
+        <a href="../learn_cpp/01_rvalue_ref.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 右值引用" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              美化代码工具分享
+              右值引用
             </div>
           </div>
           <div class="md-footer__button md-icon">
