@@ -107,6 +107,7 @@ nav:
       - github SSH免密码登录设置: github/03_SSH_for_github.md
       - 美化代码工具分享: github/04_beauty_code.md
       - 快速上手Markdown: github/05_get_started_with_Markdown.md
+      - GitHub 打造免费网站: github/06_free_website.md
     
     - 研究 C++ 新语法:
       - 右值引用: learn_cpp/01_rvalue_ref.md
