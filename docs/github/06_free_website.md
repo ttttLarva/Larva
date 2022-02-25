@@ -87,7 +87,3 @@ mkdocs build
 我们可以发现在网页中果然多了 about 这一栏。:astonished:
 
 有了整个网站的 HTML 文件，我们把它上传到云服务器上，那就可以当作自己的博客了。但是这样做费时费力，有没有简单方便，最好还是免费的方法呢？那就要隆重介绍一下 [GitHub Pages](https://pages.github.com/) 的生成和使用了。
-
-
-
-## [GitHub Pages](https://pages.github.com/) 的生成与介绍
