@@ -3,7 +3,7 @@
 
 
 
-<img src="image/ball.png" style="zoom:13%;" align="left" />**Bilibili视频传送门：**[如何提交 PR](https://www.bilibili.com/video/BV1hq4y1P72f?share_source=copy_web)  <img src="image/ball.png" style="zoom:13%;"/>
+:earth_asia: **Bilibili视频传送门：**[如何提交 PR](https://www.bilibili.com/video/BV1hq4y1P72f?share_source=copy_web) :earth_asia:
 
 
 ## 什么是 PR
