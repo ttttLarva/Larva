@@ -64,7 +64,7 @@ mkdocs new myblog
 mkdocs build
 ```
 
-<img src="/Users/wangchenhao/oneflow/Larva/docs/github/image/mkdocs_build.jpg" alt="mkdocs_build" style="zoom:50%;" />
+<img src="mkdocs_build.jpg" alt="mkdocs_build" style="zoom:50%;" />
 
 可以看到，命令完成之后，我们就得到了一个 site 文件夹。
 
