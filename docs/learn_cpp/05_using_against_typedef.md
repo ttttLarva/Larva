@@ -1,12 +1,10 @@
-# 类型别名
+# using 关键字
 
-type alias 也就是using 别名=XXX
-
-为了让大家更深入且符合直觉的理解，我们将先介绍函数指针，接着引出 typedef 关键字，最后谈到类型别名。
+简而言之， using 关键字可以定义类型别名（ type alias ）和别名模板（ alias template ）。为了让读者有更深入且符合直觉的理解，我们将先介绍函数指针，接着引出 typedef 关键字，最后谈到 using 的使用。
 
 ## 认识函数指针
 
-回忆一下，我们在刚开始接触函数时，都是先定义函数，再使用它的标识符进行调用，即：
+回忆一下，在学习编程的初期，我们的常规操作是先定义函数，然后在合适的地方使用它的标识符（也就是用户定义的函数名）加上必要的参数进行调用，即：
 
 ```c++
 #include <iostream>
@@ -21,7 +19,7 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-其实，函数也是可以被赋值给变量的，然后这个变量就可以被调用，即：
+一般来说，这就够了。不过，函数还有一个会令人感到惊讶的特性：它可以作为值被赋值，即：
 
 ```c++
 #include <iostream>
@@ -37,29 +35,36 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-于是大家开始好奇，这个可以存储函数的变量，到底是什么类型的呢？我们使用`typeid(ptr_myfun).name()`查看它的类型，得到`void (__cdecl*)(void)`，我们称其为函数指针。
+我们会好奇，这个可以存储函数的变量究竟是什么类型的呢？毕竟，函数看起来不像是数字、字符、数组这样的数据，可以作为值被传递。我们使用 `typeid( ptr_myfun ).name()` 查看这个变量的类型，得到 `void (__cdecl*)(void)` ，这和我们熟悉的函数原型很相似，我们称其为函数指针类型。参照它来定义一个函数指针取代 auto 这个把底层细节封装地很好的关键字就有了思路了。
 
-那么如何定义函数指针呢？首先把函数原型复制下来`void myfun()`，接着把函数名改为变量名`void ptr_myfun()`，然后加上括号和星号`void (*ptr_myfun)()`，这样我们就定义了一个函数指针变量。
+具体来说：首先获得函数原型 `void myfun()` ，接着把函数名改为用户自定义的变量名 `void ptr_myfun()` ，最后加上圆括号和星号 `void (*ptr_myfun)()` ，这样我们就定义好了一个函数指针变量。下边是具体的使用方法：
 
-思考一下，函数可以存储到函数指针变量中，这其实也是有道理的。用计算机系统底层的视角来看，函数就是一系列机器指令，那么函数调用其实就是把cpu控制流跳转到该函数对应的指令的入口，自然而然，函数指针存储的就是这个入口的地址。
+```c++
+int main(int argc, char* argv[]) {
+	void (*ptr_myfun)() = myfun;  // 显式地定义了函数指针
+	ptr_myfun();
+	std::cout << typeid(ptr_myfun).name() << std::endl;
+	return 0;
+}
+```
+
+思考一下，函数可以存储到函数指针变量中，这其实也是有道理的。从计算机系统底层的视角来看，函数就是一系列机器指令，那么函数调用其实就是把当前 cpu 的控制权移交给该函数对应的机器指令。自然而然，函数指针存储的就是这一系列指令的入口地址。
 
 ### 函数指针的应用与困惑
 
-从上边的分析我们知道：函数指针可以被当成参数来传递，使得编程更加的灵活，这在[ STL ](https://github.com/microsoft/STL/blob/main/stl/src/cthread.cpp#L109)和各种框架中（如[ oneflow ](https://github.com/Oneflow-Inc/oneflow/blob/master/oneflow/core/intrusive/ref.h#L58)）都有广泛的应用，还催生出了 c++ 的 lambda 语法。
+从上边的分析我们知道：函数指针可以被当成参数来传递，使得编程更加的灵活，这在[ STL ](https://github.com/microsoft/STL/blob/main/stl/src/cthread.cpp#L109)和各种框架中（如[ oneflow ](https://github.com/Oneflow-Inc/oneflow/blob/master/oneflow/core/intrusive/ref.h#L58)）都有广泛的应用，还催生出了 c++ 强大的 lambda 语法。
 
 但是语法的奇特带来了问题，比如这个古老的系统调用signal的函数原型
 
-#### void ( \*signal(int signum, void (\*handler)(int)) ) (int);
+> void ( \*signal(int signum, void (\*handler)(int)) ) (int);
 
-您能否快速地找到它的返回值类型和参数类型？看了半晌？看来这对我们阅读代码有些许障碍，它的可读性实在是太差了。
+显然这个函数原型可读性不高，面对高密度的此类代码无疑增添了我们的心智负担。不过，而后设计出的typedef 可以缓解这个问题。
 
-不过别担心，typedef 的设计就很好的缓解了我们阅读此类代码时的心智负担。
+## typedef 定义类型别名
 
-## typedef登场
+基本语法为： `typedef 原类型 新别名`
 
-typedef的语法为：`typedef 原类型 新别名`
-
-它可以赋予基本数据类型更多的含义，可读性更好。因为signal早于 typedef 诞生，所以它可读性差了一些，不过后来有了 typedef 之后它好看的多了，我们通过` man 2 signal `来看看：
+它使得我们自定义原类型的新别名，让程序的可读性更好。我们通过 `man 2 signal` 来查看使用 typedef 后的 signal 函数原型：
 
 ```
 NAME
@@ -70,18 +75,15 @@ SYNOPSIS
 
        typedef void (*sighandler_t)(int);  // 定义了参数为一个int，返回值为空的函数指针类型
        
-       sighandler_t signal(int signum, sighandler_t handler);  		// after，可读性更高
        void ( *signal(int signum, void (*handler)(int)) ) (int);	// before
-
-DESCRIPTION
-       The behavior of signal() varies across UNIX versions.
+       sighandler_t signal(int signum, sighandler_t handler);  		// after，可读性更高
 ```
 
-但是还是不要高兴的太早了，因为这里的语法还是有一丢丢怪异。因为通常情况下我们的新别名出现在语句的最后，而论及函数指针时它却出现在了中间。于是乎，为了消除这种“不和谐成员”，我们呼叫 using。
+可以看到，这个语法还是稍显怪异，因为通常情况下我们的新别名出现在语句的最后，而论及函数指针时它却出现在了中间。为了消除这个“不优雅元素”，我们使用 C++11 推出的 using 关键字。
 
-## using救场
+## using 定义类型别名
 
-using 不仅让我们使用名称空间，还可以定义别名。用法为：`using 新别名=原类型`
+using 定义类型别名的语法为： `using 新别名=原类型`
 
 ```c++
 // eg1
@@ -92,17 +94,19 @@ typedef std::string(Foo::* fooMemFnPtr) (const std::string&);  // before
 using fooMemFnPtr = std::string(Foo::*) (const std::string&);  // after
 ```
 
-很显然，using 的写法强制把别名的名字分离到左边，而把别名的指向放在右边，这一设计使代码可读性上了一个台阶。然而，对于一些同学来说，这不是一个可以让他/她抛弃 typedef 而转投 using 的充分理由。于是乎，我们来介绍 using 的独特功能：模板别名（alias template）。直接上代码：
+很显然， using 强制把别名的名字分离到左边、把别名的指向放在右边的语法使代码可读性又上了一个台阶。
+
+然而，对于一些同学来说，这不足以劝说他们使用 using 来取代 typedef 。所以，我们来介绍 using 的独特功能：模板别名（ alias template ）：
 
 ```c++
 template<typename T>
-typedef std::vector<T> myvec;  // nonono，编译得到“typedef 模板 非法”的错误提示
+typedef std::vector<T> myvec;  // 错误，编译得到“typedef 模板 非法”的错误提示
 
 template<typename T>
-using myvec = std::vector<T>;  // okay，可以通过编译
+using myvec = std::vector<T>;  // 可以通过编译
 ```
 
-可别小看了模板别名，它的应用可是相当广泛，不信您来欣赏欣赏[ oneflow 的代码](https://github.com/Oneflow-Inc/oneflow/blob/master/oneflow/core/common/cfg.h#L30)：
+模板别名功能强大、应用广泛，在 [oneflow](https://github.com/Oneflow-Inc/oneflow/blob/master/oneflow/core/common/cfg.h#L30-L36) 中体现得很好：
 
 ```c++
 template<typename T>
@@ -115,4 +119,10 @@ template<typename K, typename V>
 using CfgMap = ::oneflow::cfg::_MapField_<K, V>;
 ```
 
-好了，这就是本次分享（[视频](https://www.bilibili.com/video/BV1Cq4y1A7Zk)）的全部内容了，希望大家课下多多复习，在实战中使用，这和我们后续要讲的仿函数、工厂模式都有关系哦。
+## 总结
+
+- 我们使用函数指针把函数作为值传递，增加了编程的灵活性
+- 灵活的函数指针增大了理解代码的难度， typedef 通过自定义类型的别名对其加以缓解
+- using 赋予了此类问题更好的解决方案
+
+以上就是本次分享（[视频](https://www.bilibili.com/video/BV1Cq4y1A7Zk)）的全部内容，希望大家多多复习，在实战中掌握，这和我们后续要讲的仿函数、工厂模式都有密切的关系哦。
