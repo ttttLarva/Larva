@@ -6,7 +6,14 @@ C++ 中的 using 关键字不仅可以用于使用名称空间，还可以用于
 
 本文让读者有更深入且符合直觉的理解，将先介绍函数指针，接着引出 typedef 关键字，最后谈到 using 用于定义类型别名。
 
-## 认识函数指针
+本文的结构如下：
+
+- 函数指针的定义和使用
+  - 函数指针带来的阅读困难
+- 使用 typedef 给函数指针起别名
+- 使用 using 起别名
+
+## 函数指针的定义和使用
 
 回忆一下，在学习编程的初期，我们的常规操作是先定义函数，然后在合适的地方进行调用，如以下代码，先定义 `myfun`，然后再调用 `myfun`：
 
@@ -41,7 +48,7 @@ int main(int argc, char* argv[]) {
 
 我们会好奇，这个可以存储函数的变量究竟是什么类型的呢？毕竟，函数看起来不像是数字、字符、数组这样的数据，可以作为值被传递。
 
-我们使用 `typeid( ptr_myfun ).name()` 查看这个变量的类型：
+可以使用 `typeid( ptr_myfun ).name()` 查看这个变量的类型：
 
 ```c++
 #include <iostream>
@@ -78,9 +85,9 @@ int main(int argc, char* argv[]) {
 
 重新思考一下，函数可以存储到函数指针变量中，这其实也是有道理的。从计算机系统底层的视角来看，函数就是一系列机器指令，那么函数调用其实就是把当前 CPU 的控制权移交给该函数对应的机器指令。自然而然，函数指针存储的就是这一系列指令的入口地址。
 
-### 函数指针的应用与困惑
+### 函数指针带来的阅读困难
 
-从上边的分析我们知道：函数指针可以被当成参数来传递，使得编程更加的灵活，这在 [STL](https://github.com/microsoft/STL/blob/main/stl/src/cthread.cpp#L109)和各种框架中（如 [OneFlow](https://github.com/Oneflow-Inc/oneflow/blob/master/oneflow/core/intrusive/ref.h#L58)）都有广泛的应用，还催生出了 C++ 强大的 lambda 语法。
+可以分析出：函数指针可以被当成参数来传递，使得编程更加的灵活，这在 [STL](https://github.com/microsoft/STL/blob/main/stl/src/cthread.cpp#L109)和各种框架中（如 [OneFlow](https://github.com/Oneflow-Inc/oneflow/blob/master/oneflow/core/intrusive/ref.h#L58)）都有广泛的应用，还催生出了 C++ 强大的 lambda 语法。
 
 但是语法的奇特带来了问题，比如 Linux 中有个古老的系统调用 `signal`，它的函数原型是这样：
 
@@ -88,13 +95,13 @@ int main(int argc, char* argv[]) {
 void (*signal(int signum, void (*handler)(int)) ) (int);
 ```
 
-显然可读性不高，面对高密度的此类代码无疑增添了我们的心智负担。不过，而后设计出的 `typedef` 可以缓解这个问题。
+显然可读性不高，高密度的此类代码无疑增添了程序员阅读代码时的心智负担。不过，而后设计出的 `typedef` 可以缓解这个问题。
 
-## typedef 定义类型别名
+## 使用 typedef 给函数指针起别名
 
 基本语法为： `typedef 原类型 新别名`
 
-它使得我们自定义原类型的新别名，让程序的可读性更好。我们通过 `man 2 signal` 来查看使用 typedef 后的 `signal` 函数原型：
+它可以给函数指针等数据类型起别名，让程序的可读性更好。通过 `man 2 signal` 来查看使用 typedef 后的 `signal` 函数原型：
 
 ```text
 NAME
@@ -110,13 +117,13 @@ SYNOPSIS
 
 可以看到，使用 `typedef` 后，`signal` 的原型看起来好多了。
 
-不过，即使这样，当 `typedef` 应用在函数指针上时，这个语法还是稍显怪异，因为通常情况下我们的新别名出现在语句的最后，而应用在函数指针时它却出现在了中间。为了消除这种“不优雅”，C++11 推出了 using 定义类型别名。
+不过，即使这样，当 `typedef` 应用在函数指针上时，这个语法还是稍显怪异，因为通常情况下新别名出现在语句的最后，而应用在函数指针时它却出现在了中间。为了消除这种“不优雅”，C++11 推出了 using 定义类型别名。
 
-## using 定义类型别名
+## 使用 using 起别名
 
 using 定义类型别名的语法为： `using 新别名=原类型`
 
-我们可以比较下 `typedef` 和 `using` 两者应用在函数指针上的不同：
+`typedef` 和 `using` 两者应用在函数指针上的不同如下：
 
 ```c++
 // eg1
@@ -156,6 +163,6 @@ using CfgMap = ::oneflow::cfg::_MapField_<K, V>;
 
 ## 总结
 
-- 我们使用函数指针把函数作为值传递，增加了编程的灵活性
+- 使用函数指针把函数作为值传递，增加了编程的灵活性
 - 灵活的函数指针增大了理解代码的难度， `typedef` 通过自定义类型的别名对其加以缓解
 - `using` 赋予了此类问题更好的解决方案
