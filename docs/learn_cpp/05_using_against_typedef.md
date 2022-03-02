@@ -1,5 +1,7 @@
 # using 关键字
 
+:earth_asia: **Bilibili视频传送门：**[using 关键字](https://www.bilibili.com/video/BV1Cq4y1A7Zk) :earth_asia:
+
 简而言之， using 关键字可以定义类型别名（ type alias ）和别名模板（ alias template ）。为了让读者有更深入且符合直觉的理解，我们将先介绍函数指针，接着引出 typedef 关键字，最后谈到 using 的使用。
 
 ## 认识函数指针
@@ -125,4 +127,4 @@ using CfgMap = ::oneflow::cfg::_MapField_<K, V>;
 - 灵活的函数指针增大了理解代码的难度， typedef 通过自定义类型的别名对其加以缓解
 - using 赋予了此类问题更好的解决方案
 
-以上就是本次分享（[视频](https://www.bilibili.com/video/BV1Cq4y1A7Zk)）的全部内容，希望大家多多复习，在实战中掌握，这和我们后续要讲的仿函数、工厂模式都有密切的关系哦。
+以上就是本次分享的全部内容，希望大家多多复习，在实战中掌握，这和我们后续要讲的仿函数、工厂模式都有密切的关系哦。
