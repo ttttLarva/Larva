@@ -1,4 +1,4 @@
-# using 关键字
+# 类型别名：从 typedef 到 using
 
 :earth_asia: **Bilibili视频传送门：**[类型别名：从 typedef 到 using](https://www.bilibili.com/video/BV1Cq4y1A7Zk) :earth_asia:
 
@@ -87,7 +87,7 @@ int main(int argc, char* argv[]) {
 
 ### 函数指针带来的阅读困难
 
-可以分析出：函数指针可以被当成参数来传递，使得编程更加的灵活，这在 [STL](https://github.com/microsoft/STL/blob/main/stl/src/cthread.cpp#L109)和各种框架中（如 [OneFlow](https://github.com/Oneflow-Inc/oneflow/blob/master/oneflow/core/intrusive/ref.h#L58)）都有广泛的应用，还催生出了 C++ 强大的 lambda 语法。
+可以分析出：函数指针可以被当成参数来传递，使得编程更加的灵活，这在 [STL](https://github.com/microsoft/STL/blob/main/stl/src/cthread.cpp#L109) 和各种框架中（如 [OneFlow](https://github.com/Oneflow-Inc/oneflow/blob/master/oneflow/core/intrusive/ref.h#L58)）都有广泛的应用，还催生出了 C++ 强大的 lambda 语法。
 
 但是语法的奇特带来了问题，比如 Linux 中有个古老的系统调用 `signal`，它的函数原型是这样：
 
@@ -95,7 +95,7 @@ int main(int argc, char* argv[]) {
 void (*signal(int signum, void (*handler)(int)) ) (int);
 ```
 
-显然可读性不高，高密度的此类代码无疑增添了程序员阅读代码时的心智负担。不过，而后设计出的 `typedef` 可以缓解这个问题。
+它的可读性显然不高，高密度的此类代码无疑增添了程序员阅读代码时的心智负担。不过，而后设计出的 `typedef` 可以缓解这个问题。
 
 ## 使用 typedef 给函数指针起别名
 
