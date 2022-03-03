@@ -6,7 +6,7 @@
 
 
 
-看了前面 MkDocs 的介绍，我们可以使用 MkDocs 工具生成整个网站的 HTML 文件，我们把它上传到云服务器上，那就可以当作自己的博客了。但是这样做费时费力，有没有简单方便，最好还是免费的方法呢？答案是有的，这里我们就给大家介绍一下 [GitHub Pages]((https://pages.github.com/) ) 的生成和使用。
+看了前面 MkDocs 的介绍，我们可以使用 MkDocs 工具生成整个网站的 HTML 文件，我们把它上传到云服务器上，那就可以当作自己的博客了。但是这样做费时费力，有没有简单方便，最好还是免费的方法呢？答案是有的，这里我们就给大家介绍一下 [GitHub Pages](https://pages.github.com/) 的生成和使用。
 
 
 
@@ -29,7 +29,6 @@ GitHub Pages 是 GitHub 所提供的一项功能，它的作用就是使 GitHub 
 git push -u origin main
 ```
 
-<img src="image/WechatIMG75506.png" alt="WechatIMG75506" style="zoom:50%;" />
 
 接下来，我们创建一个 gh-pages 分支，并且切换到这个分支上：
 
@@ -37,7 +36,6 @@ git push -u origin main
 git checkout -b gh-pages
 ```
 
-<img src="image/WechatIMG75507.png" alt="WechatIMG75507" style="zoom:50%;" />
 
 然后使用 `mkdocs build` 命令编译得到 HTML 文件：
 
@@ -45,7 +43,6 @@ git checkout -b gh-pages
 mkdocs build
 ```
 
-<img src="image/WechatIMG75508.png" alt="WechatIMG75508" style="zoom:50%;" />
 
 然后我们删掉 site 这个静态网站之外的其它文件，并将 site 文件中的目录都移动到根目录，最后删除 site 文件夹：
 
@@ -62,13 +59,13 @@ git commit -a -m "gh-pages start"
 git push origin gh-pages
 ```
 
-<img src="image/WechatIMG75505.png" alt="WechatIMG75505" style="zoom:50%;" />
+<img src="image/push_gh_pages.png" alt="push_gh_pages" style="zoom:50%;" />
 
 接下来，我们找到远程仓库的 Settings 一栏，再找到 Pages 这一栏，就会发现有个漂亮的绿色在提示我们，我们的网站已经被发布到这个链接中了。
 
 <img src="image/github_pages.png" alt="github_pages" style="zoom:50%;" />
 
-我们点开这个[链接](https://wangchenhao00.com/MyBlog/)，就可以发现我们的博客已经成功上线了。
+我们点开这个 `<账号>github.io/<仓库名>` 的链接，就可以发现我们的博客已经成功上线了。
 
 看到这里，相信大家已经完全有能力来自己搭建一个网站了，如果不嫌麻烦的话，我们完全可以按照以下步骤来搭建网站：
 
