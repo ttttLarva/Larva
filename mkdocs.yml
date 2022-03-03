@@ -113,4 +113,5 @@ nav:
       - 完美转发: learn_cpp/02_forward.md
       - 可变参模板: learn_cpp/03_varadic_template.md
       - 单例模式: learn_cpp/04_singleton.md
+      - 类型别名：从 typedef 到 using: learn_cpp/05_using_against_typedef.md
 
