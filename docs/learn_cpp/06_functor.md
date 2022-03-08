@@ -1,6 +1,6 @@
 # 仿函数
 
-:earth_asia: **Bilibili视频传送门： [C++新标准006_百变函数](https://www.bilibili.com/video/BV17Y411b769?spm_id_from=333.999.0.0) ** :earth_asia:
+:earth_asia: **Bilibili视频传送门：** [C++新标准006_百变函数](https://www.bilibili.com/video/BV17Y411b769?spm_id_from=333.999.0.0) :earth_asia:
 
 
 
