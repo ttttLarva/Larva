@@ -1,20 +1,21 @@
 # 仿函数
 
-:earth_asia: **Bilibili视频传送门：** [C++新标准006_百变函数](https://www.bilibili.com/video/BV17Y411b769?spm_id_from=333.999.0.0) :earth_asia:
 
+:earth_asia: **Bilibili视频传送门：** [C++新标准006_百变函数](https://www.bilibili.com/video/BV17Y411b769?spm_id_from=333.999.0.0) :earth_asia:
 
 
 本期视频和大家分享一下仿函数这个知识点。本视频包括三个主要内容：
 
-* 仿函数的定义
-* 仿函数的两大优点
-* lambda函数也是一种仿函数
+
+- 仿函数的定义
+- 仿函数的两大优点
+- lambda 函数也是一种仿函数
 
 
 
 ## 仿函数的定义与示例
 
-西方有句谚语：如果一个东西看起来像鸭子，走起来像鸭子，那么它就是一只鸭子。而如果一样东西，不是函数，但是具有函数的性质，例如可以像函数一样调用、传参、返回值，那它是什么呢？C++中将其称为**仿函数**。
+西方有句谚语：如果一个东西看起来像鸭子，走起来像鸭子，那么它就是一只鸭子。而如果一样东西，不是函数，但是具有函数的性质，例如可以像函数一样调用、传参、返回值，那它是什么呢？C++ 中将其称为 **仿函数**。
 
 中规中矩的定义和调用函数方式：
 
@@ -30,7 +31,7 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-仿函数不是函数，但是可以像函数一样调用、传参、返回值。那么如何定义仿函数？答案是重载**括号运算符**。如下代码是一个仿函数示例。
+仿函数不是函数，但是可以像函数一样调用、传参、返回值。那么如何定义仿函数？答案是重载 **括号运算符**。如下代码是一个仿函数示例。
 
 ```c++
 #include <iostream>
@@ -53,7 +54,7 @@ int main(int argc, char* argv[]) {
 
 
 
-现代C++代码中会大量使用仿函数，如[OneFlow的算子层](https://github.com/Oneflow-Inc/oneflow/blob/master/oneflow/core/functional/impl/math_functor.cpp) ：
+现代 C++ 代码中会大量使用仿函数，如 [OneFlow 的算子层](https://github.com/Oneflow-Inc/oneflow/blob/master/oneflow/core/functional/impl/math_functor.cpp) ：
 
 ```c++
 class ReduceSumFunctor {
@@ -85,7 +86,7 @@ class ReduceSumFunctor {
 };
 ```
 
-再如[OneFlow类工厂](https://github.com/Oneflow-Inc/oneflow/blob/master/oneflow/core/cuda/elementwise.cuh)：
+再如 [OneFlow 类工厂](https://github.com/Oneflow-Inc/oneflow/blob/master/oneflow/core/cuda/elementwise.cuh)：
 
 ```c++
 template<typename FunctorT>
@@ -102,8 +103,8 @@ struct SimpleFactory {
 
 ## 仿函数的优点
 
-* 可以保存状态
-* 作为模板参数
+- 可以保存状态
+- 作为模板参数
 
 
 
@@ -127,7 +128,7 @@ void show_value(double value) {
 
 int main(int argc, char* argv[])
     std::vector<double> salary = { 3000, 5000, 4800, 2800 };  // 收入
-    std::vector<double> tax(4);                             // 税结果
+    std::vector<double> tax(4);                               // 税结果
 
     std::transform(salary.begin(), salary.end(), tax.begin(), calc_tax);  // 遍历和计算税率
     std::for_each(salary.begin(), salary.end(), show_value);
@@ -138,7 +139,7 @@ int main(int argc, char* argv[])
 
 ```
 
-当存在**多种税率**的时候，需要重写calc_tax函数。常见的做法是将税率作为函数参数，即：
+当存在 **多种税率** 的时候，需要重写 `calc_tax` 函数。常见的做法是将税率作为函数参数，即：
 
 ```c++
 double calc_tax_two_args(double salary, double rate) {
@@ -146,7 +147,7 @@ double calc_tax_two_args(double salary, double rate) {
 }
 ```
 
-但是STL的`transform`函数接受的函数类型只允许有一个参数，`calc_tax_two_args`会出现编译不通过问题。以上问题可以通过仿函数得到解决。如下列代码所示，使用`_rate`保存税率，在新建实例的时候可以自定义税率，同时保持`operator`函数仍然只有一个参数。
+但是 STL 的 `transform` 函数接受的函数类型只允许有一个参数，`calc_tax_two_args` 会出现编译不通过问题。以上问题可以通过仿函数得到解决。如下列代码所示，使用 `_rate` 保存税率，在新建实例的时候可以自定义税率，同时保持 `operator` 函数仍然只有一个参数。
 
 ```c++
 #include <iostream>
@@ -194,9 +195,9 @@ int main(int argc, char* argv[]) {
 
 ### 作为模板参数
 
-这一优点体现在模板编程中。因为仿函数的本质是**类或者结构体的对象**，这就使得可以把仿函数的类型当作模板参数进行传递。于是某些时候就可以把运行时的开销在编译时解决掉，这也可以让软件的效率变得更高。
+这一优点体现在模板编程中。因为仿函数的本质是 **类或者结构体的对象**，这就使得可以把仿函数的类型当作模板参数进行传递。于是某些时候就可以把运行时的开销在编译时解决掉，这也可以让软件的效率变得更高。
 
-什么是编译时的开销？以STL的for_each函数为例，部分源码如下：
+什么是编译时的开销？以 STL 的 `for_each` 函数为例，部分源码如下：
 
 ```c++
 template<typename _InputIterator, typename _Function>
@@ -212,11 +213,11 @@ for_each(_InputIterator __first, _InputIterator __last, _Function __f)
 }
 ```
 
-for_each的第三个参数就是函数指针__f，在函数内部会遍历每一个指针，并且把函数指针的效果应用到每一个元素上。但是函数既然作为参数进行传递了就涉及到**栈资源的分配和回收**，那就会产生运行时的开销。
+`for_each` 的第三个参数就是函数指针 `__f`，在函数内部会遍历每一个指针，并且把函数指针的效果应用到每一个元素上。但是函数既然作为参数进行传递了就涉及到 **栈资源的分配和回收**，那就会产生运行时的开销。
 
 > 评论区补充：在底层的机器码中，函数调用时，参数是需要通过入栈出栈操作指令进行数据传输的，参数个数越多，则对应的传输指令越多，需要越多额外运行时间，这就是函数调用的开销。仿函数可以使某些不经常变的参数（如示例代码中的税率）不再通过参数传递、而是相当于以某个全局变量的形式传递，从而减少了参数个数。 
 
-如果此时使用的是仿函数，就可以省去这部分开销。如下代码所示，自定义一个`my_for_each`。因为是模板编程，所以在编译时就可以完全确定，所以在运行时就不会有额外的开销了。
+如果此时使用的是仿函数，就可以省去这部分开销。如下代码所示，自定义一个 `my_for_each`。因为是模板编程，所以在编译时就可以完全确定，所以在运行时就不会有额外的开销了。
 
 ```c++
 #include <iostream>
@@ -249,9 +250,9 @@ int main(int argc, char* argv[]) {
 
 
 
-## C++中的lambda也是一种仿函数
+## C++ 中的 lambda 也是一种仿函数
 
-lambda函数的本质与前面讲的通过重载operator()是一模一样的。
+lambda 函数的本质与前面讲的通过重载 `operator()` 是一模一样的。如下所示从汇编语言角度看 lambda 函数，定义 `fun` 时，`n` 放入 eax 寄存器中，并被 push 进栈；`fun` 放入 ecx 中，可以看到函数存放地址。
 
 ```c++
     auto fun = [=](int x)->int {
@@ -263,7 +264,7 @@ lambda函数的本质与前面讲的通过重载operator()是一模一样的。
 007F5F16 call  <1ambda_681e4b0e14b637a31b672c8686ddc480>::<lambda_681e4b0e4b637a31b672c8686ddc480> (07F33A0h)
 ```
 
-包括lambda函数的**闭包特性**与用成员保存状态原理是基本一致的。
+如下调用示例，可以看到是通过 `operator()` 调用 `fun`，即编译器自动转换 lambda 表达式为函数对象执行。
 
 ```c++
 	fun(5);
@@ -271,3 +272,6 @@ lambda函数的本质与前面讲的通过重载operator()是一模一样的。
 007F5F1D lea	ecx, [fun]
 007F5F20 call	<lambda_681e4b0e14b637a31b672c8686ddc480>::operator() (07F4080h)
 ```
+
+包括 lambda 函数的 **闭包特性** 与用成员保存状态原理是基本一致的。
+
