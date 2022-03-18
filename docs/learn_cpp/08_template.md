@@ -4,7 +4,7 @@
 :earth_asia: **Bilibili视频传送门：** [C++新标准008_模板实例化](https://www.bilibili.com/video/BV1U44y1T7vf?spm_id_from=333.999.0.0) :earth_asia:
 
 
-上一期我们了解了宏，在此基础上，我们这期谈谈模板，包括三个主要内容：
+[上一篇文章](07_complie_link_macro.md)我们了解了宏，在此基础上，我们这期谈谈模板，包括三个主要内容：
 
 - 模板实例化原理
 - 模板显示实例化
@@ -167,7 +167,7 @@ int main(int argc, char* argv[])
 
  我们在 `MYMAX` 模板中加入了 `static_assert` ，它的意思是在编译时要去检查 `T` 的类型，只有 `T` 是整数或者浮点型才合法，然后在主函数中实现整形，浮点型，字符串的实例化。进行编译就会报错，然后定位到字符串实例化所在行，并且给出报错信息 `T must be  integral or floating point` 。
 
- ```c++
+```c++
 #include <stdio.h>
 #include <type_traits>
 #include <string.h>
