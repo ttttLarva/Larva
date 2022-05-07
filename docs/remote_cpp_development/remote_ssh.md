@@ -17,11 +17,11 @@ Remote SSH插件底层是通过ssh协议的, 并且做了非常多贴心的开�
 
 ## 安装Remote SSH
 安装较为简单,和其他插件安装方式相同:
-![Xnip2022-05-06_02-23-36.jpg](remote_ssh_files/Xnip2022-05-06_02-23-36.jpg)
+![Xnip2022-05-06_02-23-36.jpg](docs/remote_cpp_development/remote_ssh_files/Xnip2022-05-06_02-23-36.jpg)
 安装完成之后,会发现左下角多了一个按钮:
-![Xnip2022-05-06_09-41-38.jpg](remote_ssh_files/Xnip2022-05-06_09-41-38.jpg)
+![Xnip2022-05-06_09-41-38.jpg](docs/remote_cpp_development/remote_ssh_files/Xnip2022-05-06_09-41-38.jpg)
 点击它,然后选择open configuration file:
-![pic1.png](remote_ssh_files/pic1.png)
+![pic1.png](docs/remote_cpp_development/remote_ssh_files/pic1.png)
 打开我们配置文件,就是`.ssh/config`
 
 ``` 
@@ -42,25 +42,25 @@ Host remote-12-ttlarva
 这里的Host名就是方便我们去记的名,而HostName就是ip地址, 做完一系列配置之后,我们就可以去连接到远程服务器了.
 
 当安装好这个插件之后, 我们还会发现左边多了一个电脑一样的图标:
-![pic2.png](remote_ssh_files/pic2.png)
+![pic2.png](docs/remote_cpp_development/remote_ssh_files/pic2.png)
 我们可以点击Connect to Host in Current Window在当前的窗口:
-![pic3.png](remote_ssh_files/pic3.png)
+![pic3.png](docs/remote_cpp_development/remote_ssh_files/pic3.png)
 等到左下角不转圈时,就说明我们已经连接好了.我们打开一个终端试试,可以看到可以敲下linux下的命令了,这就说明已经在远程服务器上了.
-![pic5.png](remote_ssh_files/pic5.png)
+![pic5.png](docs/remote_cpp_development/remote_ssh_files/pic5.png)
 
 接着我们还可以使用VS Code去打开远程服务器上的文件夹目录了,点击目录:open folder
-![pic6.png](remote_ssh_files/pic6.png)
+![pic6.png](docs/remote_cpp_development/remote_ssh_files/pic6.png)
 看到当前的这个文件夹就是在远程服务器上的, 打开它, 点击ok:
-![pic7.png](remote_ssh_files/pic7.png)
+![pic7.png](docs/remote_cpp_development/remote_ssh_files/pic7.png)
 这样我们就打开了一个远程服务器上的一个oneflow仓库.
 
 ## 在远程服务器上安装插件:
 在已经有Remote SSH能登录到远程服务器的基础上,我们可以在远程服务器上安装VS Code插件.
 一开始打开一个CMake的文件,是没有高亮的,这是因为没有插件对它做语法解析.
 如果我们现在想让他高亮起来,就需要安装插件:打开插件安装按钮,搜索cmake
-![pic9.png](remote_ssh_files/pic9.png)
+![pic9.png](docs/remote_cpp_development/remote_ssh_files/pic9.png)
 看到这个按钮,是提示我们可以安装在远程服务器上,点击它:
-![Xnip2022-05-06_09-58-25.jpg](remote_ssh_files/Xnip2022-05-06_09-58-25.jpg)
+![Xnip2022-05-06_09-58-25.jpg](docs/remote_cpp_development/remote_ssh_files/Xnip2022-05-06_09-58-25.jpg)
 再回过来看我们的CMake文件,就已经高亮了.
 
 当我们点击到插件安装栏,会发现它有帮我们展示出local本地安装了哪些插件,远程服务器上安装了哪些插件,如果大家有发现在本地非常好用的插件,那么就可以安装到远程服务器上,点击install in SSH:remote,就可以在远程服务器上使用了.
