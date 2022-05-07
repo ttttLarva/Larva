@@ -17,7 +17,7 @@ Remote SSH插件底层是通过ssh协议的, 并且做了非常多贴心的开�
 
 ## 安装Remote SSH
 安装较为简单,和其他插件安装方式相同:
-![Xnip2022-05-06_02-23-36.jpg](docs/remote_cpp_development/remote_ssh_files/Xnip2022-05-06_02-23-36.jpg)
+![Xnip2022-05-06_02-23-36.jpg](remote_ssh_files/Xnip2022-05-06_02-23-36.jpg)
 安装完成之后,会发现左下角多了一个按钮:
 ![Xnip2022-05-06_09-41-38.jpg](docs/remote_cpp_development/remote_ssh_files/Xnip2022-05-06_09-41-38.jpg)
 点击它,然后选择open configuration file:
