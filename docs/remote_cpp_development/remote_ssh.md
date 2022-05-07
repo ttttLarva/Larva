@@ -42,7 +42,7 @@ Host remote-12-ttlarva
 这里的Host名就是方便我们去记的名,而HostName就是ip地址, 做完一系列配置之后,我们就可以去连接到远程服务器了.
 
 当安装好这个插件之后, 我们还会发现左边多了一个电脑一样的图标:
-![pic2.png](docs/remote_cpp_development/remote_ssh_files/pic2.png)
+![pic2.png](remote_ssh_files/pic2.png)
 我们可以点击Connect to Host in Current Window在当前的窗口:
 ![pic3.png](docs/remote_cpp_development/remote_ssh_files/pic3.png)
 等到左下角不转圈时,就说明我们已经连接好了.我们打开一个终端试试,可以看到可以敲下linux下的命令了,这就说明已经在远程服务器上了.
