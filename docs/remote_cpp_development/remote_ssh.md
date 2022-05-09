@@ -8,25 +8,25 @@
 
 远程开发 C++ 这一系列内容将向大家展示如何通过 SSH 登录一个服务器。
 
-首先，这期主要向大家介绍一款非常好用的 VS Code 插件: Remote SSH，它可以让我们在远程服务器开发像在本地开发一样简单。
+首先，这期主要向大家介绍一款非常好用的 VS Code 插件: **Remote SSH**，它可以让我们在远程服务器开发像在本地开发一样简单。
 
 ## 登录远程服务器
 SSH 的使用较简单，如果已经在远程服务器上配置了密钥，那就可以直接通过 SSH 去登陆远程服务器：
 
-在控制台输入 `ssh remote-21-ttlarva` （remote-21-ttlarva 需改成所需要使用的Host 名）。
+在控制台输入 `ssh remote-21-ttlarva` （remote-21-ttlarva 需改成所需要使用的 Host 名）。
 
 在登上远程服务器之后，我们就来到了 Linux 系统下，并且可以使用 Linux 命令，例如 `ls` 和 `man ssh`。不过只有一个命令行是不够方便的，如果我们不熟悉 Vim 这一类软件，并且喜欢用键盘加鼠标的组合，那么就需要 VS Code 的一个神奇插件了：Remote SSH。
 
 Remote SSH 插件底层是通过 SSH 协议的，并且做了非常多贴心的开发和优化。这使得我们在安装好这个插件并配置好 SSH 登录选项后就可以直接打开远程服务器上的目录，就像在本地操作一样。更强大的是，VS Code 有了这个插件后，VS Code 的其他插件都可以直接安装在远程服务器上，换言之，这就让远程的开发更接近本地开发了。
 
-## 安装Remote SSH
+## 安装 Remote SSH
 安装较为简单，和其他插件安装方式相同：
 
 ![Xnip2022-05-06_02-23-36.jpg](remote_ssh_files/Xnip2022-05-06_02-23-36.jpg)
 
 安装完成之后，会发现左下角多了一个按钮：
 
-![Xnip2022-05-08_23-21-05.jpg](remote_ssh_files/Xnip2022-05-08_23-21-05.jpg)
+![Xnip2022-05-09_00-50-37.jpg](remote_ssh_files/Xnip2022-05-09_00-50-37.jpg)
 
 点击它，然后选择 Open Configuration File：
 
@@ -53,17 +53,17 @@ Host remote-21-ttlarva
 
 当安装好这个插件之后，我们还会发现左边多了一个电脑一样的图标：
 
-![Xnip2022-05-08_23-32-19.jpg](remote_ssh_files/Xnip2022-05-08_23-32-19.jpg)
+![Xnip2022-05-09_00-47-52.jpg](remote_ssh_files/Xnip2022-05-09_00-47-52.jpg)
 
 我们可以点击 Connect to Host in Current Window 在当前的窗口：
 
-![Xnip2022-05-08_23-41-43.jpg](remote_ssh_files/Xnip2022-05-08_23-41-43.jpg)
+![Xnip2022-05-09_00-46-32.jpg](remote_ssh_files/Xnip2022-05-09_00-46-32.jpg)
 
 等到左下角不转圈时，就说明我们已经连接好了。我们打开一个终端试试，如果可以敲下 Linux 下的命令了，这就说明已经在远程服务器上了。
 
 接着我们还可以使用 VS Code 去打开远程服务器上的文件夹目录，点击目录：Open Folder。
 
-![Xnip2022-05-09_00-10-20.jpg](remote_ssh_files/Xnip2022-05-09_00-10-20.jpg)
+![Xnip2022-05-09_00-48-53.jpg](remote_ssh_files/Xnip2022-05-09_00-48-53.jpg)
 
 看到你需要的这个文件夹就是在远程服务器上的，打开它，点击 ok。这样我们就打开了一个远程服务器上的一个你需要的仓库。
 
