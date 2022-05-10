@@ -4,7 +4,7 @@
 :earth_asia: **Bilibili视频传送门：** [远程开发C++001_Remote SSH](https://www.bilibili.com/video/BV1YT4y1d78B?spm_id_from=333.999.0.0) :earth_asia:
 
 
-在学习过如何使用 SSH 登录 GitHub 后 [GitHub SSH 免密码登录](learn_cpp/03_SSH_for_github.md)，我们对 SSH 已经有了基础的了解，比如像腾讯云和阿里云这样租用的服务器，我们都是可以通过 SSH 去登录。
+在学习过如何使用 SSH 登录 GitHub 后 [GitHub SSH 免密码登录](../github/03_SSH_for_github.md)，我们对 SSH 已经有了基础的了解，比如像腾讯云和阿里云这样租用的服务器，我们都是可以通过 SSH 去登录。
 
 远程开发 C++ 这一系列内容将向大家展示如何通过 SSH 登录一个服务器。
 
