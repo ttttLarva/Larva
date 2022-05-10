@@ -122,6 +122,6 @@ nav:
       - 模板 template: learn_cpp/08_template.md
       - 模板特例: learn_cpp/09_template_special.md
     
-    - C++开发工具集锦:
-      - VS Code插件 Remote SSH: remote_cpp_development/remote_ssh.md
+    - C++ 开发工具集锦:
+      - VS Code 插件 Remote SSH: remote_cpp_development/remote_ssh.md
 
