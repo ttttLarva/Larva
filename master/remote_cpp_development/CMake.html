@@ -11,14 +11,14 @@
       
       
       
-        <link rel="canonical" href="https://www.ttlarval.org/master/github/05_get_started_with_Markdown.html">
+        <link rel="canonical" href="https://www.ttlarval.org/master/remote_cpp_development/CMake.html">
       
       <link rel="icon" href="../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.1.11">
     
     
       
-        <title>快速上手 Markdown - TTLarva</title>
+        <title>编译 C++ 项目必备 CMake - TTLarva</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#markdown" class="md-skip">
+        <a href="#c-cmake" class="md-skip">
           跳转至
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              快速上手 Markdown
+              编译 C++ 项目必备 CMake
             
           </span>
         </div>
@@ -179,15 +179,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="01_how_to_pr.html" class="md-tabs__link md-tabs__link--active">
+      <a href="../github/01_how_to_pr.html" class="md-tabs__link">
         一起学GitHub
       </a>
     </li>
@@ -213,13 +211,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../remote_cpp_development/remote_ssh.html" class="md-tabs__link">
+      <a href="remote_ssh.html" class="md-tabs__link md-tabs__link--active">
         C++ 开发工具集锦
       </a>
     </li>
@@ -291,14 +291,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       <label class="md-nav__link" for="__nav_2">
         一起学GitHub
@@ -316,7 +314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="01_how_to_pr.html" class="md-nav__link">
+      <a href="../github/01_how_to_pr.html" class="md-nav__link">
         如何提交 PR
       </a>
     </li>
@@ -328,7 +326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="02_learn_from_pr.html" class="md-nav__link">
+      <a href="../github/02_learn_from_pr.html" class="md-nav__link">
         如何通过 PR 学习
       </a>
     </li>
@@ -340,7 +338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="03_SSH_for_github.html" class="md-nav__link">
+      <a href="../github/03_SSH_for_github.html" class="md-nav__link">
         github SSH免密码登录设置
       </a>
     </li>
@@ -352,7 +350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="04_beauty_code.html" class="md-nav__link">
+      <a href="../github/04_beauty_code.html" class="md-nav__link">
         美化代码工具分享
       </a>
     </li>
@@ -362,120 +360,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          快速上手 Markdown
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="05_get_started_with_Markdown.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../github/05_get_started_with_Markdown.html" class="md-nav__link">
         快速上手 Markdown
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#markdown_1" class="md-nav__link">
-    什么是 Markdown
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#github-markdown" class="md-nav__link">
-    在 GitHub 上写 Markdown
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#markdown_2" class="md-nav__link">
-    学习 Markdown 语法
-  </a>
-  
-    <nav class="md-nav" aria-label="学习 Markdown 语法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. 标题
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2. 图片
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3. 超链接
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4. 代码
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    5. 引用
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vs-code" class="md-nav__link">
-    VS Code 插件分享
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    扩展阅读
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -485,7 +374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="06_Mkdocs.html" class="md-nav__link">
+      <a href="../github/06_Mkdocs.html" class="md-nav__link">
         MkDocs 工具使用
       </a>
     </li>
@@ -497,7 +386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="07_GitHub_Pages.html" class="md-nav__link">
+      <a href="../github/07_GitHub_Pages.html" class="md-nav__link">
         GitHub Pages 的生成和使用
       </a>
     </li>
@@ -509,7 +398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="08_GitHub_Actions.html" class="md-nav__link">
+      <a href="../github/08_GitHub_Actions.html" class="md-nav__link">
         GitHub Actions 介绍 & 使用
       </a>
     </li>
@@ -666,12 +555,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       <label class="md-nav__link" for="__nav_4">
         C++ 开发工具集锦
@@ -689,7 +580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../remote_cpp_development/remote_ssh.html" class="md-nav__link">
+      <a href="remote_ssh.html" class="md-nav__link">
         VS Code 插件 Remote SSH
       </a>
     </li>
@@ -701,7 +592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../remote_cpp_development/conda.html" class="md-nav__link">
+      <a href="conda.html" class="md-nav__link">
         使用包管理工具 Conda
       </a>
     </li>
@@ -711,11 +602,92 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../remote_cpp_development/CMake.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          编译 C++ 项目必备 CMake
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="CMake.html" class="md-nav__link md-nav__link--active">
         编译 C++ 项目必备 CMake
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cmake" class="md-nav__link">
+    CMake 项目特点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmake_1" class="md-nav__link">
+    为什么需要 CMake
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmake_2" class="md-nav__link">
+    CMake 示例
+  </a>
+  
+    <nav class="md-nav" aria-label="CMake 示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux-cmake" class="md-nav__link">
+    Linux 下使用 CMake
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-cmake" class="md-nav__link">
+    Windows 下使用 CMake
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oneflow" class="md-nav__link">
+    实战编译 OneFlow
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -752,58 +724,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#markdown_1" class="md-nav__link">
-    什么是 Markdown
+  <a href="#cmake" class="md-nav__link">
+    CMake 项目特点
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#github-markdown" class="md-nav__link">
-    在 GitHub 上写 Markdown
+  <a href="#cmake_1" class="md-nav__link">
+    为什么需要 CMake
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#markdown_2" class="md-nav__link">
-    学习 Markdown 语法
+  <a href="#cmake_2" class="md-nav__link">
+    CMake 示例
   </a>
   
-    <nav class="md-nav" aria-label="学习 Markdown 语法">
+    <nav class="md-nav" aria-label="CMake 示例">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. 标题
+  <a href="#linux-cmake" class="md-nav__link">
+    Linux 下使用 CMake
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2. 图片
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3. 超链接
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4. 代码
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    5. 引用
+  <a href="#windows-cmake" class="md-nav__link">
+    Windows 下使用 CMake
   </a>
   
 </li>
@@ -814,15 +765,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vs-code" class="md-nav__link">
-    VS Code 插件分享
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    扩展阅读
+  <a href="#oneflow" class="md-nav__link">
+    实战编译 OneFlow
   </a>
   
 </li>
@@ -839,97 +783,69 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ttttLarva/Larva/blob/master/docs/github/05_get_started_with_Markdown.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/ttttLarva/Larva/blob/master/docs/remote_cpp_development/CMake.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="markdown">快速上手 Markdown<a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h1>
-<p><img alt="🌏" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f30f.svg" title=":earth_asia:" /> <strong>Bilibili 视频传送门：</strong><a href="https://www.bilibili.com/video/BV1P44y1a7oB?spm_id_from=333.999.0.0">快速上手 Markdown</a> <img alt="🌏" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f30f.svg" title=":earth_asia:" /></p>
-<h2 id="markdown_1">什么是 Markdown<a class="headerlink" href="#markdown_1" title="Permanent link">&para;</a></h2>
-<p>Markdown 是一种标记性语言，在 GitHub 上提交 issue、PR，默认都使用的是 Markdown。</p>
-<p>Markdown 简单易学，展现内容的手段丰富多样，可以参与开源，也可以用来记录自己的笔记。</p>
-<h2 id="github-markdown">在 GitHub 上写 Markdown<a class="headerlink" href="#github-markdown" title="Permanent link">&para;</a></h2>
-<p>接下来我将以深度学习框架 <a href="https://github.com/Oneflow-Inc/oneflow">OneFlow</a> 的 <a href="https://github.com/Oneflow-Inc/oneflow/issues">issue</a> 为例子， 展现一下 Markdown 的功能。</p>
-<p>我们可以看到在下面这个 <a href="https://github.com/Oneflow-Inc/oneflow/issues/6917">issue</a> 中，既有图片也有代码区，还有列表，这些是如何用 Markdown 实现的呢？</p>
-<p><img alt="markdown_issue.png" src="image/markdown_issue.png" /></p>
-<p>我们在 <a href="https://github.com/Oneflow-Inc/oneflow">OneFlow</a> 中创建一个新的 issue，点击 <a href="https://github.com/Oneflow-Inc/oneflow/issues/new/choose">New issue</a> 按钮。</p>
-<p><img src="image/new_issue.png" alt="new_issue.png" style="zoom:80%;" /></p>
-<p>在 Write 和 Preview 部分就是 Markdown 书写区和预览区的一个对比。</p>
-<p><img src="image/write.png" style="zoom:25%;"  align="left"  /><img src="image/preview.png" style="zoom:25%;" lign="right"/></p>
+                <h1 id="c-cmake">编译 C++ 项目必备 CMake<a class="headerlink" href="#c-cmake" title="Permanent link">&para;</a></h1>
+<p><img alt="🌏" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f30f.svg" title=":earth_asia:" /> <strong>Bilibili视频传送门：</strong> <a href="https://www.bilibili.com/video/BV1Zq4y13777?spm_id_from=333.999.0.0">远程开发 C++ 003_CMake</a> <img alt="🌏" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f30f.svg" title=":earth_asia:" /></p>
+<p>本篇文章将和大家聊一聊编译 C++ 项目的必备工具 CMake。现在几乎所有的大型的开源的 C++ 项目，都会使用 CMake 来做构建系统。 </p>
+<p>比如编译基础设置 <a href="https://github.com/llvm/llvm-project">LLVM</a>，高性能异步 IO 库 <a href="https://github.com/libuv/libuv">libuv</a>，<a href="https://github.com/boostorg/boost">boost 库</a>，当然还有分布式深度学习框架 <a href="https://github.com/Oneflow-Inc/oneflow">OneFlow</a>。</p>
+<h3 id="cmake">CMake 项目特点<a class="headerlink" href="#cmake" title="Permanent link">&para;</a></h3>
+<p>要识别 CMake 项目特别简单，那就是这个项目下一定有名为 CMakeLists.txt 的文件</p>
+<p>本文的结构如下：</p>
 <ul>
-<li>
-<p><code>##</code> 加空格后面所对应的内容就是标题</p>
-</li>
-<li>
-<p>连接符 <code>-</code> 加空格后面的内容是列表所对应的一个 item</p>
-</li>
+<li>为什么需要 CMake</li>
+<li>CMake 示例</li>
+<li>实战编译 OneFlow</li>
 </ul>
-<h2 id="markdown_2">学习 Markdown 语法<a class="headerlink" href="#markdown_2" title="Permanent link">&para;</a></h2>
-<p>我们接下来看看常见的 Markdown 语法有哪些，系统学习下。</p>
-<h3 id="1">1. 标题<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>在想要设置为标题的文字前面加 <code>#</code> 来表示
-一个 <code>#</code> 是一级标题，两个 <code>#</code> 是二级标题，以此类推。支持六级标题。</p>
-<div class="highlight"><pre><span></span><code># 这是一级标题
-## 这是二级标题
-### 这是三级标题
-#### 这是四级标题
-##### 这是五级标题
-###### 这是六级标题
+<h2 id="cmake_1">为什么需要 CMake<a class="headerlink" href="#cmake_1" title="Permanent link">&para;</a></h2>
+<p>简单而言，CMake 可以帮助跨平台来编译工程。</p>
+<p>比如说大家在 Windoes 上可能会使用 Visual Studio，在 Mac 上可能会使用 XCode，在 Linux 系统下会使用 Makefile 来编译一个 C++ 工程。如果同一套 C++ 代码在不同的构建系统下，都需要重新去设置一遍，是非常不方便的。</p>
+<p>而 CMake 它就可以解决这类问题，CMake 通过读取 CMakeLists.txt 的配置文件，来根据当前的平台构建相应的 C++ 工程。</p>
+<p><img alt="CMake" src="CMake_pics/Xnip2022-05-12_00-03-45.jpg" /></p>
+<h2 id="cmake_2">CMake 示例<a class="headerlink" href="#cmake_2" title="Permanent link">&para;</a></h2>
+<p>这里是一个简单的 CMake 的例子：</p>
+<div class="highlight"><pre><span></span><code>cmake_minimum_required(VERSIOIN 3.14)  #设置CMake最小版本 
+project (cmake_example)  #设置工程名
+add_executable(cmake_example main.cop ui.cpp logic.cpp)  #生成可执行文件
 </code></pre></div>
-<h3 id="2">2. 图片<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>语法：</p>
-<div class="highlight"><pre><span></span><code>![图片alt](图片地址 &#39;&#39;图片title&#39;&#39;)
-</code></pre></div>
-<p>图片 alt 就是显示在图片下面的文字，相当于对图片内容的解释。
-图片 title 是图片的标题，当鼠标移到图片上时显示的内容。title 可加可不加。</p>
-<p>示例：</p>
-<div class="highlight"><pre><span></span><code>![image](https://user-images.githubusercontent.com/54847470/154951006-a7dd7692-597e-4f9f-a33c-712219f0c5a7.png)
-</code></pre></div>
-<p>效果：</p>
-<p><img src="https://user-images.githubusercontent.com/54847470/154951382-58059c14-db4d-41a5-9734-4f6334305a57.png" alt="image" style="zoom:25%;"  align="center"  /></p>
-<h3 id="3">3. 超链接<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>语法：</p>
-<div class="highlight"><pre><span></span><code>[超链接名](超链接地址 &quot;超链接title&quot;)
-</code></pre></div>
-<p>title 可加可不加</p>
-<p>示例：</p>
-<div class="highlight"><pre><span></span><code>[OneFlow](https://github.com/Oneflow-Inc/oneflow)
-</code></pre></div>
-<p>效果：</p>
-<p><a href="https://github.com/Oneflow-Inc/oneflow">OneFlow</a></p>
-<h3 id="4">4. 代码<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<p>单行代码：代码之间分别用一个反引号包起来</p>
-<div class="highlight"><pre><span></span><code>`代码内容`
-</code></pre></div>
-<p>代码块：代码之间分别用三个反引号包起来，且两边的反引号单独占一行，在第一行引号后面加入代码种类可以获得代码高亮。</p>
-<div class="highlight"><pre><span></span><code><span class="err">```</span><span class="n">Python</span>
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">twoSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-        <span class="n">hashtable</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
-            <span class="k">if</span> <span class="n">target</span> <span class="o">-</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">hashtable</span><span class="p">:</span>
-                <span class="k">return</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">hashtable</span><span class="p">[</span><span class="n">target</span> <span class="o">-</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]]]</span>
-            <span class="n">hashtable</span><span class="p">[</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span>
-<span class="err">```</span>
-</code></pre></div>
-<h3 id="5">5. 引用<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
-<p><code>&gt;</code> 表示引用，表示当前语句不是自己的，在开源项目中常常用于回复别人的话。</p>
-<p>示例：</p>
-<div class="highlight"><pre><span></span><code>&gt; C++ 很好用
-</code></pre></div>
-<p>效果：</p>
-<blockquote>
-<p>C++ 很好用</p>
-</blockquote>
-<p>除了上述语法外，Markdown 还有很多用法，大家可以在扩展阅读中学习。</p>
-<h2 id="vs-code">VS Code 插件分享<a class="headerlink" href="#vs-code" title="Permanent link">&para;</a></h2>
-<p>这里分享一个非常实用的插件，在使用 Markdown 时，<a href="https://marketplace.visualstudio.com/items?itemName=hnw.vscode-auto-open-markdown-preview"><strong>Auto-Open Markdown Preview</strong></a> 插件可以帮我们实时渲染 Markdown 页面。</p>
-<p><img src="image/Auto-Open Markdown Preview.png" alt="Auto-Open Markdown Preview.png" style="zoom: 50%;" /></p>
-<h2 id="_1">扩展阅读<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">GitHub 官方 Markdown 教程</a></li>
-</ul>
+<p>这个 CMakeLists 是项目设置的一个配置文件，第一行是设置 CMake 的最小版本，第二行是设置工程名，大家根据自己的喜好设置就行，第三行是生成的可执行文件名，后面的是依赖的 cpp 名。</p>
+<p>接下来文章将向大家展示在 Linux 和 Windows 系统下使用 CMake 来生成不同的工程。</p>
+<h3 id="linux-cmake">Linux 下使用 CMake<a class="headerlink" href="#linux-cmake" title="Permanent link">&para;</a></h3>
+<p>首先，需要创建一个 build 目录，在 terminal 输入 <code>mkdir build</code>，目的是为了将 CMake 后生成的所有文件，所有内容都放到这个 build 目录下。</p>
+<p>然后切换到 build 目录，terminal 输入 <code>cd build</code>。</p>
+<p>接着使用 CMake 命令，后面接 CMakeLists 所在的目录，也就是它的上一级目录加两个点 <code>cmake ..</code>。</p>
+<p>然后在 build 目录下就生成了 MakeFile，接着 make 一下，输入 <code>make</code>。可以发现在 build 目录下就生成了 cmake_example 这个可执行的文件。</p>
+<p>接着执行一下，输入 <code>./cmake_example</code>，就可以打印出要的结果。</p>
+<p>CMake 其实就是通过读取 CMakelists.txt 来生成对应工程的，也可以在 CMake 时传递一些变量值来设置工程属性，比如刚刚编译的工程，它是一个 Release 版本的，是没有调试信息的。</p>
+<p>关于 CMake 更多知识点，可以使用 man 命令来查看一下，<code>man cmake</code>。</p>
+<h3 id="windows-cmake">Windows 下使用 CMake<a class="headerlink" href="#windows-cmake" title="Permanent link">&para;</a></h3>
+<p>首先打开 VS 的交叉编译工具，切换到工程目录下，<code>cd D:\tmp_code\cmake_example</code>。</p>
+<p>输入 <code>dir</code>，然后使用 <code>mkdir build</code> 命令，创建 build 目录。</p>
+<p>使用 <code>cd build</code> 切换到 build 目录。</p>
+<p>然后使用 CMake 命令 <code>cmake ..</code>，就可以在 build 目录下就生成一个 sln 文件。</p>
+<h2 id="oneflow">实战编译 OneFlow<a class="headerlink" href="#oneflow" title="Permanent link">&para;</a></h2>
+<p>像 OneFlow 这样大型的系统，它的 CMake 配置文件往往是非常复杂的，想要看懂里面的源码，了解如何配置，往往是不太容易的。</p>
+<p>但是这样的项目，它的 Readme 一般都会附上说明，仔细看 Readme 就行了。 </p>
+<p>OneFlow 的 Readme 文件，它描述了该去哪里找怎么编译 OneFlow。</p>
+<p>点开这个<a href="https://github.com/Oneflow-Inc/conda-env">链接</a>，然后一步一步地编译 OneFlow。</p>
+<p>编译 OneFlow 需要使用到 conda，具体怎么安装，在上一篇文章 <a href="conda.html">Conda</a> 中。</p>
+<p>首先，需要构建编译环境：</p>
+<p>使用 <code>git clone https://github.com/Oneflow-Inc/conda-env.git</code> 下载这一个编译环境包。</p>
+<p>输入 <code>cd conda-env</code> 来 cd 到这个环境包。</p>
+<p>输入 <code>conda env create -f=dev/gcc7/environment-v2.yml</code> 构建这一个环境</p>
+<p>最重要的一步，输入 <code>conda activate oneflow-dev-gcc7-v2</code> 和 <code>conda env config vars set CXXFLAGS="-fPIC"</code> 激活使用这个环境。</p>
+<p>在成功激活这个环境后，就可以切换到 OneFlow 源码目录下，依次输入 <code>cd..</code>， <code>ls</code> 和 <code>cd oneflow/</code>。</p>
+<p>接着，使用 CMake 来构建 OneFlow：</p>
+<p>输入 <code>mkdir build</code> 来构建一个 build 目录，目的将生成的所有内容都放到 build 目录下。</p>
+<p>然后切换到 build 目录下，<code>cd build</code>。</p>
+<p>使用 CMake 指令 <code>cmake .. -C ../cmake/caches/cn/cuda.cmake \ -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda \ -DCUDNN_ROOT_DIR=/usr/local/cudnn</code> 进行构建。</p>
+<p>然后就会发现当前的 build 目录下生成了 MakeFile。</p>
+<p>接着就可以使用 <code>make -j$(nproc)</code> 来生成可执行文件了，第一次编译的话可能需要半个小时左右。</p>
+<p>先输入 <code>cd ..</code> 切换到上级目录，再接着使用 <code>source build/source.sh</code> 将 OneFlow 添加到 Python 的 path 中。</p>
+<p>最后，可以使用指令 <code>python3 -m oneflow --doctor</code> 来检查是否编译成功。</p>
                 
               
               
@@ -954,7 +870,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="04_beauty_code.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 美化代码工具分享" rel="prev">
+        <a href="conda.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 使用包管理工具 Conda" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -963,26 +879,11 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              美化代码工具分享
+              使用包管理工具 Conda
             </div>
           </div>
         </a>
       
-      
-        
-        <a href="06_Mkdocs.html" class="md-footer__link md-footer__link--next" aria-label="下一页: MkDocs 工具使用" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              MkDocs 工具使用
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
