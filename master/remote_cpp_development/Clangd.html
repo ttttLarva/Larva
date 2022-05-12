@@ -11,14 +11,14 @@
       
       
       
-        <link rel="canonical" href="https://www.ttlarval.org/master/remote_cpp_development/CMake.html">
+        <link rel="canonical" href="https://www.ttlarval.org/master/remote_cpp_development/Clangd.html">
       
       <link rel="icon" href="../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.1.11">
     
     
       
-        <title>编译 C++ 项目必备 CMake - TTLarva</title>
+        <title>clangd 帮助打造 Linux 下完美 C++ IDE - TTLarva</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#c-cmake" class="md-skip">
+        <a href="#linux-c-ideclangd" class="md-skip">
           跳转至
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              编译 C++ 项目必备 CMake
+              clangd 帮助打造 Linux 下完美 C++ IDE
             
           </span>
         </div>
@@ -602,6 +602,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="CMake.html" class="md-nav__link">
+        编译 C++ 项目必备 CMake
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -614,12 +626,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          编译 C++ 项目必备 CMake
+          clangd 帮助打造 Linux 下完美 C++ IDE
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="CMake.html" class="md-nav__link md-nav__link--active">
-        编译 C++ 项目必备 CMake
+      <a href="Clangd.html" class="md-nav__link md-nav__link--active">
+        clangd 帮助打造 Linux 下完美 C++ IDE
       </a>
       
         
@@ -637,37 +649,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cmake" class="md-nav__link">
-    CMake 项目特点
+  <a href="#linux-c" class="md-nav__link">
+    Linux 上如何做 C++ 开发
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#cmake_1" class="md-nav__link">
-    为什么需要 CMake
+  <a href="#clangd" class="md-nav__link">
+    配置 clangd 插件
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cmake_2" class="md-nav__link">
-    CMake 示例
-  </a>
-  
-    <nav class="md-nav" aria-label="CMake 示例">
+    <nav class="md-nav" aria-label="配置 clangd 插件">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#linux-cmake" class="md-nav__link">
-    Linux 下使用 CMake
+  <a href="#clangd_1" class="md-nav__link">
+    安装 clangd 插件
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#windows-cmake" class="md-nav__link">
-    Windows 下使用 CMake
+  <a href="#_1" class="md-nav__link">
+    两处配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clangd_2" class="md-nav__link">
+    clangd 具体使用
   </a>
   
 </li>
@@ -678,8 +690,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#oneflow" class="md-nav__link">
-    实战编译 OneFlow
+  <a href="#clangd_3" class="md-nav__link">
+    clangd 插件的使用
   </a>
   
 </li>
@@ -688,18 +700,6 @@
   
 </nav>
       
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Clangd.html" class="md-nav__link">
-        clangd 帮助打造 Linux 下完美 C++ IDE
-      </a>
     </li>
   
 
@@ -736,37 +736,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cmake" class="md-nav__link">
-    CMake 项目特点
+  <a href="#linux-c" class="md-nav__link">
+    Linux 上如何做 C++ 开发
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#cmake_1" class="md-nav__link">
-    为什么需要 CMake
+  <a href="#clangd" class="md-nav__link">
+    配置 clangd 插件
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cmake_2" class="md-nav__link">
-    CMake 示例
-  </a>
-  
-    <nav class="md-nav" aria-label="CMake 示例">
+    <nav class="md-nav" aria-label="配置 clangd 插件">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#linux-cmake" class="md-nav__link">
-    Linux 下使用 CMake
+  <a href="#clangd_1" class="md-nav__link">
+    安装 clangd 插件
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#windows-cmake" class="md-nav__link">
-    Windows 下使用 CMake
+  <a href="#_1" class="md-nav__link">
+    两处配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clangd_2" class="md-nav__link">
+    clangd 具体使用
   </a>
   
 </li>
@@ -777,8 +777,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#oneflow" class="md-nav__link">
-    实战编译 OneFlow
+  <a href="#clangd_3" class="md-nav__link">
+    clangd 插件的使用
   </a>
   
 </li>
@@ -795,69 +795,52 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ttttLarva/Larva/blob/master/docs/remote_cpp_development/CMake.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/ttttLarva/Larva/blob/master/docs/remote_cpp_development/Clangd.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="c-cmake">编译 C++ 项目必备 CMake<a class="headerlink" href="#c-cmake" title="Permanent link">&para;</a></h1>
-<p><img alt="🌏" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f30f.svg" title=":earth_asia:" /> <strong>Bilibili视频传送门：</strong> <a href="https://www.bilibili.com/video/BV1Zq4y13777?spm_id_from=333.999.0.0">远程开发 C++ 003_CMake</a> <img alt="🌏" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f30f.svg" title=":earth_asia:" /></p>
-<p>本篇文章将和大家聊一聊编译 C++ 项目的必备工具 CMake。现在几乎所有的大型的开源的 C++ 项目，都会使用 CMake 来做构建系统。 </p>
-<p>比如编译基础设置 <a href="https://github.com/llvm/llvm-project">LLVM</a>，高性能异步 IO 库 <a href="https://github.com/libuv/libuv">libuv</a>，<a href="https://github.com/boostorg/boost">boost 库</a>，当然还有分布式深度学习框架 <a href="https://github.com/Oneflow-Inc/oneflow">OneFlow</a>。</p>
-<h3 id="cmake">CMake 项目特点<a class="headerlink" href="#cmake" title="Permanent link">&para;</a></h3>
-<p>要识别 CMake 项目特别简单，那就是这个项目下一定有名为 CMakeLists.txt 的文件</p>
-<p>本文的结构如下：</p>
-<ul>
-<li>为什么需要 CMake</li>
-<li>CMake 示例</li>
-<li>实战编译 OneFlow</li>
-</ul>
-<h2 id="cmake_1">为什么需要 CMake<a class="headerlink" href="#cmake_1" title="Permanent link">&para;</a></h2>
-<p>简单而言，CMake 可以帮助跨平台来编译工程。</p>
-<p>比如说大家在 Windoes 上可能会使用 Visual Studio，在 Mac 上可能会使用 XCode，在 Linux 系统下会使用 Makefile 来编译一个 C++ 工程。如果同一套 C++ 代码在不同的构建系统下，都需要重新去设置一遍，是非常不方便的。</p>
-<p>而 CMake 它就可以解决这类问题，CMake 通过读取 CMakeLists.txt 的配置文件，来根据当前的平台构建相应的 C++ 工程。</p>
-<p><img alt="CMake" src="CMake_pics/Xnip2022-05-12_00-03-45.jpg" /></p>
-<h2 id="cmake_2">CMake 示例<a class="headerlink" href="#cmake_2" title="Permanent link">&para;</a></h2>
-<p>这里是一个简单的 CMake 的例子：</p>
-<div class="highlight"><pre><span></span><code>cmake_minimum_required(VERSIOIN 3.14)  #设置CMake最小版本 
-project (cmake_example)  #设置工程名
-add_executable(cmake_example main.cop ui.cpp logic.cpp)  #生成可执行文件
-</code></pre></div>
-<p>这个 CMakeLists 是项目设置的一个配置文件，第一行是设置 CMake 的最小版本，第二行是设置工程名，大家根据自己的喜好设置就行，第三行是生成的可执行文件名，后面的是依赖的 cpp 名。</p>
-<p>接下来文章将向大家展示在 Linux 和 Windows 系统下使用 CMake 来生成不同的工程。</p>
-<h3 id="linux-cmake">Linux 下使用 CMake<a class="headerlink" href="#linux-cmake" title="Permanent link">&para;</a></h3>
-<p>首先，需要创建一个 build 目录，在 terminal 输入 <code>mkdir build</code>，目的是为了将 CMake 后生成的所有文件，所有内容都放到这个 build 目录下。</p>
-<p>然后切换到 build 目录，terminal 输入 <code>cd build</code>。</p>
-<p>接着使用 CMake 命令，后面接 CMakeLists 所在的目录，也就是它的上一级目录加两个点 <code>cmake ..</code>。</p>
-<p>然后在 build 目录下就生成了 MakeFile，接着 make 一下，输入 <code>make</code>。可以发现在 build 目录下就生成了 cmake_example 这个可执行的文件。</p>
-<p>接着执行一下，输入 <code>./cmake_example</code>，就可以打印出要的结果。</p>
-<p>CMake 其实就是通过读取 CMakelists.txt 来生成对应工程的，也可以在 CMake 时传递一些变量值来设置工程属性，比如刚刚编译的工程，它是一个 Release 版本的，是没有调试信息的。</p>
-<p>关于 CMake 更多知识点，可以使用 man 命令来查看一下，<code>man cmake</code>。</p>
-<h3 id="windows-cmake">Windows 下使用 CMake<a class="headerlink" href="#windows-cmake" title="Permanent link">&para;</a></h3>
-<p>首先打开 VS 的交叉编译工具，切换到工程目录下，<code>cd D:\tmp_code\cmake_example</code>。</p>
-<p>输入 <code>dir</code>，然后使用 <code>mkdir build</code> 命令，创建 build 目录。</p>
-<p>使用 <code>cd build</code> 切换到 build 目录。</p>
-<p>然后使用 CMake 命令 <code>cmake ..</code>，就可以在 build 目录下就生成一个 sln 文件。</p>
-<h2 id="oneflow">实战编译 OneFlow<a class="headerlink" href="#oneflow" title="Permanent link">&para;</a></h2>
-<p>像 OneFlow 这样大型的系统，它的 CMake 配置文件往往是非常复杂的，想要看懂里面的源码，了解如何配置，往往是不太容易的。</p>
-<p>但是这样的项目，它的 Readme 一般都会附上说明，仔细看 Readme 就行了。 </p>
-<p>OneFlow 的 Readme 文件，它描述了该去哪里找怎么编译 OneFlow。</p>
-<p>点开这个<a href="https://github.com/Oneflow-Inc/conda-env">链接</a>，然后一步一步地编译 OneFlow。</p>
-<p>编译 OneFlow 需要使用到 conda，具体怎么安装，在上一篇文章 <a href="conda.html">Conda</a> 中。</p>
-<p>首先，需要构建编译环境：</p>
-<p>使用 <code>git clone https://github.com/Oneflow-Inc/conda-env.git</code> 下载这一个编译环境包。</p>
-<p>输入 <code>cd conda-env</code> 来 cd 到这个环境包。</p>
-<p>输入 <code>conda env create -f=dev/gcc7/environment-v2.yml</code> 构建这一个环境</p>
-<p>最重要的一步，输入 <code>conda activate oneflow-dev-gcc7-v2</code> 和 <code>conda env config vars set CXXFLAGS="-fPIC"</code> 激活使用这个环境。</p>
-<p>在成功激活这个环境后，就可以切换到 OneFlow 源码目录下，依次输入 <code>cd..</code>， <code>ls</code> 和 <code>cd oneflow/</code>。</p>
-<p>接着，使用 CMake 来构建 OneFlow：</p>
-<p>输入 <code>mkdir build</code> 来构建一个 build 目录，目的将生成的所有内容都放到 build 目录下。</p>
-<p>然后切换到 build 目录下，<code>cd build</code>。</p>
-<p>使用 CMake 指令 <code>cmake .. -C ../cmake/caches/cn/cuda.cmake \ -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda \ -DCUDNN_ROOT_DIR=/usr/local/cudnn</code> 进行构建。</p>
-<p>然后就会发现当前的 build 目录下生成了 MakeFile。</p>
-<p>接着就可以使用 <code>make -j$(nproc)</code> 来生成可执行文件了，第一次编译的话可能需要半个小时左右。</p>
-<p>先输入 <code>cd ..</code> 切换到上级目录，再接着使用 <code>source build/source.sh</code> 将 OneFlow 添加到 Python 的 path 中。</p>
-<p>最后，可以使用指令 <code>python3 -m oneflow --doctor</code> 来检查是否编译成功。</p>
+                <h1 id="linux-c-ideclangd">Linux 下打造 C++ 完美开发 IDE：clangd<a class="headerlink" href="#linux-c-ideclangd" title="Permanent link">&para;</a></h1>
+<p><img alt="🌏" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f30f.svg" title=":earth_asia:" /> <strong>Bilibili视频传送门：</strong> <a href="https://www.bilibili.com/video/BV16g411N77i?spm_id_from=333.999.0.0">远程开发C++_004_clangd</a> <img alt="🌏" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f30f.svg" title=":earth_asia:" /></p>
+<p>一般在 Windows 上做 C++ 开发时，首选的 IDE 是 Visual Studio。Visual Studio 号称宇宙第一 IDE，也确实非常地好用，它的调试和符号跳转窗口都为开发 C++ 提供了非常大的便捷。</p>
+<h2 id="linux-c">Linux 上如何做 C++ 开发<a class="headerlink" href="#linux-c" title="Permanent link">&para;</a></h2>
+<p>但是如果需要在 Linux 上做 C++ 开发，该怎么办呢？</p>
+<p>去搜索解决方案的话，可能会搜索到，通过配置 VIM 和 EMACS 来达到和 IDE 一样的效果。但是 VIM 这样的编译器，它的使用门槛是比较高的，是不适合刚刚从 Windows 转过来的 Linux 小白程序员。</p>
+<p>但好消息是托 LLVM 和 VSCode 的福，只要拥有了 VSCode，再配合 clangd 插件，就可以使 VSCode 拥有和 IDE 一样的体验。</p>
+<p>VSCode 的 clangd 插件是依赖于 clangd server 程序的，clangd server 是 LLVM 系列产品里的一个，之前说的 clangd-format 也是， 它可以帮助分析 C++ 文件，可以在 GitHub 上进行下载 <a href="https://github.com/clangd/clangd/releases">clangd server</a>。</p>
+<p>当下载完成 clangd 之后，将其解压，然后直接运行里面 bin 文件的 clangd，输入 <code>./bin/clangd</code>。如果运行成功，那么就说明我们也安装成功了。</p>
+<h2 id="clangd">配置 clangd 插件<a class="headerlink" href="#clangd" title="Permanent link">&para;</a></h2>
+<p>安装成功 clangd server 之后呢，需要配置 VSCode。</p>
+<h3 id="clangd_1">安装 clangd 插件<a class="headerlink" href="#clangd_1" title="Permanent link">&para;</a></h3>
+<p><img alt="clangd 插件" src="clangd_pics/Xnip2022-05-11_14-16-39.jpg" /></p>
+<p><strong>补充</strong> ：如果安装了 clangd，那么就不要使用微软的 C++ 库了，需要 disable 掉，不然 clangd 是使用不成功的。</p>
+<h3 id="_1">两处配置<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>接着需要对这个插件进行一些配置：</p>
+<p>点击设置按钮，点击 Extension Settings。</p>
+<p><img alt="设置" src="clangd_pics/Xnip2022-05-11_14-21-50.jpg" /></p>
+<p>第一个是 clangd server，也就是我们刚刚下载的那个 clangd server 的路径。</p>
+<p>首先切换到 Linux 下的远程服务器的配置页面。</p>
+<p>然后配置的是 clangd 的 path，也就是 server 的 path 配置。</p>
+<p><img alt="path" src="clangd_pics/Xnip2022-05-11_14-28-11.jpg" /></p>
+<p>例子：<code>/home/ttlarva/clangd/clangd_13.0.0/bin/clangd</code></p>
+<p>第二个配置是给 clangd server 增加一些运行时选项。</p>
+<p>比如说可以增加 -j，后面接上 48。这个选项的意思就是希望 clangd 以 48 个线程来解析当前的工程，能更快、更高效地运作。</p>
+<p><img alt="增加选项" src="clangd_pics/Xnip2022-05-11_14-35-29.jpg" /></p>
+<p>以上就对一个项目的 clangd 插件做好配置了。</p>
+<h3 id="clangd_2">clangd 具体使用<a class="headerlink" href="#clangd_2" title="Permanent link">&para;</a></h3>
+<p>clangd 为了能够更好地解析 C++ 文件，需要用户提供每个文件的编译选项，当然这不需要再手工做了，可以在 CMake 时加上 <code>-DCMAKE_EXPORT_COMPILE_COMMANDS=1</code> 的选项。</p>
+<p>以上篇 <a href="CMake.html">cmake_example</a> 为准, 来演示一下 clangd 的使用。</p>
+<p>创建 build 目录，依次输入 <code>mkdir build</code>，<code>ls</code>，<code>cd build/</code>，<code>cmake .. -DCMAKE_EXPORT_COMPILE_COMMANDS=1</code> 后，就编译完成了。</p>
+<p>在 CMake 构建完成之后呢，就可以发现在 build 目录下多了一个 json 文件。这个 json 文件指明了项目中每个文件的一个编译方式。</p>
+<p>那也是因为这个 compile_commands.json 文件, 它可以使 clangd 更好地帮助进行一些符号跳转、查找、调试之类的功能。</p>
+<p>当执行完以上操作以后，就可以来体会一下把 VSCode 当成 IDE 的感觉了。</p>
+<h2 id="clangd_3">clangd 插件的使用<a class="headerlink" href="#clangd_3" title="Permanent link">&para;</a></h2>
+<p>首先，当把鼠标停在某个函数，然后点击右键，会发现它多出了非常熟悉的选项。</p>
+<p>接着来试一下符号跳转，按住 Control，然后鼠标左键，就可以对函数进行跳转。</p>
+<p>它也可以对文件进行跳转，使用 <strong>Control+P</strong> ，打开标识符搜索框。</p>
+<p>原来这个标识符搜索框是只可以搜索文件的，但现在可以搜索符号了，使用 <strong>@</strong> ，是在当前文件夹下搜索一个标识符。</p>
+<p>这里比较少，就只有 main，可以多加两个函数：<code>int fun1(){}</code> 和 <code>Void fun2(){}</code>。再试试，就会发现它这里就有了三个标识符。</p>
+<p>除了能在当前文件中搜索外，还可以使用 <strong>#</strong> 来在全局搜索：Control+P，输入 #print 可以搜索 print，选择后，可以来到 studio 这个文件下。</p>
                 
               
               
@@ -882,7 +865,7 @@ add_executable(cmake_example main.cop ui.cpp logic.cpp)  #生成可执行文件
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="conda.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 使用包管理工具 Conda" rel="prev">
+        <a href="CMake.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 编译 C++ 项目必备 CMake" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -891,26 +874,11 @@ add_executable(cmake_example main.cop ui.cpp logic.cpp)  #生成可执行文件
               <span class="md-footer__direction">
                 上一页
               </span>
-              使用包管理工具 Conda
+              编译 C++ 项目必备 CMake
             </div>
           </div>
         </a>
       
-      
-        
-        <a href="Clangd.html" class="md-footer__link md-footer__link--next" aria-label="下一页: clangd 帮助打造 Linux 下完美 C++ IDE" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              clangd 帮助打造 Linux 下完美 C++ IDE
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
       
     </nav>
   

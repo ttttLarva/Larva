@@ -96,6 +96,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.ttlarval.org/master/remote_cpp_development/Clangd.html</loc>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.ttlarval.org/master/remote_cpp_development/conda.html</loc>
          <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
