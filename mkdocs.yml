@@ -126,3 +126,4 @@ nav:
       - VS Code 插件 Remote SSH: remote_cpp_development/remote_ssh.md
       - 使用包管理工具 Conda: remote_cpp_development/conda.md
       - 编译 C++ 项目必备 CMake: remote_cpp_development/CMake.md
+      - clangd 帮助打造 Linux 下完美 C++ IDE: remote_cpp_development/Clangd.md
