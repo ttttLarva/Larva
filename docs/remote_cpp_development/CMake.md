@@ -26,6 +26,8 @@
 
 而 CMake 它就可以解决这类问题，CMake 通过读取 CMakeLists.txt 的配置文件，来根据当前的平台构建相应的 C++ 工程。
 
+![CMake](CMake_pics/Xnip2022-05-12_00-03-45.jpg)
+
 
 ## CMake 示例
 
@@ -54,10 +56,6 @@ add_executable(cmake_example main.cop ui.cpp logic.cpp)  #生成可执行文件
 接着执行一下，输入 `./cmake_example`，就可以打印出要的结果。
 
 CMake 其实就是通过读取 CMakelists.txt 来生成对应工程的，也可以在 CMake 时传递一些变量值来设置工程属性，比如刚刚编译的工程，它是一个 Release 版本的，是没有调试信息的。
-
-如果想要编译一个 Debug 版本，可以使用 CMake 的 -D 选项，输入 `cmake .. -D CMAKE_BUILD_TYPE=Debug`，然后进行编译。
-
-再 `make` 一下，现在使用 gdb 来调试一下可执行程序，输入 `gdb ./cmake_example`，就会出现一个调试信息了。
 
 关于 CMake 更多知识点，可以使用 man 命令来查看一下，`man cmake`。
 
