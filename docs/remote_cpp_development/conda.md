@@ -1,4 +1,4 @@
-# Conda
+# 使用包管理工具 Conda
 
 
 :earth_asia: **Bilibili视频传送门：** [远程开发 C++ 002_Conda](https://www.bilibili.com/video/BV1Nq4y137Vh?spm_id_from=333.999.0.0) :earth_asia:
