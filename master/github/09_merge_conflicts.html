@@ -11,14 +11,14 @@
       
       
       
-        <link rel="canonical" href="https://www.ttlarval.org/master/remote_cpp_development/Clangd.html">
+        <link rel="canonical" href="https://www.ttlarval.org/master/github/09_merge_conflicts.html">
       
       <link rel="icon" href="../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.1.11">
     
     
       
-        <title>clangd 帮助打造 Linux 下完美 C++ IDE - TTLarva</title>
+        <title>解决 Git 冲突 Merge Conflicts - TTLarva</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#linux-c-ideclangd" class="md-skip">
+        <a href="#git-merge-conflicts" class="md-skip">
           跳转至
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              clangd 帮助打造 Linux 下完美 C++ IDE
+              解决 Git 冲突 Merge Conflicts
             
           </span>
         </div>
@@ -179,13 +179,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../github/01_how_to_pr.html" class="md-tabs__link">
+      <a href="01_how_to_pr.html" class="md-tabs__link md-tabs__link--active">
         一起学GitHub
       </a>
     </li>
@@ -211,15 +213,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="remote_ssh.html" class="md-tabs__link md-tabs__link--active">
+      <a href="../remote_cpp_development/remote_ssh.html" class="md-tabs__link">
         C++ 开发工具集锦
       </a>
     </li>
@@ -291,12 +291,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       <label class="md-nav__link" for="__nav_2">
         一起学GitHub
@@ -314,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../github/01_how_to_pr.html" class="md-nav__link">
+      <a href="01_how_to_pr.html" class="md-nav__link">
         如何提交 PR
       </a>
     </li>
@@ -326,7 +328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../github/02_learn_from_pr.html" class="md-nav__link">
+      <a href="02_learn_from_pr.html" class="md-nav__link">
         如何通过 PR 学习
       </a>
     </li>
@@ -338,7 +340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../github/03_SSH_for_github.html" class="md-nav__link">
+      <a href="03_SSH_for_github.html" class="md-nav__link">
         github SSH免密码登录设置
       </a>
     </li>
@@ -350,7 +352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../github/04_beauty_code.html" class="md-nav__link">
+      <a href="04_beauty_code.html" class="md-nav__link">
         美化代码工具分享
       </a>
     </li>
@@ -362,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../github/05_get_started_with_Markdown.html" class="md-nav__link">
+      <a href="05_get_started_with_Markdown.html" class="md-nav__link">
         快速上手 Markdown
       </a>
     </li>
@@ -374,7 +376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../github/06_Mkdocs.html" class="md-nav__link">
+      <a href="06_Mkdocs.html" class="md-nav__link">
         MkDocs 工具使用
       </a>
     </li>
@@ -386,7 +388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../github/07_GitHub_Pages.html" class="md-nav__link">
+      <a href="07_GitHub_Pages.html" class="md-nav__link">
         GitHub Pages 的生成和使用
       </a>
     </li>
@@ -398,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../github/08_GitHub_Actions.html" class="md-nav__link">
+      <a href="08_GitHub_Actions.html" class="md-nav__link">
         GitHub Actions 介绍 & 使用
       </a>
     </li>
@@ -408,11 +410,85 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../github/09_merge_conflicts.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          解决 Git 冲突 Merge Conflicts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="09_merge_conflicts.html" class="md-nav__link md-nav__link--active">
         解决 Git 冲突 Merge Conflicts
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    冲突是如何形成的
+  </a>
+  
+    <nav class="md-nav" aria-label="冲突是如何形成的">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    实践：冲突是如何产生的
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    如何解决冲突
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    在 GitHub 上解决冲突
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscode" class="md-nav__link">
+    使用 VSCode 解决冲突
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -567,14 +643,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       <label class="md-nav__link" for="__nav_4">
         C++ 开发工具集锦
@@ -592,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="remote_ssh.html" class="md-nav__link">
+      <a href="../remote_cpp_development/remote_ssh.html" class="md-nav__link">
         VS Code 插件 Remote SSH
       </a>
     </li>
@@ -604,7 +678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="conda.html" class="md-nav__link">
+      <a href="../remote_cpp_development/conda.html" class="md-nav__link">
         使用包管理工具 Conda
       </a>
     </li>
@@ -616,7 +690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="CMake.html" class="md-nav__link">
+      <a href="../remote_cpp_development/CMake.html" class="md-nav__link">
         编译 C++ 项目必备 CMake
       </a>
     </li>
@@ -626,92 +700,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          clangd 帮助打造 Linux 下完美 C++ IDE
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="Clangd.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../remote_cpp_development/Clangd.html" class="md-nav__link">
         clangd 帮助打造 Linux 下完美 C++ IDE
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#linux-c" class="md-nav__link">
-    Linux 上如何做 C++ 开发
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#clangd" class="md-nav__link">
-    配置 clangd 插件
-  </a>
-  
-    <nav class="md-nav" aria-label="配置 clangd 插件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#clangd_1" class="md-nav__link">
-    安装 clangd 插件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    两处配置
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clangd_2" class="md-nav__link">
-    clangd 具体使用
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#clangd_3" class="md-nav__link">
-    clangd 插件的使用
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -748,37 +741,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#linux-c" class="md-nav__link">
-    Linux 上如何做 C++ 开发
+  <a href="#_1" class="md-nav__link">
+    冲突是如何形成的
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#clangd" class="md-nav__link">
-    配置 clangd 插件
-  </a>
-  
-    <nav class="md-nav" aria-label="配置 clangd 插件">
+    <nav class="md-nav" aria-label="冲突是如何形成的">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#clangd_1" class="md-nav__link">
-    安装 clangd 插件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    两处配置
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clangd_2" class="md-nav__link">
-    clangd 具体使用
+  <a href="#_2" class="md-nav__link">
+    实践：冲突是如何产生的
   </a>
   
 </li>
@@ -789,8 +761,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#clangd_3" class="md-nav__link">
-    clangd 插件的使用
+  <a href="#_3" class="md-nav__link">
+    如何解决冲突
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    在 GitHub 上解决冲突
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscode" class="md-nav__link">
+    使用 VSCode 解决冲突
   </a>
   
 </li>
@@ -807,52 +793,70 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ttttLarva/Larva/blob/master/docs/remote_cpp_development/Clangd.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/ttttLarva/Larva/blob/master/docs/github/09_merge_conflicts.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="linux-c-ideclangd">Linux 下打造 C++ 完美开发 IDE：clangd<a class="headerlink" href="#linux-c-ideclangd" title="Permanent link">&para;</a></h1>
-<p><img alt="🌏" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f30f.svg" title=":earth_asia:" /> <strong>Bilibili视频传送门：</strong> <a href="https://www.bilibili.com/video/BV16g411N77i?spm_id_from=333.999.0.0">远程开发C++_004_clangd</a> <img alt="🌏" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f30f.svg" title=":earth_asia:" /></p>
-<p>一般在 Windows 上做 C++ 开发时，首选的 IDE 是 Visual Studio。Visual Studio 号称宇宙第一 IDE，也确实非常地好用，它的调试和符号跳转窗口都为开发 C++ 提供了非常大的便捷。</p>
-<h2 id="linux-c">Linux 上如何做 C++ 开发<a class="headerlink" href="#linux-c" title="Permanent link">&para;</a></h2>
-<p>但是如果需要在 Linux 上做 C++ 开发，该怎么办呢？</p>
-<p>去搜索解决方案的话，可能会搜索到，通过配置 VIM 和 EMACS 来达到和 IDE 一样的效果。但是 VIM 这样的编译器，它的使用门槛是比较高的，是不适合刚刚从 Windows 转过来的 Linux 小白程序员。</p>
-<p>但好消息是托 LLVM 和 VSCode 的福，只要拥有了 VSCode，再配合 clangd 插件，就可以使 VSCode 拥有和 IDE 一样的体验。</p>
-<p>VSCode 的 clangd 插件是依赖于 clangd server 程序的，clangd server 是 LLVM 系列产品里的一个，之前说的 clangd-format 也是， 它可以帮助分析 C++ 文件，可以在 GitHub 上进行下载 <a href="https://github.com/clangd/clangd/releases">clangd server</a>。</p>
-<p>当下载完成 clangd 之后，将其解压，然后直接运行里面 bin 文件的 clangd，输入 <code>./bin/clangd</code>。如果运行成功，那么就说明我们也安装成功了。</p>
-<h2 id="clangd">配置 clangd 插件<a class="headerlink" href="#clangd" title="Permanent link">&para;</a></h2>
-<p>安装成功 clangd server 之后呢，需要配置 VSCode。</p>
-<h3 id="clangd_1">安装 clangd 插件<a class="headerlink" href="#clangd_1" title="Permanent link">&para;</a></h3>
-<p><img alt="clangd 插件" src="clangd_pics/Xnip2022-05-11_14-16-39.jpg" /></p>
-<p><strong>补充</strong> ：如果安装了 clangd，那么就不要使用微软的 C++ 库了，需要 disable 掉，不然 clangd 是使用不成功的。</p>
-<h3 id="_1">两处配置<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>接着需要对这个插件进行一些配置：</p>
-<p>点击设置按钮，点击 Extension Settings。</p>
-<p><img alt="设置" src="clangd_pics/Xnip2022-05-11_14-21-50.jpg" /></p>
-<p>第一个是 clangd server，也就是我们刚刚下载的那个 clangd server 的路径。</p>
-<p>首先切换到 Linux 下的远程服务器的配置页面。</p>
-<p>然后配置的是 clangd 的 path，也就是 server 的 path 配置。</p>
-<p><img alt="path" src="clangd_pics/Xnip2022-05-11_14-28-11.jpg" /></p>
-<p>例子：<code>/home/ttlarva/clangd/clangd_13.0.0/bin/clangd</code></p>
-<p>第二个配置是给 clangd server 增加一些运行时选项。</p>
-<p>比如说可以增加 -j，后面接上 48。这个选项的意思就是希望 clangd 以 48 个线程来解析当前的工程，能更快、更高效地运作。</p>
-<p><img alt="增加选项" src="clangd_pics/Xnip2022-05-11_14-35-29.jpg" /></p>
-<p>以上就对一个项目的 clangd 插件做好配置了。</p>
-<h3 id="clangd_2">clangd 具体使用<a class="headerlink" href="#clangd_2" title="Permanent link">&para;</a></h3>
-<p>clangd 为了能够更好地解析 C++ 文件，需要用户提供每个文件的编译选项，当然这不需要再手工做了，可以在 CMake 时加上 <code>-DCMAKE_EXPORT_COMPILE_COMMANDS=1</code> 的选项。</p>
-<p>以上篇 <a href="CMake.html">cmake_example</a> 为准, 来演示一下 clangd 的使用。</p>
-<p>创建 build 目录，依次输入 <code>mkdir build</code>，<code>ls</code>，<code>cd build/</code>，<code>cmake .. -DCMAKE_EXPORT_COMPILE_COMMANDS=1</code> 后，就编译完成了。</p>
-<p>在 CMake 构建完成之后呢，就可以发现在 build 目录下多了一个 json 文件。这个 json 文件指明了项目中每个文件的一个编译方式。</p>
-<p>那也是因为这个 compile_commands.json 文件, 它可以使 clangd 更好地帮助进行一些符号跳转、查找、调试之类的功能。</p>
-<p>当执行完以上操作以后，就可以来体会一下把 VSCode 当成 IDE 的感觉了。</p>
-<h2 id="clangd_3">clangd 插件的使用<a class="headerlink" href="#clangd_3" title="Permanent link">&para;</a></h2>
-<p>首先，当把鼠标停在某个函数，然后点击右键，会发现它多出了非常熟悉的选项。</p>
-<p>接着来试一下符号跳转，按住 Control，然后鼠标左键，就可以对函数进行跳转。</p>
-<p>它也可以对文件进行跳转，使用 <strong>Control+P</strong> ，打开标识符搜索框。</p>
-<p>原来这个标识符搜索框是只可以搜索文件的，但现在可以搜索符号了，使用 <strong>@</strong> ，是在当前文件夹下搜索一个标识符。</p>
-<p>这里比较少，就只有 main，可以多加两个函数：<code>int fun1(){}</code> 和 <code>Void fun2(){}</code>。再试试，就会发现它这里就有了三个标识符。</p>
-<p>除了能在当前文件中搜索外，还可以使用 <strong>#</strong> 来在全局搜索：Control+P，输入 #print 可以搜索 print，选择后，可以来到 studio 这个文件下。</p>
+                <h1 id="git-merge-conflicts">解决 Git 冲突：Merge Conflicts<a class="headerlink" href="#git-merge-conflicts" title="Permanent link">&para;</a></h1>
+<p><img alt="🌏" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f30f.svg" title=":earth_asia:" /> <strong>Bilibili视频传送门：</strong> <a href="https://www.bilibili.com/video/BV1aF411s7Ti?spm_id_from=333.999.0.0">解决 Git 冲突：Merge Conflicts</a> <img alt="🌏" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f30f.svg" title=":earth_asia:" /></p>
+<p>这篇文章是 GitHub 专题，参与过开源项目的同学或早或晚都会遇到 Git 冲突的问题。</p>
+<p>本篇文章想让大家知其然知其所以然，结构如下：</p>
+<ul>
+<li>冲突是如何形成的</li>
+<li>如何解决冲突</li>
+<li>在 GitHub 上解决冲突</li>
+<li>使用 VSCode 解决冲突</li>
+</ul>
+<h2 id="_1">冲突是如何形成的<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在使用 GitHub 参与开源项目时，可能会遇到多个 commit 修改的代码都是同一处的情况。</p>
+<p>举个例子， A 同学和 B 同学都基于主分支进行修改。A 同学将某行代码写成了 Default True。但是 B 同学将某行代码写成了 Default False，然后先后合并入了主分支。</p>
+<p><img alt="" src="image/Xnip2022-05-13_00-03-52.jpg" /></p>
+<p>此时 Git 检测到这两个同学都对这同一行代码进行了修改。但是 Git 却没有能力去判断哪一个修正是正确的，哪一个修改是更好的。</p>
+<p>这样的冲突，机器是没有办法通过自动化解决的，它需要人为地通过逻辑判断才能解决。于是 Git 就会报告产生了冲突，请求 B 同学去解决冲突。</p>
+<p>那冲突到底长什么样呢？接下来，本篇文章就将模拟 A 和 B 同学，用命令行演示一下冲突的形成过程。</p>
+<h3 id="_2">实践：冲突是如何产生的<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>接下来，以开源项目 OneFlow 中的 libai 仓库中的文档作为例子来演示。模拟 A 和 B 同学都对 libai 仓库中的 README 文件进行修改。</p>
+<p>首先，A 同学基于 main 分支建立了一个 branch_a 的分支，<code>git checkout -b branch_a</code>。他在 branch_a 上做了修改，比如他认为文档中提及的版本应该是 0.A.0，修改保存，并且他做了修改之后，进行了提交，<code>git commit -a -m “by a”</code>。</p>
+<p>接着来模拟 B 同学的操作，先切换到主分支，<code>git checkout main</code>。B 同学他也是类似的，基于 main 分支也创立了一个 branch_b 的分支，<code>git checkout -b branch_b</code>。但是 B 同学就和 A 同学的意见冲突了，他认为这个版本应该是 0.B.0，于是他做了相应的修改。接着，B 同学对这一笔修改进行了提交 commit，<code>git commit -a -m “by b”</code>。</p>
+<p>完成后，切换回主分支。接着，主分支想要合并新功能。所以，我们首先合并 a 分支，<code>git merge branch_a</code>, 然后就合并成功了。接着，类似地合并 b 分支，<code>git merge branch_b</code>。可以发现这里会报冲突，这是由于 A 和 B 修改了相同的地方，所以 Git 检测到了，并且提示了要先去解决冲突后，再来提交。</p>
+<p><img alt="conflict" src="image/Xnip2022-05-13_00-55-04.jpg" /></p>
+<h2 id="_3">如何解决冲突<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>冲突产生了，那么就必须通过人为解决才能合并入分支。实际上，Git 检测和标记冲突的方式是非常朴素且直接的，其实就是纯文本格式。</p>
+<p>用 notepad++ 打开刚刚修改过的 README 文件。可以发现 Git 检测出了发生冲突的地方，并且用大于，等于，小于符号作为分隔符都标记了出来，这一切它都是一种纯文本的格式。</p>
+<div class="highlight"><pre><span></span><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+LiBai 是一个基于 Oneflow 的大型规模模型训练开源工具箱，主分支代码目前支持 OneFlow 0.A.0 以上的版本。
+=======
+LiBai 是一个基于 Oneflow 的大型规模模型训练开源工具箱，主分支代码目前支持 OneFlow 0.B.0 以上的版本。
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch_b
+</code></pre></div>
+<p>大多数情况下，可能都是需要对这两个内容进行一个二选一的操作，即保留必要的内容，删除不必要的内容，还包括这里的标记符号。假设要保留 A 的修改，那就需要删掉 B 的内容和删掉分隔符。</p>
+<div class="highlight"><pre><span></span><code>LiBai 是一个基于 Oneflow 的大型规模模型训练开源工具箱，主分支代码目前支持 OneFlow 0.A.0 以上的版本。
+</code></pre></div>
+<p>保存后，再查看一下状态，<code>git status</code>。接着，将刚刚的改动进行一个提交，<code>git add .</code>。</p>
+<p>可以看到，它自动生成了 commit 的信息。</p>
+<p>输入 <code>git commit</code> 就可以提交成功了。</p>
+<p>可以输入 <code>git log</code> 查看一下，可以看到 branch_a 和 branch_b 都已经合并到了 main 分支，还有一个用于解决冲突的 commit。</p>
+<p>到目前为止，我们已经通过最本质的方式在本地制造了冲突，又解决了它。然而在更多情况下，作为开源贡献者，大家都是在远程协作的情况下产生的冲突。</p>
+<p>而 GitHub，大家可以理解为网页版的 Git 前端，它有一些很方便的设计来帮助解决冲突。</p>
+<h2 id="github">在 GitHub 上解决冲突<a class="headerlink" href="#github" title="Permanent link">&para;</a></h2>
+<p>这里用小糖 fork 的 OneFlow 的 libai 仓库作为例子，依旧是和前面一样的例子。不过现在需要将 branch_a 和 branch_b 这两个分支给推送到远程仓库，并且创建 PR。接着，创建一个 PR 到自己的仓库后，然后点击 merge。</p>
+<p>接着，我们也对 b 分支进行一个创建 PR。可以看到这里 GitHub 已经检测出了在 README 这个文件中产生了冲突必须要解决。</p>
+<p>这个时候需要点击 Resolve Conflicts 来解决。</p>
+<p><img alt="conflicts" src="image/Xnip2022-05-13_02-01-06.jpg" /></p>
+<p>然后可以发现 GitHub 的界面有一点点像网页版的编辑器，可以和刚刚本地的操作类似，去掉不重要，不必要的内容和分隔符。完成后，我们要点击右上角的 <strong>Mark as resolved</strong> ，接着点击 <strong>Commit merge</strong>。然后，就可以点到 <strong>Merge pull request</strong> 了。这样 branch_b 的 PR 也成功的被合并了。</p>
+<p>回过头看看，可以看到有两笔 commit。第一笔，是我们本地的修改的 b 版本，第二笔，就是解决冲突时产生的 commit。</p>
+<p>GitHub 可以使得在网页上就能解决冲突，但是对于一些比较复杂的冲突，GitHub 网页端也是无能为力，此时就需要像视频开始那样通过命令行 + 编辑器的方式来解决冲突。</p>
+<p>刚刚用的编辑器是 Notepad++，但是这里推荐使用 VSCode 作为编辑器。VSCode 针对 Git 做了一些功能优化，这样能够大大提升我们解决冲突的效率</p>
+<h2 id="vscode">使用 VSCode 解决冲突<a class="headerlink" href="#vscode" title="Permanent link">&para;</a></h2>
+<p>接下来看看，VSCode 面对冲突时是什么样子，可以发现 VSCode 非常体贴，它以彩色的方式来呈现了冲突，A 的修改是绿色的，B 的修改是蓝色的。</p>
+<p><img alt="VSCode" src="image/Xnip2022-05-13_02-35-12.jpg" /></p>
+<p>此外，VSCode 还提供了一些按键使得我们的操作更简便。</p>
+<p>比如想保留 a 分支的内容，就应该删除 b 分支的内容和分隔符。在 VSCode 中就非常方便了，只用点击 <strong>Accept Current Change</strong> 这个按钮，就可以发现不需要的东西都被删除了。</p>
+<p>并且，由于这些操作其实都是纯文本的操作，是可以撤销的，点击 Edit 中的 <strong>Undo</strong> 就可以还原。</p>
+<p><strong>Accept Incoming Change</strong> 是保留 b 分支的内容。
+<strong>Accept Both Changes</strong> 是两个分支都保留。</p>
+<p>剩下的有兴趣的话，都可以自己去试一试，总之来说就是非常的方便。</p>
                 
               
               
@@ -877,7 +881,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="CMake.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 编译 C++ 项目必备 CMake" rel="prev">
+        <a href="08_GitHub_Actions.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: GitHub Actions 介绍 &amp; 使用" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -886,11 +890,26 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              编译 C++ 项目必备 CMake
+              GitHub Actions 介绍 & 使用
             </div>
           </div>
         </a>
       
+      
+        
+        <a href="../learn_cpp/01_rvalue_ref.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 右值引用" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              右值引用
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
