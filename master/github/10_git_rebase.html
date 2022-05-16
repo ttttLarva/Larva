@@ -11,14 +11,14 @@
       
       
       
-        <link rel="canonical" href="https://www.ttlarval.org/master/github/04_beauty_code.html">
+        <link rel="canonical" href="https://www.ttlarval.org/master/github/10_git_rebase.html">
       
       <link rel="icon" href="../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.1.11">
     
     
       
-        <title>美化代码工具分享 - TTLarva</title>
+        <title>删除指定 commit 小妙招 git rebase - TTLarva</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#commit-git-rebase" class="md-skip">
           跳转至
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              美化代码工具分享
+              删除指定 commit 小妙招 git rebase
             
           </span>
         </div>
@@ -350,58 +350,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          美化代码工具分享
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="04_beauty_code.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="04_beauty_code.html" class="md-nav__link">
         美化代码工具分享
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    引入
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#blackclang-format" class="md-nav__link">
-    black和clang-format工具
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -469,11 +422,58 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="10_git_rebase.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          删除指定 commit 小妙招 git rebase
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="10_git_rebase.html" class="md-nav__link md-nav__link--active">
         删除指定 commit 小妙招 git rebase
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#commit" class="md-nav__link">
+    什么情况需要删除指定 commit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-rebase-commit" class="md-nav__link">
+    使用 git rebase 删除指定 commit
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -726,15 +726,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    引入
+  <a href="#commit" class="md-nav__link">
+    什么情况需要删除指定 commit
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#blackclang-format" class="md-nav__link">
-    black和clang-format工具
+  <a href="#git-rebase-commit" class="md-nav__link">
+    使用 git rebase 删除指定 commit
   </a>
   
 </li>
@@ -751,58 +751,46 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ttttLarva/Larva/blob/master/docs/github/04_beauty_code.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/ttttLarva/Larva/blob/master/docs/github/10_git_rebase.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="_1">美化代码工具分享<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p><img alt="🌏" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f30f.svg" title=":earth_asia:" /> <strong>Bilibili视频传送门：</strong><a href="https://www.bilibili.com/video/BV1iQ4y1X7xs?share_source=copy_web">美化代码工具分享</a> <img alt="🌏" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f30f.svg" title=":earth_asia:" /></p>
-<p>本期视频和大家分享一下怎么让自己的代码变"漂亮"。</p>
-<p>代码编程规范："华为C语言编程规范" 和 "微软一站式编码标准"</p>
-<h2 id="_2">引入<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>在学习深度学习框架<code>OneFlow</code>时，我发现用命令</p>
-<div class="highlight"><pre><span></span><code>make of_format
-</code></pre></div>
-<p>就可以自动美化代码。所以就追溯了以上命令的实现，发现了black和clang-format这两个命令</p>
-<h2 id="blackclang-format">black和clang-format工具<a class="headerlink" href="#blackclang-format" title="Permanent link">&para;</a></h2>
-<p><strong>是什么</strong></p>
-<ul>
-<li>
-<p>black 是python的一个第三方库，可以格式化python代码</p>
-</li>
-<li>
-<p>clang-format 是一个而精致文件，可以格式化C++、JAVA代码</p>
-</li>
-</ul>
-<p><strong>怎么用</strong></p>
-<ul>
-<li>
-<p>black工具</p>
-</li>
-<li>
-<p>安装black工具</p>
-<div class="highlight"><pre><span></span><code>pip insatll black
-</code></pre></div>
-</li>
-<li>
-<p>使用方法</p>
-<div class="highlight"><pre><span></span><code>python -m black 路径/文件名
-</code></pre></div>
-</li>
-<li>
-<p>clang-format</p>
-</li>
-<li>
-<p>安装</p>
-<p>clang-format是LLVM工具集中的一款工具，我们可以通过安装LLVM获取。下载地址https://releases.llvm.org/</p>
-</li>
-<li>
-<p>使用方法</p>
-<div class="highlight"><pre><span></span><code>clang-format 路径/文件名
-</code></pre></div>
-</li>
-</ul>
+                <h1 id="commit-git-rebase">删除指定 commit 小妙招：git rebase<a class="headerlink" href="#commit-git-rebase" title="Permanent link">&para;</a></h1>
+<p><img alt="🌏" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f30f.svg" title=":earth_asia:" /> <strong>Bilibili视频传送门：</strong> <a href="https://www.bilibili.com/video/BV1Ka411b7jt?spm_id_from=333.999.0.0">删除指定 commit 小妙招：git rebase</a> <img alt="🌏" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f30f.svg" title=":earth_asia:" /></p>
+<p>本篇文章将介绍 git 的 rebase 命令，它可以帮助删除某条指定的 commit。</p>
+<p>有时候，可能在一个分支中提交了多笔 commit，但是事后又想要删除某些 commit 应该怎么办？ </p>
+<p>这时候，有些同学就会说使用 git reset 命令就好，但是这其实是不行的。</p>
+<p>git reset 命令它的作用是回滚到某个 commit，在这个 commit 之后的所有 commit 都会被删除。</p>
+<p><img alt="" src="image/Xnip2022-05-13_02-59-45.jpg" />
+<img alt="" src="image/Xnip2022-05-13_03-00-04.jpg" /></p>
+<p>正因如此，才需要介绍 git rebase 命令。</p>
+<h2 id="commit">什么情况需要删除指定 commit<a class="headerlink" href="#commit" title="Permanent link">&para;</a></h2>
+<p>什么样的场景才会删除指定的 commit?</p>
+<p>以 OneFlow 的 <a href="https://GitHub.com/Oneflow-Inc/vision">flowvision 仓库</a>作为例子。</p>
+<p>假定修改 flowvision 的 README 文件，一共有三个 feature，需要提交三次 commit。</p>
+<p>首先，第一个 commit 修改了版本，把 <code>pip install flowvision==0.1.0</code> 改成了 <code>pip install flowvision==0.A.0</code>，保存后，进行提交。</p>
+<p>第二个修改，修改了模型，把 <code>&lt;li&gt;AlexNet&lt;/li&gt;</code> 修改成 <code>&lt;li&gt;TangNet&lt;/li&gt;</code>，保存，进行提交。</p>
+<p>第三个 commit，修改了示例代码，将 <code>model = alexnet()</code> 修改成 <code>model = TangNet()</code>，保存，进行提交。 </p>
+<p>接着，用 <code>git log</code> 查看一下，可以发现这三个 commit 都已经提交了。</p>
+<p>那么现在问题就来了，如果后来发现第二个 commit 的修改是不合适的，想要单独删除第二个 commit，同时保留另外两个，第一个和第三个 commit 应该怎么办？</p>
+<p>这个时候就需要用到 <strong>git rebase</strong> 命令了。</p>
+<h2 id="git-rebase-commit">使用 git rebase 删除指定 commit<a class="headerlink" href="#git-rebase-commit" title="Permanent link">&para;</a></h2>
+<p>git 的 rebase 命令顾名思义就是需要重新去选择一个 commit 作为 base，然后重新决定这个 base 之后的 commit 要怎么处理。</p>
+<p>所以，敲重点来了，它的使用其实是分成两步走的：</p>
+<p>第一步：是选择一个 commit 作为新的 base</p>
+<p>第二步：是决定这个 base 之后每个 commit 该如何处理</p>
+<p>接下来，就实际操作一下。</p>
+<p>首先先用 <code>git log</code> 查看一下，找到那三笔 commit 之前的 commit，将它作为 base，这样子在它之后的 commit 就需要重新决定如何处理。</p>
+<p>然后，运行 <code>git rebase -i commit_hash</code>， 后面接上我们刚刚选择的 base 的 hash 值。</p>
+<p>例子：<code>git rebase -i f9d69755dd876dea481ece7775413d879bcf65a7</code></p>
+<p>这个时候跳转到了一个文本页面，它显示了刚刚做的三个修改的 commit。</p>
+<p>找到第二个修改，把 <strong>pick</strong> 改成 <strong>drop</strong> ，然后保存，退出，就操作成功了。</p>
+<p><img alt="pick" src="image/Xnip2022-05-15_21-34-47.jpg" /></p>
+<p><img alt="drop" src="image/Xnip2022-05-15_21-37-55.jpg" /></p>
+<p>接着再 <code>git log</code> 查看一下， 可以发现第二笔 commit 确实神奇地被删除了。</p>
+<p>其实 rebase 的功能有很多，除了像刚刚看到的 pick、drop， 还有像 squash、reset 等用处。</p>
+<p>感兴趣的同学可以参考一下 <a href="https://docs.github.com/en/get-started/using-git/about-git-rebase">git 的帮助文档</a>。</p>
                 
               
               
@@ -827,7 +815,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="03_SSH_for_github.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: github SSH免密码登录设置" rel="prev">
+        <a href="09_merge_conflicts.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 解决 Git 冲突 Merge Conflicts" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -836,20 +824,20 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              github SSH免密码登录设置
+              解决 Git 冲突 Merge Conflicts
             </div>
           </div>
         </a>
       
       
         
-        <a href="05_get_started_with_Markdown.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 快速上手 Markdown" rel="next">
+        <a href="../learn_cpp/01_rvalue_ref.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 右值引用" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              快速上手 Markdown
+              右值引用
             </div>
           </div>
           <div class="md-footer__button md-icon">

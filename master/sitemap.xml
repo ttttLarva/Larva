@@ -51,6 +51,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.ttlarval.org/master/github/10_git_rebase.html</loc>
+         <lastmod>2022-05-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.ttlarval.org/master/learn_cpp/01_rvalue_ref.html</loc>
          <lastmod>2022-05-16</lastmod>
          <changefreq>daily</changefreq>
