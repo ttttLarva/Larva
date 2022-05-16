@@ -60,6 +60,10 @@ git 的 rebase 命令顾名思义就是需要重新去选择一个 commit 作为
 
 找到第二个修改，把 **pick** 改成 **drop** ，然后保存，退出，就操作成功了。
 
+![pick](image/Xnip2022-05-15_21-34-47.jpg)
+
+![drop](image/Xnip2022-05-15_21-37-55.jpg)
+
 接着再 `git log` 查看一下， 可以发现第二笔 commit 确实神奇地被删除了。
 
 其实 rebase 的功能有很多，除了像刚刚看到的 pick、drop， 还有像 squash、reset 等用处。
