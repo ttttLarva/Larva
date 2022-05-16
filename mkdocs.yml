@@ -110,6 +110,7 @@ nav:
       - MkDocs 工具使用: github/06_Mkdocs.md
       - GitHub Pages 的生成和使用: github/07_GitHub_Pages.md
       - GitHub Actions 介绍 & 使用: github/08_GitHub_Actions.md
+      - 解决 Git 冲突 Merge Conflicts: github/09_merge_conflicts.md
     
     - 研究 C++ 新语法:
       - 右值引用: learn_cpp/01_rvalue_ref.md
