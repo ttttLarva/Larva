@@ -120,7 +120,7 @@ size<=4
 	template<class T,class U>struct is_same
 ```
 - 当T==U时， is_same<T,U>模板类的成员value等于True
-- 当T==U时， is_same<T,U>模板类的成员value等于False
+- 当T!=U时， is_same<T,U>模板类的成员value等于False
 
 
 
