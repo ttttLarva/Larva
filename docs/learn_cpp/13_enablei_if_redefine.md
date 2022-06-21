@@ -44,7 +44,7 @@ enable_if 的另一种用法
 
 - 本段代码的期待是：如果是 AMyClass 返回1， BMyClass 返回2。执行后，报错如下：
 
-  - ![image-20220621114534324](C:\Users\z35gu\Desktop\1.png)
+  - `error: redefinition of 'template<class T,class> unsigned int len(const T&)'`
 
 - 错误原因分析：
 
