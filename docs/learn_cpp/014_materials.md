@@ -3,7 +3,7 @@
 
 :earth_asia: **Bilibili视频传送门：** [C++新标准014_模板元编程资料](https://www.bilibili.com/video/BV1Lg41197MN?spm_id_from=333.999.0.0&vd_source=c64a1b3ef62311672865e1655c1eddeb) :earth_asia:
 
-为了更好地入门或提升模板元编程能力，我们整理了3个视频，2本书籍，共五个资料推荐给大家。
+为了更好地入门或提升模板元编程能力，我们整理了 3 个视频，2 本书籍，共五个资料推荐给大家。
 
 ##1. **视频传送门：** [CPPCON 2020: Template MetaProgramming](https://www.youtube.com/watch?v=tiAVWcjIF6o) 
 
@@ -14,13 +14,13 @@
 
 
 该视频还介绍了模板元编程中的约定、规范，然后选择了常用典型的 type traits 做了分析，期间还谈到了各种具体又有深度的概念，比如 void constant
-、 SFINA 等等。
+、SFINA 等等。
 
 并且这个视频做了一个很好的分流：
 
     if 你看完这个视频觉得非常受用:
 
-        说明你对模板元编程的概念已经掌握的不错了，下一步可以实战操练，比如看看 One Flow 源码;
+        说明你对模板元编程的概念已经掌握的不错了，下一步可以实战操练，比如看看 OneFlow 源码;
 
     else if 你看完视频还是很懵:
     
@@ -61,7 +61,7 @@ CPP Conference 有一个 Back to Basics 专题，由一些技术大牛讲解一�
 不过本书的内容大部分都集中在 C++ 11，还没有引入更新的标准。
 
 
-## 扩展阅读：One Flow 源码
+## 扩展阅读：OneFlow 源码
 
 - [Oneflow-Github](https://github.com/Oneflow-Inc/oneflow)
 
