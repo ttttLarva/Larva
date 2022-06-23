@@ -1,7 +1,11 @@
 # 新标准：enable_if
 :earth_asia: **Bilibili视频传送门：**[C++新标准012  enable_if](https://www.bilibili.com/video/BV1Tv4y1N73A?spm_id_from=333.999.0.0&vd_source=0184d13a7c21515c19c1cdb9230751c8) :earth_asia:
 
+<<<<<<< HEAD
 [上一期视频](https://www.bilibili.com/video/BV1yr4y1t7qo?spm_id_from=333.999.0.0&vd_source=0184d13a7c21515c19c1cdb9230751c8)我们介绍了 SFINAE 原则，在此基础上，本篇文章将继续介绍了`enable_if` 新标准，为后续深入学习模板元编程打下基础。
+=======
+[上一期视频](https://www.bilibili.com/video/BV1yr4y1t7qo?spm_id_from=333.999.0.0&vd_source=0184d13a7c21515c19c1cdb9230751c8) 我们介绍了 SFINAE 原则，在此基础上，本篇文章将继续介绍了 `enable_if` 新标准，为后续深入学习模板元编程打下基础。
+>>>>>>> 20c9ded04ccd9ccd4ae3c4700e3cf43b5f8979ff
 
 本文的结构如下：
 - 为什么要使用`enable_if`？
