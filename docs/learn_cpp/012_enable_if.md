@@ -7,7 +7,7 @@
 
 本文的结构如下：
 - 为什么要使用 `enable_if` ？
-- `enable_if` 与`is_same` 的使用
+- `enable_if` 与 `is_same` 的使用
 - `enable_if` 与 `is_same` 内部的实现原理
 
 
@@ -74,7 +74,7 @@ int main()
     cout << len(CMyclass()) << endl;
 }
 ```
-该程序的输出结果与不采用`enable_if`的程序一致，说明采用`enable_if`也可以实现**重载函数避免匹配到特例类**的功能。
+该程序的输出结果与不采用 `enable_if` 的程序一致，说明采用 `enable_if` 也可以实现**重载函数避免匹配到特例类**的功能。
 
 不同的地方在于，`enable_if` 可以避免匹配到 `CMyclass` 这个类，`decltype(T().size(), typename T::size_type()) len(T const &t)` 是避免匹配到不包含 `size()` 成员函数的类；
 相比之下 `enable_if` 更加**灵活**。
@@ -90,10 +90,10 @@ template<bool B,typename T=void>struct enable_if
 - 当传入的模板参数 `B` 为 `True` 的时候，`enable_if` 模板类的 `type` 就等于 `T` ；如果不传入模板参数 `T` ， `type` 也会默认为 `void` 
 - 当传入的模板参数 `B` 为 `False` 的时候， `enable_if` 模板类就不再拥有 `type` 。
 
-使用`enable_if`时可以让重载函数自由丢弃不需要匹配的特例类；下面给出实际应用的例子
+使用 `enable_if` 时可以让重载函数自由丢弃不需要匹配的特例类；下面给出实际应用的例子
 
 ```c++
-#判断类型字节数是否大于4 输出显示
+#判断类型字节数是否大于4输出显示
 template <typename T>
 typename std::enable_if<(sizeof(T) <= 4)>::type show() //针对 `T` 的长度小于等于4的情况生效
 {
@@ -127,7 +127,7 @@ template<class T,class U>struct is_same
 - 当模板参数 `T` 等于模板参数 `U` 时, `is_same<T,U>`模板类的成员 `value` 等于 `True`
 - 当模板参数 `T` 不等于模板 `U` 时, `is_same<T,U>`模板类的成员 `value` 等于 `False`
 
-`is_same`经常与`eanble_if`搭配使用
+`is_same` 经常与 `eanble_if` 搭配使用
 ```c++
 template <typename T, typename T2 = typename enable_if<!is_same<T, CMyclass>::value>::type> //`enable_if`形式
 typename T::size_type len(T const &t)
@@ -135,7 +135,7 @@ typename T::size_type len(T const &t)
     return t.size();
 }
 ```
-`enable_if`模板类的第一个参数经常用 `is_same` 的 `value` 来代替，结合起来对一些特例进行判断，实现 SFINAE
+`enable_if` 模板类的第一个参数经常用 `is_same` 的 `value` 来代替，结合起来对一些特例进行判断，实现 SFINAE
 
 
 
@@ -145,12 +145,12 @@ typename T::size_type len(T const &t)
 
 ### 什么是  type traits?
 
- traits  是 c++ 模板编程中使用的一种技术，主要功能： 
- 把功能相同而参数不同的函数抽象出来，通过  traits  将不同的参数的相同属性提取出来，在函数中利用这些用  traits  提取的属性，使得**函数对不同的参数表现一致**。
+ traits 是 c++ 模板编程中使用的一种技术，主要功能： 
+ 把功能相同而参数不同的函数抽象出来，通过 traits 将不同的参数的相同属性提取出来，在函数中利用这些用 traits 提取的属性，使得**函数对不同的参数表现一致**。
 
 ### enable_if 源码解析
 
-下面给出`enable_if`的源码
+下面给出 `enable_if` 的源码
 ```c++
 template<bool, typename _Tp = void>
 struct enable_if
@@ -163,7 +163,7 @@ struct enable_if<true, _Tp>
 };
 ```
 - 首先定义了一个空的通用模板，不包含任何成员
-- 当第一个模板参数值为 `True` 时，将模板特例化； `type` 的类型为第二个模板参数 `_Tp` 。
+- 当第一个模板参数值为 `True` 时，将模板特例化; `type` 的类型为第二个模板参数 `_Tp` 。
 
 ###  is_same 源码解析
 
@@ -190,5 +190,5 @@ struct my_is_same
 ## 总结
 
 - **`enable_if` 是通用的避免重载函数匹配到特例类的解决方案,使用简单而且更加自由。**
-- **`is_same`与 `enable_if` 是 type traits 技术的典型应用,实现函数对不同参数表现一致的功能。**
+- **`is_same` 与 `enable_if` 是 type traits 技术的典型应用,实现函数对不同参数表现一致的功能。**
 - **`is_same` 与 `enable_if` 的源码实现采用了模板元编程的基本实现思想，大致分为通用模板与模板特例化。**
