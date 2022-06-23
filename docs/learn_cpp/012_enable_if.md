@@ -1,7 +1,7 @@
 # 新标准：enable_if
 :earth_asia: **Bilibili视频传送门：**[C++新标准012  enable_if](https://www.bilibili.com/video/BV1Tv4y1N73A?spm_id_from=333.999.0.0&vd_source=0184d13a7c21515c19c1cdb9230751c8) :earth_asia:
 
-[上一期视频](https://www.bilibili.com/video/BV1yr4y1t7qo?spm_id_from=333.999.0.0&vd_source=0184d13a7c21515c19c1cdb9230751c8)我们介绍了SFINAE原则，在此基础上，本篇文章将继续介绍了enable_if新标准，为后续深入学习模板元编程打下基础。
+[上一期视频](https://www.bilibili.com/video/BV1yr4y1t7qo?spm_id_from=333.999.0.0&vd_source=0184d13a7c21515c19c1cdb9230751c8)我们介绍了 SFINAE 原则，在此基础上，本篇文章将继续介绍了`enable_if` 新标准，为后续深入学习模板元编程打下基础。
 
 本文的结构如下：
 - 为什么要使用`enable_if`？
@@ -20,7 +20,7 @@ public:
 };
 
 template <typename T>
-decltype(T().size(), typename T::size_type()) len(T const &t) //该函数可以避免匹配到CMyclass类
+decltype(T().size(), typename T::size_type()) len(T const &t) //该函数可以避免匹配到 CMyclass 类
 {
     return t.size();
 }
@@ -40,7 +40,7 @@ int main()
 
 为了实现 SFINAE ，同时降低程序的繁琐度，C++11 采用了具有通用性的`enable_if`新标准代替这种技巧 ；我们使用`enable_if`的形式重写该函数
 ```c++
-//enable_if的应用
+// `enable_if`的应用
 class CMyclass
 {
 public:
@@ -53,7 +53,7 @@ public:
 //     return t.size();
 // }
 
-template <typename T, typename T2 = typename enable_if<!is_same<T, CMyclass>::value>::type> //enable_if形式
+template <typename T, typename T2 = typename enable_if<!is_same<T, CMyclass>::value>::type> //`enable_if`形式
 typename T::size_type len(T const &t)
 {
     return t.size();
@@ -82,21 +82,21 @@ int main()
 ```c++
 template<bool B,typename T=void>struct enable_if
 ```
-- 当传入的模板参数B为`True`的时候，`enable_if`模板类的`type`就等于`T`；如果不传入模板参数`T`，`type`也会默认为`void`
-- 当传入的模板参数B为`False`的时候，`enable_if`模板类就不再拥有`type`。
+- 当传入的模板参数`B`为`True`的时候，`enable_if`模板类的`type`就等于`T`；如果不传入模板参数`T`，`type`也会默认为`void`
+- 当传入的模板参数`B`为`False`的时候，`enable_if`模板类就不再拥有`type`。
 
 使用`enable_if`时可以让重载函数自由丢弃不需要匹配的特例类；下面给出实际应用的例子
 
 ```c++
 #判断类型字节数是否大于4 输出显示
 template <typename T>
-typename std::enable_if<(sizeof(T) <= 4)>::type show() //针对T的长度小于等于4的情况生效
+typename std::enable_if<(sizeof(T) <= 4)>::type show() //针对`T`的长度小于等于4的情况生效
 {
     printf("size<=4\n");
 }
 
 template <typename T>
-typename std::enable_if<(sizeof(T) > 4)>::type show()  //针对T的长度大于4的情况生效
+typename std::enable_if<(sizeof(T) > 4)>::type show()  //针对`T`的长度大于4的情况生效
 {
     printf("size>4\n");
 }
@@ -125,7 +125,7 @@ template<class T,class U>struct is_same
 
 `is_same`经常与`eanble_if`搭配使用
 ```c++
-template <typename T, typename T2 = typename enable_if<!is_same<T, CMyclass>::value>::type> //enable_if形式
+template <typename T, typename T2 = typename enable_if<!is_same<T, CMyclass>::value>::type> //`enable_if`形式
 typename T::size_type len(T const &t)
 {
     return t.size();
@@ -140,7 +140,7 @@ typename T::size_type len(T const &t)
 了解这两个模板类的内部实现原理之前，需要了解 type traits 的概念
 
 ### 什么是  type traits?
- traits  是c++模板编程中使用的一种技术，主要功能： 
+ traits  是 c++ 模板编程中使用的一种技术，主要功能： 
  把功能相同而参数不同的函数抽象出来，通过  traits  将不同的参数的相同属性提取出来，在函数中利用这些用  traits  提取的属性，使得**函数对不同的参数表现一致**。
 
 ### enable_if 源码解析
