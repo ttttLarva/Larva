@@ -1,9 +1,9 @@
 # 搞懂SFINAE
 
 
-:earth_asia: **Bilibili视频传送门：** [C++新标准011\_模板元编程敲门砖：搞懂SFINAE](https://www.bilibili.com/video/BV1yr4y1t7qo?spm_id_from=333.999.0.0) :earth_asia:
+:earth_asia: **Bilibili视频传送门：** [C++新标准011\_模板元编程敲门砖：搞懂 SFINAE](https://www.bilibili.com/video/BV1yr4y1t7qo?spm_id_from=333.999.0.0) :earth_asia:
 
-这期帮大家彻底搞清楚SFINAE是什么，包括三个主要内容：
+这期帮大家彻底搞清楚 SFINAE 是什么，包括三个主要内容：
 
 - 函数重载的解决流程
 - 模板特例的局限性
