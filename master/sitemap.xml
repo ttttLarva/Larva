@@ -56,6 +56,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.ttlarval.org/master/learn_cpp/014_materials.html</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.ttlarval.org/master/learn_cpp/01_rvalue_ref.html</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
