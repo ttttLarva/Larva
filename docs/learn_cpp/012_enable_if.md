@@ -6,9 +6,9 @@
 
 
 本文的结构如下：
-- 为什么要使用`enable_if`？
-- `enable_if`与`is_same`的使用
-- `enable_if`与`is_same`内部的实现原理
+- 为什么要使用 `enable_if` ？
+- `enable_if` 与`is_same` 的使用
+- `enable_if` 与 `is_same` 内部的实现原理
 
 
 ## 为什么要使用 enable_if ？
@@ -76,8 +76,8 @@ int main()
 ```
 该程序的输出结果与不采用`enable_if`的程序一致，说明采用`enable_if`也可以实现**重载函数避免匹配到特例类**的功能。
 
-不同的地方在于，`enable_if`可以避免匹配到`CMyclass`这个类，`decltype(T().size(), typename T::size_type()) len(T const &t) `是避免匹配到不包含`size()`成员函数的类；
-相比之下`enable_if`更加**灵活**。
+不同的地方在于，`enable_if` 可以避免匹配到 `CMyclass` 这个类，`decltype(T().size(), typename T::size_type()) len(T const &t)` 是避免匹配到不包含 `size()` 成员函数的类；
+相比之下 `enable_if` 更加**灵活**。
 
 ##  enable_if 与 is_same 的使用
 
