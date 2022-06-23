@@ -18,6 +18,7 @@
 
 并且这个视频做了一个很好的分流：
 
+```Python
     if 你看完这个视频觉得非常受用:
 
         说明你对模板元编程的概念已经掌握的不错了，下一步可以实战操练，比如看看 OneFlow 源码;
@@ -25,6 +26,7 @@
     else if 你看完视频还是很懵:
     
         那么你需要增强一下基础知识，继续看下面的两个视频;
+```
 
 CPP Conference 有一个 Back to Basics 专题，由一些技术大牛讲解一些看似常见普通但却非常重要的概念，
 推荐对模板编程不熟悉的同学看以下两个视频。
@@ -63,6 +65,6 @@ CPP Conference 有一个 Back to Basics 专题，由一些技术大牛讲解一�
 
 ## 扩展阅读：OneFlow 源码
 
-- [Oneflow-Github](https://github.com/Oneflow-Inc/oneflow)
+- [OneFlow-Github](https://github.com/Oneflow-Inc/oneflow)
 
-- [Oneflow-Index](https://docs.oneflow.org/master/index.html)
+- [OneFlow-Index](https://docs.oneflow.org/master/index.html)
