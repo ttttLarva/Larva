@@ -145,7 +145,7 @@ typename T::size_type len(T const &t)
 
 ### 什么是  type traits?
 
- traits 是 c++ 模板编程中使用的一种技术，主要功能： 
+ traits 是 C++ 模板编程中使用的一种技术，主要功能： 
  把功能相同而参数不同的函数抽象出来，通过 traits 将不同的参数的相同属性提取出来，在函数中利用这些用 traits 提取的属性，使得**函数对不同的参数表现一致**。
 
 ### enable_if 源码解析
