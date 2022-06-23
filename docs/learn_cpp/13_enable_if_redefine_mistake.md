@@ -1,5 +1,5 @@
 # C++新标准013：如何解决enable_if的重定义错误
-:earth_asia: **Bilibili视频传送门：**[C++新标准013：如何解决enable_if的重定义错误](https://www.bilibili.com/video/BV1yR4y1w7Tg?spm_id_from=333.999.0.0&vd_source=edaae2ad9a800ae9096799678a23543e):earth_asia:
+**Bilibili视频传送门：**[C++新标准013：如何解决enable_if的重定义错误](https://www.bilibili.com/video/BV1yR4y1w7Tg?spm_id_from=333.999.0.0&vd_source=edaae2ad9a800ae9096799678a23543e)
 
 本文从 `enablie_if` 错误使用，导致编译报错入手，分析错误原因，并给出解决办法
 
@@ -101,9 +101,9 @@ unsigned len (T const& t)
 当然不一定需要使用指针来做占位符， OneFlow 中例子如下：
 
 ```c++
-  template<typename T, typename std::enable_if<!py::detail::is_pyobject<T>::value, int>::type = 0>
-  ```
+template<typename T, typename std::enable_if<!py::detail::is_pyobject<T>::value, int>::type = 0>
+```
 
-  使用 `int` 类型来做占位符，默认值是0。对应源码地址在：(https://github.com/Oneflow-Inc/oneflow/blob/master/oneflow/api/python/functional/python_arg.h)，71行
+  使用 `int` 类型来做占位符，默认值是0。[对应源码地址](https://github.com/Oneflow-Inc/oneflow/blob/master/oneflow/api/python/functional/python_arg.h)，71行
 
 更多的例子可以在 OneFlow 中搜索
