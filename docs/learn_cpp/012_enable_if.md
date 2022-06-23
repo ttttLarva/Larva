@@ -79,11 +79,11 @@ int main()
 不同的地方在于，`enable_if` 可以避免匹配到 `CMyclass` 这个类，`decltype(T().size(), typename T::size_type()) len(T const &t)` 是避免匹配到不包含 `size()` 成员函数的类；
 相比之下 `enable_if` 更加**灵活**。
 
-##  enable_if 与 is_same 的使用
+## enable_if 与 is_same 的使用
 
-###  enable_if 的使用
+### enable_if 的使用
 
-首先给出`enable_if`的基本形式
+首先给出 `enable_if` 的基本形式
 ```c++
 template<bool B,typename T=void>struct enable_if
 ```
@@ -139,7 +139,7 @@ typename T::size_type len(T const &t)
 
 
 
-##  enable_if 与 is_same 内部的实现原理
+## enable_if 与 is_same 内部的实现原理
 
 了解这两个模板类的内部实现原理之前，需要了解 type traits 的概念
 
@@ -184,7 +184,7 @@ struct my_is_same
 - 定义一个通用模板，针对两个模板参数类型不一致的情况，默认 `value` 值为 `False` 。
 - 模板特例化，针对两个模板参数类型一致的情况，将 `value` 值设置为 `True` 。
 
- `is_same` 和 `enable_if` 的基本实现方案可以总结为：**通用模板加模板实例化**。
+`is_same` 和 `enable_if` 的基本实现方案可以总结为：**通用模板加模板实例化**。
 
 
 ## 总结
