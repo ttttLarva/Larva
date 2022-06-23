@@ -12,6 +12,7 @@
 
 
 ## 为什么要使用 enable_if ？
+
 C++模板函数重载依赖于 SFINAE (substitution-failure-is-not-an-error) 原则，即替换失败不认为是错误，编译器将会继续寻找合适的重载函数；以返回长度的函数为例，该函数针对 STL 中的  `vector` 容器来实现（容器中有`size()`成员函数）
 
 ```c++
@@ -79,7 +80,9 @@ int main()
 相比之下`enable_if`更加**灵活**。
 
 ##  enable_if 与 is_same 的使用
+
 ###  enable_if 的使用
+
 首先给出`enable_if`的基本形式
 ```c++
 template<bool B,typename T=void>struct enable_if
@@ -118,7 +121,6 @@ size<=4
 
 ### is_same 的使用
 
-
 ```c++
 template<class T,class U>struct is_same
 ```
@@ -142,10 +144,12 @@ typename T::size_type len(T const &t)
 了解这两个模板类的内部实现原理之前，需要了解 type traits 的概念
 
 ### 什么是  type traits?
+
  traits  是 c++ 模板编程中使用的一种技术，主要功能： 
  把功能相同而参数不同的函数抽象出来，通过  traits  将不同的参数的相同属性提取出来，在函数中利用这些用  traits  提取的属性，使得**函数对不同的参数表现一致**。
 
 ### enable_if 源码解析
+
 下面给出`enable_if`的源码
 ```c++
 template<bool, typename _Tp = void>
@@ -162,6 +166,7 @@ struct enable_if<true, _Tp>
 - 当第一个模板参数值为 `True` 时，将模板特例化； `type` 的类型为第二个模板参数 `_Tp` 。
 
 ###  is_same 源码解析
+
 以下代码简单实现了 `is_same` 模板类的作用
 ```c++
 template <typename T,typename U>
@@ -183,6 +188,7 @@ struct my_is_same
 
 
 ## 总结
+
 - **`enable_if` 是通用的避免重载函数匹配到特例类的解决方案,使用简单而且更加自由。**
 - **`is_same`与 `enable_if` 是 type traits 技术的典型应用,实现函数对不同参数表现一致的功能。**
 - **`is_same` 与 `enable_if` 的源码实现采用了模板元编程的基本实现思想，大致分为通用模板与模板特例化。**
