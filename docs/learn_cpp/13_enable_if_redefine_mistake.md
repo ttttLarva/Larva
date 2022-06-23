@@ -57,7 +57,7 @@ int main(int argc, char* argv[])
 
 
 
-## 错误原因分析：
+## 错误原因分析
 
 重定义了默认的模板参数，间接造成了重定义 `len` 函数。 `typename enable_if<is_same<T, BMyClass>::value>::type` 最终只是得到个类型。为了分析起来更清晰，简化代码如下：
 
@@ -78,7 +78,7 @@ unsigned len (T const& t)
 相当于我们定义了同一个 `len` 函数，却给了两套模板参数默认值。如果用户不设置这个模板参数， C++ 不知道是该调用 `int` 默认值还是 `double` 默认值，所以在编译时，会报重复定义的错误。
 
 
-## 解决办法：
+## 解决办法
 
 使用非类型模板参数，类型已知，值可以是未知的。更改代码如下：
 
@@ -106,4 +106,4 @@ template<typename T, typename std::enable_if<!py::detail::is_pyobject<T>::value,
 
   使用 `int` 类型来做占位符，默认值是0。[对应源码地址](https://github.com/Oneflow-Inc/oneflow/blob/master/oneflow/api/python/functional/python_arg.h)，71行
 
-更多的例子可以在 OneFlow 中搜索
+更多的例子可以在 [OneFlow源码](https://github.com/Oneflow-Inc/oneflow/blob/master/oneflow/api/python/functional) 中搜索
