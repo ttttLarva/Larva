@@ -1,0 +1,1151 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="小糖不想吃糖了 - 关注深度学习、C++、嵌入式">
+      
+      
+      
+      
+        <link rel="canonical" href="https://www.ttlarval.org/master/learn_cpp/012_enable_if.html">
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.1.11">
+    
+    
+      
+        <title>enable_if新标准 - TTLarva</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3754935a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#enable_if" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="TTLarva" class="md-header__button md-logo" aria-label="TTLarva" data-md-component="logo">
+      
+  <img src="../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TTLarva
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              enable_if新标准
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/ttttLarva/Larva" title="前往 GitHub 仓库" class="md-source"
+  data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ttlarva
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../index.html" class="md-tabs__link">
+      首页
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../github/01_how_to_pr.html" class="md-tabs__link">
+        一起学GitHub
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="01_rvalue_ref.html" class="md-tabs__link md-tabs__link--active">
+        研究 C++ 新语法
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../remote_cpp_development/remote_ssh.html" class="md-tabs__link">
+        C++ 开发工具集锦
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="TTLarva" class="md-nav__button md-logo" aria-label="TTLarva" data-md-component="logo">
+      
+  <img src="../assets/logo.svg" alt="logo">
+
+    </a>
+    TTLarva
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/ttttLarva/Larva" title="前往 GitHub 仓库" class="md-source"
+  data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ttlarva
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        首页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        一起学GitHub
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="一起学GitHub" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          一起学GitHub
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/01_how_to_pr.html" class="md-nav__link">
+        如何提交 PR
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/02_learn_from_pr.html" class="md-nav__link">
+        如何通过 PR 学习
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/03_SSH_for_github.html" class="md-nav__link">
+        github SSH免密码登录设置
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/04_beauty_code.html" class="md-nav__link">
+        美化代码工具分享
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/05_get_started_with_Markdown.html" class="md-nav__link">
+        快速上手 Markdown
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/06_Mkdocs.html" class="md-nav__link">
+        MkDocs 工具使用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/07_GitHub_Pages.html" class="md-nav__link">
+        GitHub Pages 的生成和使用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/08_GitHub_Actions.html" class="md-nav__link">
+        GitHub Actions 介绍 & 使用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/09_merge_conflicts.html" class="md-nav__link">
+        解决 Git 冲突 Merge Conflicts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/10_git_rebase.html" class="md-nav__link">
+        删除指定 commit 小妙招 git rebase
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        研究 C++ 新语法
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="研究 C++ 新语法" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          研究 C++ 新语法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01_rvalue_ref.html" class="md-nav__link">
+        右值引用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02_forward.html" class="md-nav__link">
+        完美转发
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03_varadic_template.html" class="md-nav__link">
+        可变参模板
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04_singleton.html" class="md-nav__link">
+        单例模式
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05_using_against_typedef.html" class="md-nav__link">
+        类型别名：从 typedef 到 using
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06_functor.html" class="md-nav__link">
+        仿函数
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="07_complie_link_macro.html" class="md-nav__link">
+        编译链接和宏本质
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="08_template.html" class="md-nav__link">
+        模板 template
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="09_template_special.html" class="md-nav__link">
+        模板特例
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          enable_if新标准
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="012_enable_if.html" class="md-nav__link md-nav__link--active">
+        enable_if新标准
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enable_if_1" class="md-nav__link">
+    为什么要使用 enable_if ？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable_if-is_same" class="md-nav__link">
+    enable_if 与 is_same 的使用
+  </a>
+  
+    <nav class="md-nav" aria-label="enable_if 与 is_same 的使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable_if_2" class="md-nav__link">
+    enable_if 的使用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is_same" class="md-nav__link">
+    is_same 的使用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable_if-is_same_1" class="md-nav__link">
+    enable_if 与 is_same 内部的实现原理
+  </a>
+  
+    <nav class="md-nav" aria-label="enable_if 与 is_same 内部的实现原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-traits" class="md-nav__link">
+    什么是 type traits ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable_if_3" class="md-nav__link">
+    enable_if 源码解析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is_same_1" class="md-nav__link">
+    is_same 源码解析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="014_materials.html" class="md-nav__link">
+        模板元编程
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        C++ 开发工具集锦
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="C++ 开发工具集锦" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          C++ 开发工具集锦
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../remote_cpp_development/remote_ssh.html" class="md-nav__link">
+        VS Code 插件 Remote SSH
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../remote_cpp_development/conda.html" class="md-nav__link">
+        使用包管理工具 Conda
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../remote_cpp_development/CMake.html" class="md-nav__link">
+        编译 C++ 项目必备 CMake
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../remote_cpp_development/Clangd.html" class="md-nav__link">
+        clangd 帮助打造 Linux 下完美 C++ IDE
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enable_if_1" class="md-nav__link">
+    为什么要使用 enable_if ？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable_if-is_same" class="md-nav__link">
+    enable_if 与 is_same 的使用
+  </a>
+  
+    <nav class="md-nav" aria-label="enable_if 与 is_same 的使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable_if_2" class="md-nav__link">
+    enable_if 的使用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is_same" class="md-nav__link">
+    is_same 的使用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable_if-is_same_1" class="md-nav__link">
+    enable_if 与 is_same 内部的实现原理
+  </a>
+  
+    <nav class="md-nav" aria-label="enable_if 与 is_same 内部的实现原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-traits" class="md-nav__link">
+    什么是 type traits ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable_if_3" class="md-nav__link">
+    enable_if 源码解析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is_same_1" class="md-nav__link">
+    is_same 源码解析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/ttttLarva/Larva/blob/master/docs/learn_cpp/012_enable_if.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="enable_if">新标准：enable_if<a class="headerlink" href="#enable_if" title="Permanent link">&para;</a></h1>
+<p><img alt="🌏" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f30f.svg" title=":earth_asia:" /> <strong>Bilibili视频传送门：</strong><a href="https://www.bilibili.com/video/BV1Tv4y1N73A?spm_id_from=333.999.0.0&amp;vd_source=0184d13a7c21515c19c1cdb9230751c8">C++新标准012  enable_if</a> <img alt="🌏" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f30f.svg" title=":earth_asia:" /></p>
+<p><a href="https://www.bilibili.com/video/BV1yr4y1t7qo?spm_id_from=333.999.0.0&amp;vd_source=0184d13a7c21515c19c1cdb9230751c8">上一期视频</a> 我们介绍了 SFINAE 原则，在此基础上，本篇文章将继续介绍了 <code>enable_if</code> 新标准，为后续深入学习模板元编程打下基础。</p>
+<p>本文的结构如下：
+- 为什么要使用 <code>enable_if</code> ？
+- <code>enable_if</code> 与 <code>is_same</code> 的使用
+- <code>enable_if</code> 与 <code>is_same</code> 内部的实现原理</p>
+<h2 id="enable_if_1">为什么要使用 enable_if ？<a class="headerlink" href="#enable_if_1" title="Permanent link">&para;</a></h2>
+<p>C++模板函数重载依赖于 SFINAE (substitution-failure-is-not-an-error) 原则，即替换失败不认为是错误，编译器将会继续寻找合适的重载函数；以返回长度的函数为例，该函数针对 STL 中的  <code>vector</code> 容器来实现（容器中有<code>size()</code>成员函数）</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CMyclass</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">size_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">decltype</span><span class="p">(</span><span class="n">T</span><span class="p">().</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">::</span><span class="n">size_type</span><span class="p">())</span><span class="w"> </span><span class="n">len</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="c1">//该函数可以避免匹配到 CMyclass 类</span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="n">len</span><span class="p">(...)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="n">vec</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">len</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span><span class="w">  </span><span class="c1">//调用针对stl库容器的len函数</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">len</span><span class="p">(</span><span class="n">CMyclass</span><span class="p">())</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">//调用len(...)函数</span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<code>decltype(T().size(), typename T::size_type()) len(T const &amp;t)</code> 该函数声明通过 <code>decltype</code> 类型判别将不包含 <code>size()</code> 成员函数的特例类排除出去，同时逗号表达式返回逗号后面的参数 <code>typename T::size_type()</code> ，实现避免匹配到 <code>CMyclass</code> 类的功能；这种编程技巧晦涩难懂，需要程序员根据特例类不存在的方法制因此造“错误”,并不通用；</p>
+<p>为了实现 SFINAE ，同时降低程序的繁琐度，C++11 采用了具有通用性的 <code>enable_if</code> 新标准代替这种技巧 ；我们使用 <code>enable_if</code> 的形式重写该函数
+<div class="highlight"><pre><span></span><code><span class="c1">// `enable_if`的应用</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CMyclass</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">size_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// template &lt;typename T&gt;  </span>
+<span class="c1">// decltype(T().size(), typename T::size_type()) len(T const &amp;t)</span>
+<span class="c1">// {</span>
+<span class="c1">//     return t.size();</span>
+<span class="c1">// }</span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">T2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">enable_if</span><span class="o">&lt;!</span><span class="n">is_same</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">CMyclass</span><span class="o">&gt;::</span><span class="n">value</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">//`enable_if`形式</span>
+<span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">::</span><span class="n">size_type</span><span class="w"> </span><span class="n">len</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">unsigned</span><span class="w"> </span><span class="n">len</span><span class="p">(...)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">len</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">len</span><span class="p">(</span><span class="n">CMyclass</span><span class="p">())</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+该程序的输出结果与不采用 <code>enable_if</code> 的程序一致，说明采用 <code>enable_if</code> 也可以实现**重载函数避免匹配到特例类**的功能。</p>
+<p>不同的地方在于，<code>enable_if</code> 可以避免匹配到 <code>CMyclass</code> 这个类，<code>decltype(T().size(), typename T::size_type()) len(T const &amp;t)</code> 是避免匹配到不包含 <code>size()</code> 成员函数的类；
+相比之下 <code>enable_if</code> 更加**灵活**。</p>
+<h2 id="enable_if-is_same">enable_if 与 is_same 的使用<a class="headerlink" href="#enable_if-is_same" title="Permanent link">&para;</a></h2>
+<h3 id="enable_if_2">enable_if 的使用<a class="headerlink" href="#enable_if_2" title="Permanent link">&para;</a></h3>
+<p>首先给出 <code>enable_if</code> 的基本形式
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="kt">bool</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">=</span><span class="kt">void</span><span class="o">&gt;</span><span class="k">struct</span><span class="w"> </span><span class="nc">enable_if</span><span class="w"></span>
+</code></pre></div>
+- 当传入的模板参数 <code>B</code> 为 <code>True</code> 的时候，<code>enable_if</code> 模板类的 <code>type</code> 就等于 <code>T</code> ；如果不传入模板参数 <code>T</code> ， <code>type</code> 也会默认为 <code>void</code> 
+- 当传入的模板参数 <code>B</code> 为 <code>False</code> 的时候， <code>enable_if</code> 模板类就不再拥有 <code>type</code> 。</p>
+<p>使用 <code>enable_if</code> 时可以让重载函数自由丢弃不需要匹配的特例类；下面给出实际应用的例子</p>
+<p><div class="highlight"><pre><span></span><code><span class="cp">#判断类型字节数是否大于4输出显示</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">typename</span><span class="w"> </span><span class="nc">std</span><span class="o">::</span><span class="n">enable_if</span><span class="o">&lt;</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span><span class="w"> </span><span class="n">show</span><span class="p">()</span><span class="w"> </span><span class="c1">//针对 `T` 的长度小于等于4的情况生效</span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;size&lt;=4</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">typename</span><span class="w"> </span><span class="nc">std</span><span class="o">::</span><span class="n">enable_if</span><span class="o">&lt;</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span><span class="w"> </span><span class="n">show</span><span class="p">()</span><span class="w">  </span><span class="c1">//针对 `T` 的长度大于4的情况生效</span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;size&gt;4</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">show</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">show</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+输出结果为
+<div class="highlight"><pre><span></span><code><span class="n">size</span><span class="o">&gt;</span><span class="mi">4</span><span class="w"></span>
+<span class="n">size</span><span class="o">&lt;=</span><span class="mi">4</span><span class="w"></span>
+</code></pre></div></p>
+<h3 id="is_same">is_same 的使用<a class="headerlink" href="#is_same" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span><span class="k">struct</span><span class="w"> </span><span class="nc">is_same</span><span class="w"></span>
+</code></pre></div>
+- 当模板参数 <code>T</code> 等于模板参数 <code>U</code> 时, <code>is_same&lt;T,U&gt;</code>模板类的成员 <code>value</code> 等于 <code>True</code>
+- 当模板参数 <code>T</code> 不等于模板 <code>U</code> 时, <code>is_same&lt;T,U&gt;</code>模板类的成员 <code>value</code> 等于 <code>False</code></p>
+<p><code>is_same</code> 经常与 <code>eanble_if</code> 搭配使用
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">T2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">enable_if</span><span class="o">&lt;!</span><span class="n">is_same</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">CMyclass</span><span class="o">&gt;::</span><span class="n">value</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">//`enable_if`形式</span>
+<span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">::</span><span class="n">size_type</span><span class="w"> </span><span class="n">len</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<code>enable_if</code> 模板类的第一个参数经常用 <code>is_same</code> 的 <code>value</code> 来代替，结合起来对一些特例进行判断，实现 SFINAE</p>
+<h2 id="enable_if-is_same_1">enable_if 与 is_same 内部的实现原理<a class="headerlink" href="#enable_if-is_same_1" title="Permanent link">&para;</a></h2>
+<p>了解这两个模板类的内部实现原理之前，需要了解 type traits 的概念</p>
+<h3 id="type-traits">什么是 type traits ?<a class="headerlink" href="#type-traits" title="Permanent link">&para;</a></h3>
+<p>traits 是 C++ 模板编程中使用的一种技术，主要功能： 
+ 把功能相同而参数不同的函数抽象出来，通过 traits 将不同的参数的相同属性提取出来，在函数中利用这些用 traits 提取的属性，使得**函数对不同的参数表现一致**。</p>
+<h3 id="enable_if_3">enable_if 源码解析<a class="headerlink" href="#enable_if_3" title="Permanent link">&para;</a></h3>
+<p>下面给出 <code>enable_if</code> 的源码
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">void</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">enable_if</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">enable_if</span><span class="o">&lt;</span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="n">_Tp</span><span class="o">&gt;</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span>
+<span class="w">     </span><span class="k">typedef</span><span class="w"> </span><span class="n">_Tp</span><span class="w"> </span><span class="n">type</span><span class="p">;</span><span class="w"> </span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+- 首先定义了一个空的通用模板，不包含任何成员
+- 当第一个模板参数值为 <code>True</code> 时，将模板特例化; <code>type</code> 的类型为第二个模板参数 <code>_Tp</code> 。</p>
+<h3 id="is_same_1">is_same 源码解析<a class="headerlink" href="#is_same_1" title="Permanent link">&para;</a></h3>
+<p>以下代码简单实现了 <code>is_same</code> 模板类的作用
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">my_is_same</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">my_is_same</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+- 定义一个通用模板，针对两个模板参数类型不一致的情况，默认 <code>value</code> 值为 <code>False</code> 。
+- 模板特例化，针对两个模板参数类型一致的情况，将 <code>value</code> 值设置为 <code>True</code> 。</p>
+<p><code>is_same</code> 和 <code>enable_if</code> 的基本实现方案可以总结为：<strong>通用模板加模板实例化</strong>。</p>
+<h2 id="_1">总结<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><code>enable_if</code> 是通用的避免重载函数匹配到特例类的解决方案,使用简单而且更加自由。</strong></li>
+<li><strong><code>is_same</code> 与 <code>enable_if</code> 是 type traits 技术的典型应用,实现函数对不同参数表现一致的功能。</strong></li>
+<li><strong><code>is_same</code> 与 <code>enable_if</code> 的源码实现采用了模板元编程的基本实现思想，大致分为通用模板与模板特例化。</strong></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="09_template_special.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 模板特例" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              模板特例
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="014_materials.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 模板元编程" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              模板元编程
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; All Reserved
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.477d984a.min.js", "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ddd52ceb.min.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
