@@ -1,11 +1,14 @@
-# C++新标准013：如何解决enable_if的重定义错误
-**Bilibili视频传送门：**[C++新标准013：如何解决enable_if的重定义错误](https://www.bilibili.com/video/BV1yR4y1w7Tg?spm_id_from=333.999.0.0&vd_source=edaae2ad9a800ae9096799678a23543e)
+# 如何解决 `enable_if` 的重定义错误
+**Bilibili视频传送门：**[C++新标准 013 ：如何解决 `enable_if` 的重定义错误](https://www.bilibili.com/video/BV1yR4y1w7Tg?spm_id_from=333.999.0.0&vd_source=edaae2ad9a800ae9096799678a23543e)
 
 本文从 `enablie_if` 错误使用，导致编译报错入手，分析错误原因，并给出解决办法
 
 本文的结构如下：
+
 - 错误使用示例
+
 - 错误原因分析
+
 - 解决办法
 
 
@@ -49,7 +52,7 @@ int main(int argc, char* argv[])
 }
 ```
 
-本段代码的期待是：如果是 AMyClass 返回1， BMyClass 返回2。
+本段代码的期待是：如果是 AMyClass 返回 1 ， BMyClass 返回 2 。
 
 执行后，报错如下：
 
@@ -104,6 +107,6 @@ unsigned len (T const& t)
 template<typename T, typename std::enable_if<!py::detail::is_pyobject<T>::value, int>::type = 0>
 ```
 
-  使用 `int` 类型来做占位符，默认值是0。[对应源码地址](https://github.com/Oneflow-Inc/oneflow/blob/master/oneflow/api/python/functional/python_arg.h)，71行
+  使用 `int` 类型来做占位符，默认值是 0 。[对应源码地址](https://github.com/Oneflow-Inc/oneflow/blob/master/oneflow/api/python/functional/python_arg.h)， 71 行
 
 更多的例子可以在 [OneFlow源码](https://github.com/Oneflow-Inc/oneflow/blob/master/oneflow/api/python/functional) 中搜索
