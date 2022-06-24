@@ -116,6 +116,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.ttlarval.org/master/learn_cpp/13_enable_if_redefine_mistake.html</loc>
+         <lastmod>2022-06-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.ttlarval.org/master/remote_cpp_development/CMake.html</loc>
          <lastmod>2022-06-24</lastmod>
          <changefreq>daily</changefreq>
