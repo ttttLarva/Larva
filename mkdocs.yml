@@ -125,6 +125,7 @@ nav:
       - 模板特例: learn_cpp/09_template_special.md
       - 搞懂 SFINAE: learn_cpp/11_template_sfinae.md
       - enable_if 新标准: learn_cpp/012_enable_if.md
+      - enable_if 的重定义错误: learn_cpp/13_enable_if_redefine_mistake.md
       - 模板元编程: learn_cpp/014_materials.md
 
     
