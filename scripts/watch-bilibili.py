@@ -15,7 +15,7 @@ def main():
     follwer_count = get_follower_count()
     current_time = time.ctime().strip()
 
-    with open("ttlarva-follower.csv", "a") as f:
+    with open("./ttlarva-follower.csv", "a") as f:
         writer = csv.writer(f)
         print(follwer_count, current_time)
         writer.writerows([[follwer_count, current_time]])
