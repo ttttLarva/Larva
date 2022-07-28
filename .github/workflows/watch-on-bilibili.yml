@@ -18,5 +18,6 @@ jobs:
       - run: git config --global user.email "ttlarva@qq.com"
       - run: git config --global user.name "ttlarva"
       - run: python3 ./scripts/watch-bilibili.py
-      - run: git commit -a -m "update followers count daily"
+      - run: git add ./scripts/watch-bilibili.py
+      - run: git commit -m "update followers count daily"
       - run: git push
