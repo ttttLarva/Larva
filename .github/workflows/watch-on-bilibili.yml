@@ -2,6 +2,11 @@ name: Watch on Bilibili
 on:
   schedule:
     - cron: '30 2,10 * * *'
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to launch'
+        required: true
 
 jobs:
   deploy:
