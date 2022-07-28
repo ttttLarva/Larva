@@ -224,7 +224,7 @@ void foo(T&& arg)
 
 int main() {
   int value = 5;
-  foo(value); // 左值，模板T 被展开为 T&
+  foo(value); // 左值，模板T 被展开为 int&
   foo(5);     // 右值，模板T 被展开为 int
 }
 ```
