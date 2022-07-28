@@ -1,0 +1,20 @@
+name: Watch on Bilibili
+on:
+  schedule:
+    - cron: '30 */2 * * *'
+
+  workflow_dispatch:
+    branches:
+      - master
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with: { ref: master }
+      - run: git config --global user.email "ttlarva@qq.com"
+      - run: git config --global user.name "ttlarva"
+      - run: python3 ./scripts/watch-bilibili.py
+      - run: git commit -a -m "update followers count daily"
+      - run: git push
