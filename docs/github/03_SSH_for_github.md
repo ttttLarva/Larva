@@ -2,7 +2,7 @@
 
 
 
-<img src="image/ball.png" style="zoom:13%;" align="left" />**Bilibili视频传送门：**[github SSH免密码登录](https://www.bilibili.com/video/BV1NL411x7z9?share_source=copy_web)  <img src="image/ball.png" style="zoom:13%;"/>
+:earth_asia: **Bilibili视频传送门：**[github SSH免密码登录](https://www.bilibili.com/video/BV1NL411x7z9?share_source=copy_web) :earth_asia:
 
 
 

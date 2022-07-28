@@ -2,7 +2,7 @@
 
 
 
-<img src="image/ball.png" style="zoom:13%;" align="left" />**Bilibili视频传送门：**[美化代码工具分享](https://www.bilibili.com/video/BV1iQ4y1X7xs?share_source=copy_web)  <img src="image/ball.png" style="zoom:13%;"/>
+:earth_asia: **Bilibili视频传送门：**[美化代码工具分享](https://www.bilibili.com/video/BV1iQ4y1X7xs?share_source=copy_web) :earth_asia:
 
 
 
