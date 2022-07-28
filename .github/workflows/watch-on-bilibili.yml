@@ -1,22 +1,39 @@
-name: Watch on Bilibili
-on:
+name: Experiment
+on: 
   schedule:
-    #- cron: '30 2,10 * * *'
-    - cron: '*/2 * * * *'
-  workflow_dispatch:
-    inputs:
-      name:
-        description: 'Person to launch'
-        required: true
+  - cron: '*/5 * * * *'
 
 jobs:
-  deploy:
+  job1:
+    name: List Master
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-        with: { ref: master }
-      - run: git config --global user.email "ttlarva@qq.com"
-      - run: git config --global user.name "ttlarva"
-      - run: python3 ./scripts/watch-bilibili.py
-      - run: git commit -a -m "update followers count daily"
-      - run: git push
+    - name: Git checkout
+      uses: actions/checkout@v2
+      with: { ref: master }
+    - name: List files
+      run: ls
+
+# name: Watch on Bilibili
+# on:
+#   schedule:
+#     #- cron: '30 2,10 * * *'
+#     - cron: '*/2 * * * *'
+#   workflow_dispatch:
+#     inputs:
+#       name:
+#         description: 'Person to launch'
+#         required: true
+
+# jobs:
+#   watch:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#         with: { ref: master }
+#       - run: git config --global user.email "ttlarva@qq.com"
+#       - run: git config --global user.name "ttlarva"
+#       - run: python3 ./scripts/watch-bilibili.py
+#       - run: git commit -a -m "update followers count daily"
+#       - run: git push
